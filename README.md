@@ -35,7 +35,7 @@ Obtained from their sources when an analysis step is rerun from scratch:
 
 - REVEAL (Thrastarson et al., 2024), as `REVEAL_vs_full.nc` in `TOMO_DIR`; GLAD-M35 (Cui et al., 2024) as `GLADM35_mtz.nc`; SPiRaL (Simmons et al., 2021) and SEMUCB-WM1 (French & Romanowicz, 2014) as NetCDF volumes in `TOMO_DIR/REVEAL_mantle_tomography/`. RevealLO is an unpublished development of REVEAL from the Seismology and Wave Physics group at ETH Zürich (the volume `Reveal_33s_with_LO.nc`, or `REVEALLO_NC`); its depth-band reduction is carried here.
 - The Zahirovic et al. (2022) plate reconstruction, fetched by `plate_model_manager` into `MODEL_DIR` on first use, and the optAPM reference-frame rotation files of Tetley et al. (2019) for the two bounding frames.
-- The cumulative subducted-water grids of Dixon et al. (in review) in `GRIDS_DIR`, for the water-delivery field (`src/water_forward.py`).
+- The cumulative subducted-water grids of Dixon et al. (in review) in `GRIDS_DIR`: the total, the part released above 125 km and the part bound below it, for the water-delivery field (`src/water_forward.py`) and the partition (`src/water_partition.py`).
 
 ## Rebuilding the figures from the archive
 
@@ -110,7 +110,7 @@ python3 src/s21_vpvs_water.py
 python3 src/vpvs_uncertainty.py
 ```
 
-The ridge record (Sections 2.5, 3.6; Figures 7–10; Text S7; Tables S12–S14):
+The ridge record (Sections 2.5, 3.6; Figures 7–10; Text S7; Tables S12–S15):
 
 ```
 python3 src/morb_tomography.py                  # tomography beneath hydrated and unhydrated sites
@@ -120,6 +120,7 @@ python3 src/morb_kinematics_tests.py
 python3 src/morb_kinematics.py --frame NNR   && python3 src/morb_kinematics_tests.py --suffix _NNR
 python3 src/morb_kinematics.py --frame maxNR && python3 src/morb_kinematics_tests.py --suffix _maxNR
 python3 src/morb_release_depth.py
+python3 src/water_partition.py                  # water released above and below 125 km (Table S15)
 ```
 
 The rotation null is tested by `src/rotation_check.py`; `src/extract_bands.py` reduces a full velocity volume to the depth-band means the other scripts read. Each script's docstring states what it computes, what it reads and what it writes.
