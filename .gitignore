@@ -1,0 +1,12 @@
+# Derived products are in the Zenodo archive, not the repository
+out/
+# Large inputs are obtained from their sources; see README
+data/tomography/*.nc
+data/tomography/REVEAL_mantle_tomography/*.nc
+data/water_grids/
+data/H2O/
+models/
+__pycache__/
+*.pyc
+.DS_Store
+.venv-figcheck/

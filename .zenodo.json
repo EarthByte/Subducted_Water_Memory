@@ -1,0 +1,51 @@
+{
+  "title": "Subducted_Water_Memory: code, figures and derived data for \"Seismic and chemical memory of subducted water in the mantle\"",
+  "version": "1.0.0",
+  "upload_type": "software",
+  "license": "MIT",
+  "access_right": "open",
+  "creators": [
+    {
+      "name": "Müller, R. Dietmar",
+      "affiliation": "EarthByte Group, School of Geosciences, The University of Sydney"
+    },
+    {
+      "name": "Fichtner, Andreas",
+      "affiliation": "Department of Earth and Planetary Sciences, ETH Zürich"
+    },
+    {
+      "name": "Schiller, Carl Josef",
+      "affiliation": "Department of Earth and Planetary Sciences, ETH Zürich"
+    },
+    {
+      "name": "Mather, Ben",
+      "affiliation": "School of Geography, Earth and Atmospheric Sciences, The University of Melbourne"
+    },
+    {
+      "name": "Dutkiewicz, Adriana",
+      "affiliation": "EarthByte Group, School of Geosciences, The University of Sydney"
+    },
+    {
+      "name": "Dixon, Jacqueline E.",
+      "affiliation": "College of Marine Science, University of South Florida"
+    }
+  ],
+  "keywords": [
+    "mantle transition zone",
+    "subduction",
+    "deep water cycle",
+    "seismic tomography",
+    "mid-ocean ridge basalt",
+    "plate reconstruction",
+    "GPlates",
+    "pygplates"
+  ],
+  "related_identifiers": [
+    {
+      "relation": "isSupplementTo",
+      "identifier": "https://github.com/EarthByte/Subducted_Water_Memory",
+      "resource_type": "software"
+    }
+  ],
+  "description": "<p>Analysis code, figures and derived data products for the paper <em>Seismic and chemical memory of subducted water in the mantle</em> (Müller, Fichtner, Schiller, Mather, Dutkiewicz and Dixon, Earth and Planetary Science Letters). The archive rebuilds every figure and supplementary table of the paper from the derived products in out/ without the tomography models or the plate model; README.md gives the layout, the inputs, the commands and the licences. Code under MIT; figures and derived data under CC BY 4.0; third-party data retain their source licences.</p>"
+}

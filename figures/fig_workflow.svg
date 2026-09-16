@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1250" viewBox="0 0 1800 1250">
+  <defs>
+    <style>
+      .box { stroke: #243746; stroke-width: 3; rx: 24; ry: 24; }
+      .input { fill: #eaf2f8; }
+      .process { fill: #f7f9fa; }
+      .test { fill: #fff2dc; }
+      .result { fill: #e7f2ec; }
+      .head { font: 700 39px Arial, Helvetica, sans-serif; fill: #172b3a; text-anchor: middle; }
+      .body { font: 30px Arial, Helvetica, sans-serif; fill: #243746; text-anchor: middle; }
+      .arrow { fill: none; stroke: #526675; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrowhead" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L12,6 L0,12 z" fill="#526675"/>
+    </marker>
+  </defs>
+
+  <rect width="1800" height="1250" fill="#ffffff"/>
+
+  <rect class="box input" x="90" y="55" width="620" height="150"/>
+  <text class="head" x="400" y="115">Plate reconstruction</text>
+  <text class="body" x="400" y="165">Trenches and plate motion through 400 Myr</text>
+
+  <rect class="box input" x="1090" y="55" width="620" height="150"/>
+  <text class="head" x="1400" y="115">Present-day tomography</text>
+  <text class="body" x="1400" y="165">Five global P- and S-wave velocity models</text>
+
+  <path class="arrow" marker-end="url(#arrowhead)" d="M400,205 L400,285"/>
+  <path class="arrow" marker-end="url(#arrowhead)" d="M1400,205 L1400,285"/>
+
+  <rect class="box process" x="90" y="305" width="620" height="170"/>
+  <text class="head" x="400" y="370">Reconstruct slab delivery</text>
+  <text class="body" x="400" y="420">Project slabs from former trenches</text>
+  <text class="body" x="400" y="458">and group delivery by age</text>
+
+  <rect class="box process" x="1090" y="305" width="620" height="170"/>
+  <text class="head" x="1400" y="370">Map fast mantle structure</text>
+  <text class="body" x="1400" y="430">Fastest 10% at each tested depth</text>
+
+  <path class="arrow" marker-end="url(#arrowhead)" d="M400,475 L400,545 L665,545 L665,605"/>
+  <path class="arrow" marker-end="url(#arrowhead)" d="M1400,475 L1400,545 L1135,545 L1135,605"/>
+
+  <rect class="box test" x="510" y="625" width="780" height="180"/>
+  <text class="head" x="900" y="690">Measure spatial overlap</text>
+  <text class="body" x="900" y="742">Compare delivery with fast structure;</text>
+  <text class="body" x="900" y="780">rotated maps show overlap expected by chance</text>
+
+  <path class="arrow" marker-end="url(#arrowhead)" d="M900,805 L900,875"/>
+
+  <rect class="box test" x="510" y="895" width="780" height="150"/>
+  <text class="head" x="900" y="955">Test sensitivity</text>
+  <text class="body" x="900" y="1007">Depth, slab displacement, delivery age, and provinces</text>
+
+  <path class="arrow" marker-end="url(#arrowhead)" d="M900,1045 L900,1090"/>
+
+  <rect class="box result" x="300" y="1110" width="1200" height="105"/>
+  <text class="head" x="900" y="1158">Interpret the physical signal</text>
+  <text class="body" x="900" y="1200">Locate recent cold slab influence; combine with water-sensitive constraints</text>
+</svg>

@@ -1,0 +1,44 @@
+cff-version: 1.2.0
+message: If you use this repository, cite the paper and the archive below.
+title: "Subducted_Water_Memory: code, figures and derived data for 'Seismic and chemical memory of subducted water in the mantle'"
+version: 1.0.0
+date-released: 2026-09-16
+license: MIT
+repository-code: https://github.com/EarthByte/Subducted_Water_Memory
+authors:
+  - family-names: Müller
+    given-names: R. Dietmar
+    affiliation: EarthByte Group, School of Geosciences, The University of Sydney
+  - family-names: Fichtner
+    given-names: Andreas
+    affiliation: Department of Earth and Planetary Sciences, ETH Zürich
+  - family-names: Schiller
+    given-names: Carl Josef
+    affiliation: Department of Earth and Planetary Sciences, ETH Zürich
+  - family-names: Mather
+    given-names: Ben
+    affiliation: School of Geography, Earth and Atmospheric Sciences, The University of Melbourne
+  - family-names: Dutkiewicz
+    given-names: Adriana
+    affiliation: EarthByte Group, School of Geosciences, The University of Sydney
+  - family-names: Dixon
+    given-names: Jacqueline E.
+    affiliation: College of Marine Science, University of South Florida
+preferred-citation:
+  type: article
+  title: "Seismic and chemical memory of subducted water in the mantle"
+  journal: Earth and Planetary Science Letters
+  year: 2026
+  authors:
+    - family-names: Müller
+      given-names: R. Dietmar
+    - family-names: Fichtner
+      given-names: Andreas
+    - family-names: Schiller
+      given-names: Carl Josef
+    - family-names: Mather
+      given-names: Ben
+    - family-names: Dutkiewicz
+      given-names: Adriana
+    - family-names: Dixon
+      given-names: Jacqueline E.
