@@ -1,6 +1,7 @@
 """Move the subducted water down-dip, then ask when it was delivered.
 
-The Z22 stored-water grids record water that survives past 300 km and so can
+The Z22 stored-water grids record water still bound in the slab below 125 km, the
+mantle-wedge depth of the thermodynamic workflow (smoothed over 300 km), and so can
 reach the transition zone, but they are built without a descent-angle correction:
 each parcel is left at the trench that delivered it, as though slabs sank
 vertically. That is convenient rather than a problem, because it means the water
