@@ -69,10 +69,10 @@ ax[0].spines['bottom'].set_visible(False)
 j = s[['water', 'S', 'cls']].dropna(); j = j[j.water > 0]
 r, p = spearmanr(j.water, j.S)
 for m, col in ((j.cls == 'fast', F.ACC), (j.cls != 'fast', F.BLU)):
-    ax[1].plot(j.water[m], j.S[m], 'o', color=col, ms=5.5, mec='white', mew=0.5)
-ax[1].set_xscale('log')
+    ax[1].plot(np.log10(j.water[m]), j.S[m], 'o', color=col, ms=5.5, mec='white', mew=0.5)
+
 ax[1].axhline(0, color=F.GRY, lw=0.8, ls=(0, (4, 3)))
-ax[1].set_xlabel('Modelled water delivery, 8–25 Ma\n(% of maximum)')
+ax[1].set_xlabel('Modelled water delivery, 8–25 Ma\n(log10 of % of maximum)')
 ax[1].set_ylabel(f'Standardised anomaly, {a.band} km')
 ax[1].text(0.03, 0.94, f'Spearman ρ = {r:+.2f}\np = {p:.3f}   n = {len(j)}',
            transform=ax[1].transAxes, va='top', color=F.INK)

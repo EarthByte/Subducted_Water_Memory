@@ -31,6 +31,15 @@ def apply(base=11.0):
     })
 
 
+def decimal_ticks(ax, axis='y'):
+    """Log-axis ticks written as decimals (0.001, 0.01, 0.1, 1) at full size,
+    rather than as powers of ten whose exponent prints below the floor."""
+    import matplotlib.ticker as mt
+    a = ax.xaxis if axis == 'x' else ax.yaxis
+    a.set_major_formatter(mt.FuncFormatter(lambda v, pos: f'{v:g}'))
+    a.set_minor_formatter(mt.NullFormatter())
+
+
 PLACED_CM = 16.01      # the width the manuscript places a full-width figure at
 FLOOR_PT = 8.0         # smallest readable size on the printed page
 

@@ -8,7 +8,7 @@ the trenches reconstructed again:
     search radius        how far from a displaced trench a cell is marked
     down-dip offset      how far the parcel is carried along the slab
     sinking rate         how the epoch maps onto the depth now sampled
-    plate model          the reconstruction and its mantle reference frame
+    frame                the mantle reference frame: published, or the optAPM bounds
 
 This drives deep_time_hydration.py once per setting, then refits the decay from
 each occupancy with everything else held at the reference values, so the only
@@ -33,7 +33,7 @@ try:
 except Exception:
     OUT, TOMO = 'out', '..'
 
-REF = dict(radius=250.0, offset=300.0, v_sink=50.0, model='zahirovic2022')
+REF = dict(radius=250.0, offset=300.0, v_sink=50.0, model='zahirovic2022', frame='published')
 
 # The reference-frame axis is the one that has to be chosen rather than swept.
 # The attribution traces material sinking through the mantle, so a model is only
@@ -52,19 +52,28 @@ REF = dict(radius=250.0, offset=300.0, v_sink=50.0, model='zahirovic2022')
 #                 of the Americas against Gondwana and Laurasia is known to be
 #                 wrong, which is inside the 400 Myr window used here
 #
-# That leaves muller2022, a tectonic-rules-based mantle reference frame built
-# independently of zahirovic2022. One admissible alternative is what the axis
-# has, and reporting five would have been reporting four artefacts.
-MODELS = ['muller2022']
+#   muller2022    a mantle reference frame built independently of
+#                 zahirovic2022, but its Palaeozoic (Domeier & Torsvik, 2014)
+#                 differs from the Young et al. (2018) Palaeozoic of
+#                 zahirovic2022 inside the 400 Myr window, and this repository
+#                 does not use it (CLAUDE.md). It was the alternative row of
+#                 Table S2 until 16 September 2026.
+#
+# The reference frame is therefore varied within the same model: the optAPM
+# no-net-rotation and maximum-net-rotation bounds of zahirovic2022 (Tetley et
+# al., 2019), which are the frames the ridge-record kinematics use, so the
+# whole paper is bounded by one pair of frames.
+FRAMES = ['NNR', 'maxNR']
+MODELS = []
 
 FULL = {
     'radius':  [150.0, 200.0, 350.0, 500.0],
     'offset':  [150.0, 200.0, 400.0, 500.0],
     'v_sink':  [30.0, 40.0, 70.0, 90.0],
-    'model':   MODELS,
+    'frame':   FRAMES,
 }
 QUICK = {'radius': [150.0, 500.0], 'offset': [150.0, 500.0],
-         'v_sink': [30.0, 90.0], 'model': MODELS}
+         'v_sink': [30.0, 90.0], 'frame': FRAMES}
 
 
 def tag_for(axis, value):
@@ -84,6 +93,7 @@ def run_one(axis, value, extra_null=0):
            '--radius', str(cfg['radius']),
            '--offset', str(cfg['offset']),
            '--v-sink', str(cfg['v_sink']),
+           '--frame', str(cfg['frame']),
            '--n-null', str(extra_null),
            '--suffix', tag]
     t0 = time.time()

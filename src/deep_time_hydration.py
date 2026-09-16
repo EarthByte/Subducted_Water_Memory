@@ -61,6 +61,10 @@ def main():
     ap.add_argument('--bands', default=None,
                     help='an npz from extract_bands.py to draw the fast '
                          'transition zone from, in place of REVEAL')
+    ap.add_argument('--frame', default='published', choices=('published', 'NNR', 'meanNR', 'maxNR'),
+                    help='mantle reference frame: the published Zahirovic et al. (2022) '
+                         'frame, or one of its optAPM bounds (Tetley et al., 2019), the '
+                         'same rotation files the ridge-record kinematics use')
     ap.add_argument('--suffix', default='', help='tag the outputs')
     a = ap.parse_args()
     rng = np.random.default_rng(20260829)
@@ -140,7 +144,15 @@ def main():
     else:
         from plate_model_manager import PlateModelManager
         pmm = PlateModelManager().get_model(a.model, data_dir=P.MODELS)
-        recon = PlateReconstruction(pmm.get_rotation_model(),
+        rot = pmm.get_rotation_model()
+        if a.frame != 'published':
+            from morb_kinematics import OPTAPM_FILES
+            optapm = os.environ.get('DIXON_OPTAPM', os.path.expanduser(
+                '~/Documents/GPlates/GPlately-pyGMT_tutorials/data/optAPM_reference_frames'))
+            rot = P.need(os.path.join(optapm, OPTAPM_FILES[a.frame]), 'DIXON_OPTAPM',
+                         f'the {a.frame} optAPM rotation file')
+            print(f'{a.frame} frame: {rot}')
+        recon = PlateReconstruction(rot,
                                     topology_features=pmm.get_topologies(),
                                     static_polygons=pmm.get_static_polygons())
         tmax = min(a.tmax, float(pmm.get_big_time()))

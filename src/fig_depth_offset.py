@@ -47,7 +47,7 @@ ax[0].text(offs[-1], 0.054, '0.05', ha='right', va='bottom', color=F.GRY)
 ax[0].annotate('adopted', xy=(a.adopted, 0.985), xytext=(a.adopted, 0.985),
                xycoords=('data', 'axes fraction'), ha='center', va='top',
                color=F.GRY)
-ax[0].set_yscale('log')
+ax[0].set_yscale('log'); F.decimal_ticks(ax[0], 'y')
 ax[0].set_xlabel('Down-dip displacement (km)')
 ax[0].set_ylabel('Adjusted probability at 410–520 km')
 ax[0].legend(frameon=False, loc='lower left', ncol=1, borderpad=0.1)

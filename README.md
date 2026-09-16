@@ -13,7 +13,7 @@ This repository holds everything needed to rebuild every figure and every supple
 ```
 src/        analysis and figure scripts (Python 3)
 data/       small inputs carried with the repository (see Inputs)
-figures/    the eight main-text and six supplementary figures, PDF and PNG
+figures/    the ten main-text and six supplementary figures, PDF and PNG
 out/        derived products of every step (not in git; in the Zenodo archive)
 checkfigs.sh   checks every PDF figure for text below 10 pt and for label collisions
 ```
@@ -49,8 +49,10 @@ python3 src/fig_depth_offset.py         # Figure 3
 python3 src/fig_visibility_budget.py    # Figure 4
 python3 src/fig_geological_test.py      # Figure 5
 python3 src/fig_vpvs.py                 # Figure 6
-python3 src/fig_morb_corridor.py        # Figure 7
-python3 src/fig_three_clocks.py         # Figure 8
+python3 src/fig_morb_map.py             # Figure 7
+python3 src/fig_craton_passage.py       # Figure 8 (needs the plate model)
+python3 src/fig_morb_corridor.py        # Figure 9
+python3 src/fig_three_clocks.py         # Figure 10
 python3 src/fig_age_map.py              # Figure S1
 python3 src/fig_map.py                  # Figure S2
 python3 src/fig_depth_memory.py         # Figure S3
@@ -59,7 +61,7 @@ python3 src/fig_province_heatmap.py     # Figure S6
 ./checkfigs.sh
 ```
 
-Figure S5 (`figures/fig_workflow.svg`) is a drawn diagram. `fig_tomography.py` and `fig_map.py` also read `REVEAL_vs_full.nc` for the REVEAL panels; `fig_tomography.py` reads its cached reduction `out/tz_REVEAL.npz` unless `--refresh` is passed.
+Figure S5 (`figures/fig_workflow.svg`) is a drawn diagram. `fig_craton_passage.py` reconstructs the continents and craton outlines with the plate model, which `plate_model_manager` fetches on first use. `fig_tomography.py` and `fig_map.py` also read `REVEAL_vs_full.nc` for the REVEAL panels; `fig_tomography.py` reads its cached reduction `out/tz_REVEAL.npz` unless `--refresh` is passed.
 
 ## The analysis steps
 
@@ -108,7 +110,7 @@ python3 src/s21_vpvs_water.py
 python3 src/vpvs_uncertainty.py
 ```
 
-The ridge record (Sections 2.5, 3.6; Figures 7 and 8; Text S7; Tables S12–S14):
+The ridge record (Sections 2.5, 3.6; Figures 7–10; Text S7; Tables S12–S14):
 
 ```
 python3 src/morb_tomography.py                  # tomography beneath hydrated and unhydrated sites
