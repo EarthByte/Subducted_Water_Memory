@@ -3,8 +3,10 @@ passed over the mantle since, and what the transition zone shows today.
 
 Four panels, 50W to 5E plus the Arctic ridges, bottom to top:
 
-  (a) MORB H2O/Ce, every sample, coloured by the hydration age the Dixon
-      workflow assigns it, with the median of each 5 degree bin;
+  (a) MORB H2O/Ce, every sample, hydrated sites coloured by the time a
+      spreading ridge has lain within 200 km of the site since its hydration
+      (the variable this paper reports; the hydration age itself is Dixon et
+      al.'s Fig. 4 and is not re-plotted), with the median of each 5 degree bin;
   (b) for hydrated sites, Myr since hydration that a spreading ridge has sat
       within 200 km of the site, and Myr under a cratonic keel (>= 200 km
       lithosphere), bin medians; bins with no hydrated site are empty;
@@ -27,7 +29,7 @@ import morb_tomography as MT
 
 F.apply(11.0)
 from cmcrameri import cm as _cm
-BOUNDS = [100, 150, 200, 250, 300, 350, 400]
+BOUNDS = [0, 20, 40, 60, 80, 100, 160]      # ridge residence since hydration, Myr
 cmap = _cm.nuuk.resampled(len(BOUNDS) - 1)
 norm = BoundaryNorm(BOUNDS, cmap.N)
 MODEL_COLOURS = {'REVEAL': F.BLU, 'RevealLO': '#5aa0d8', 'GLADM35': F.ACC,
@@ -61,7 +63,7 @@ ax_a, ax_b, ax_c, ax_d = axes
 hyd = k.hydrated.values
 ax_a.scatter(lat[~hyd], k.H2O_Ce.values[~hyd], s=9, c='#c9c9c9', edgecolor='none',
              zorder=2, rasterized=True)
-ax_a.scatter(lat[hyd], k.H2O_Ce.values[hyd], s=11, c=k.age.values[hyd], cmap=cmap,
+ax_a.scatter(lat[hyd], k.H2O_Ce.values[hyd], s=11, c=k.t_ridge_200.values[hyd], cmap=cmap,
              norm=norm, edgecolor='none', zorder=3, rasterized=True)
 ax_a.plot(mid, binned(k.H2O_Ce.values), color=F.INK, lw=1.8, zorder=4)
 ax_a.axhline(250, color=F.GRY, lw=0.8, ls='--', zorder=1)
@@ -70,8 +72,8 @@ ax_a.set_ylabel('H$_2$O/Ce')
 cax = ax_a.inset_axes([0.14, 0.80, 0.30, 0.06])
 cb = fig.colorbar(plt.cm.ScalarMappable(norm=norm, cmap=cmap), cax=cax,
                   orientation='horizontal')
-cb.set_label('hydration age (Ma)', labelpad=2)
-cb.set_ticks([100, 200, 300, 400])
+cb.set_label('ridge residence (Myr)', labelpad=2)
+cb.set_ticks([0, 40, 80, 160])
 cax.xaxis.set_ticks_position('bottom')
 
 # (b) what passed over

@@ -4,11 +4,13 @@
       reconstructed delivery locations against delivery age (Table S4), with the
       exponential-plus-floor fit: the delivering slab stops being identifiable
       after a few tens of Myr.
-  (b) Chemical survival. MORB H2O/Ce, one median per 300 km cluster, against
-      the hydration age of the mantle beneath it; clusters that a craton later
-      passed over are filled. The Pacific median, where no water arrived in
-      400 Myr, is the reference line. The signature does not decline with age
-      and is not removed by keel passage.
+  (b) Chemical survival through keel passage. MORB H2O/Ce of hydrated sites,
+      one median per 300 km cluster, against the time the site later spent
+      beneath a craton outline; clusters never overlain are at zero and open.
+      The Pacific median, where no water arrived in 400 Myr, is the reference
+      line. The signature is not removed by craton passage. (That it does not
+      decline with hydration age is Dixon et al.'s Fig. 4C and is not
+      re-plotted.)
   (c) Chemical removal. The same cluster medians in the Atlantic-Arctic
       corridor against the time a spreading ridge has spent within 200 km of the
       site, with the exponential fit of the excess over the Pacific median.
@@ -68,13 +70,13 @@ cm = morb.cluster_medians(k.H2O_Ce.values[hyd], cl,
                                      dwell=k.t_ridge_200.values[hyd]))
 over = cm['craton'].values > 0
 ax_b.axhline(base, color=F.GRY, lw=0.8, ls='--', zorder=1)
-ax_b.scatter(cm['age'][~over], cm['median'][~over], s=26, facecolor='white',
+ax_b.scatter(cm['craton'][~over], cm['median'][~over], s=26, facecolor='white',
              edgecolor=F.INK, lw=1.0, zorder=3)
-ax_b.scatter(cm['age'][over], cm['median'][over], s=26, color=F.ACC, edgecolor='none',
-             zorder=4, label='craton passed over')
-ax_b.set_xlabel('hydration age (Ma)')
+ax_b.scatter(cm['craton'][over], cm['median'][over], s=26, color=F.ACC, edgecolor='none',
+             zorder=4)
+ax_b.set_xlabel('time beneath a craton (Myr)')
 ax_b.set_ylabel('H$_2$O/Ce, cluster median')
-ax_b.set_xlim(100, 400); ax_b.set_ylim(120, 460)
+ax_b.set_xlim(-5, 260); ax_b.set_ylim(120, 460)
 print(f'(b) {len(cm)} hydrated clusters without plume segments, {int(over.sum())} overrun; '
       f'Pacific median {base:.0f}')
 

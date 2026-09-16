@@ -1,16 +1,16 @@
-"""The mid-ocean ridge record on the map.
+"""The kinematic history of the hydrated ridge sites, on the map.
 
-  (a) H2O/Ce of every sample in the Dixon et al. compilation at its site.
-  (b) The hydration age of the mantle beneath each site: the most recent
-      interval in which the reconstruction delivered subducted water there.
-      Sites that received none in 410 Myr are open.
-  (c) The time each hydrated site later spent beneath a craton outline of
+  (a) The time each hydrated site later spent beneath a craton outline of
       Shirmard et al. (2025), the outlines drawn; sites never overlain are
       open. This is the variable the keel test uses.
+  (b) The time a spreading ridge has lain within 200 km of each hydrated site
+      since its hydration: the ridge residence the chemistry records.
+  (c) The time at which a ridge first arrived within 200 km of the site.
 
-Reads out/morb_kinematics.csv and the craton shapefile; writes
-figures/fig_morb_map. The layout follows the presentation of the compilation
-in Dixon et al. (in review), drawn here from the same table.
+Unhydrated sites (no subducted water in 410 Myr) are open in every panel. The
+compilation itself and the hydration age of each site are Figures 1 and 4 of
+Dixon et al. (in review) and are not re-plotted here. Reads
+out/morb_kinematics.csv and the craton shapefile; writes figures/fig_morb_map.
 """
 import os, numpy as np, pandas as pd, geopandas as gpd
 import matplotlib
@@ -59,27 +59,31 @@ def draw(ax, mask, vals, cmap, norm, label, ticks):
     return sc
 
 
-# (a) H2O/Ce
-base(axes[0])
-norm_a = matplotlib.colors.Normalize(100, 400, clip=False)   # 3 samples below 100 take the floor colour
-draw(axes[0], np.ones(len(k), bool), k.H2O_Ce.values, ccm.lajolla, norm_a,
-     'H$_2$O/Ce', [100, 200, 300, 400])
-
-# (b) hydration age
-base(axes[1])
-bounds = [100, 150, 200, 250, 300, 350, 400]
-norm_b = BoundaryNorm(bounds, 256, clip=False)
-draw(axes[1], hyd, k.age.values, ccm.batlowK_r, norm_b, 'hydration age (Ma)',
-     bounds)
-
-# (c) craton residence since hydration
-base(axes[2], cratons=True)
+# (a) craton residence since hydration
+base(axes[0], cratons=True)
 over = hyd & (k.t_craton.values > 0)
 cb_c = [0, 25, 50, 100, 150, 250]
 norm_c = BoundaryNorm(cb_c, 256, clip=False)
 cmap_c = ListedColormap(ccm.oslo_r(np.linspace(0.25, 0.95, 256)))
-draw(axes[2], over, k.t_craton.values, cmap_c, norm_c,
+draw(axes[0], over, k.t_craton.values, cmap_c, norm_c,
      'time beneath a craton outline since hydration (Myr)', cb_c)
+
+# (b) ridge residence since hydration
+base(axes[1])
+cb_b = [0, 20, 40, 60, 80, 100, 160]
+norm_b = BoundaryNorm(cb_b, 256, clip=False)
+cmap_b = ListedColormap(ccm.lajolla_r(np.linspace(0.1, 0.9, 256)))
+draw(axes[1], hyd, k.t_ridge_200.values, cmap_b, norm_b,
+     'ridge residence since hydration (Myr)', cb_b)
+
+# (c) time of ridge arrival
+base(axes[2])
+cb_o = [0, 25, 50, 75, 100, 150]
+norm_o = BoundaryNorm(cb_o, 256, clip=False)
+cmap_o = ListedColormap(ccm.batlowK_r(np.linspace(0.1, 0.9, 256)))
+arrived = hyd & np.isfinite(k.ridge_onset_200.values)
+draw(axes[2], arrived, k.ridge_onset_200.values, cmap_o, norm_o,
+     'arrival of a ridge within 200 km (Ma)', cb_o)
 
 for ax, letter in zip(axes, 'abc'):
     ax.text(0.01, 0.98, letter, transform=ax.transAxes, fontsize=13, fontweight='bold',
