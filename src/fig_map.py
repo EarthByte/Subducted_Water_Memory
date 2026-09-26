@@ -76,14 +76,17 @@ ipv = pd.read_csv(P.IPV_V3).dropna(subset=['lat', 'lon_180'])
 print(f'{len(ipv)} volcanic fields')
 
 pcarree = ccrs.PlateCarree()
-fig = plt.figure(figsize=(19.0 * CM, 11.6 * CM))
-ax = plt.axes(projection=ccrs.Robinson(central_longitude=0))
+fig = plt.figure(figsize=(19.0 * CM, 13.0 * CM))
+# Fixed positions in figure fractions: the map with its latitude and longitude
+# labels, then a clear gap before the key.
+ax = fig.add_axes([0.05, 0.25, 0.90, 0.73], projection=ccrs.Robinson(central_longitude=0))
 ax.set_global()
 
 ax.pcolormesh(clon, clat, np.where(cmask, 1.0, np.nan), transform=pcarree,
               cmap=matplotlib.colors.ListedColormap([LAND]), shading='nearest',
               zorder=1, rasterized=True)
-ax.add_feature(cfeature.COASTLINE, linewidth=0.35, edgecolor='#b9b4ad', zorder=2)
+ax.add_feature(cfeature.COASTLINE, linewidth=0.35, edgecolor='#bdbdbd', zorder=2)
+F.map_grid(ax, left=True, right=True, bottom=True)
 
 ax.pcolormesh(lon, lat, np.where(A, 1.0, np.nan), transform=pcarree,
               cmap=matplotlib.colors.ListedColormap([BLU]), shading='nearest',
@@ -98,8 +101,8 @@ ax.plot(ipv.lon_180.values, ipv.lat.values, transform=pcarree, linestyle='none',
 
 # Four labels, not five, and at reading size. The rest of the geography is named
 # in the caption, which is where it belongs.
-LABELS = [('northeast Asia', 134, 54, 'left'),
-          ('southeast Asia', 112, -4, 'center'),
+LABELS = [('Northeast Asia', 112, 61, 'center'),
+          ('Southeast Asia', 112, -4, 'center'),
           ('Mediterranean', 20, 28, 'right'),
           ('South America', -72, -40, 'right')]
 for text, x, y, ha in LABELS:
@@ -108,20 +111,19 @@ for text, x, y, ha in LABELS:
             path_effects=[pe.withStroke(linewidth=3.4, foreground='white')])
 
 handles = [Patch(facecolor=BLU, alpha=0.85, edgecolor='none',
-                 label='fast transition zone, attributed to a trench'),
+                 label='Fast transition zone, attributed to a trench'),
            Patch(facecolor='white', edgecolor=BLU, hatch='////', linewidth=0.7,
-                 label='fast transition zone, unattributed'),
+                 label='Fast transition zone, unattributed'),
            Line2D([], [], linestyle='none', marker='o', markersize=3.4,
                   markerfacecolor=ACC, markeredgecolor='white',
-                  markeredgewidth=0.4, label='continental intraplate volcanic field'),
-           Patch(facecolor=LAND, edgecolor='#b9b4ad', linewidth=0.4,
-                 label='continental lithosphere')]
-ax.legend(handles=handles, loc='lower left', bbox_to_anchor=(0.005, -0.13),
-          ncol=2, frameon=False, handlelength=1.8, handleheight=1.2,
-          columnspacing=1.8, labelspacing=0.7, borderpad=0.0)
+                  markeredgewidth=0.4, label='Continental intraplate volcanic field'),
+           Patch(facecolor=LAND, edgecolor='#bdbdbd', linewidth=0.4,
+                 label='Continental lithosphere')]
+fig.legend(handles=handles, loc='center', bbox_to_anchor=(0.5, 0.095),
+           ncol=2, frameon=False, handlelength=1.8, handleheight=1.2,
+           columnspacing=1.8, labelspacing=0.7, borderpad=0.0)
 ax.spines['geo'].set_edgecolor('#cfcac3')
 ax.spines['geo'].set_linewidth(0.6)
-fig.subplots_adjust(left=0.01, right=0.99, top=0.99, bottom=0.17)
 F.check(fig)
 for ext in ('pdf', 'png'):
     fig.savefig(os.path.join(P.FIG, f'fig_map.{ext}'), dpi=400)

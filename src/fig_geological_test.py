@@ -52,7 +52,7 @@ fig, ax = plt.subplots(1, 2, figsize=(18.4 * F.CM, 7.6 * F.CM), constrained_layo
 
 # (a) timed delivery, fast against the rest
 rng = np.random.default_rng(0)
-for k, (m, lab, col) in enumerate(((fast, 'fast', F.ACC), (~fast, 'all others', F.BLU))):
+for k, (m, lab, col) in enumerate(((fast, 'Fast', F.ACC), (~fast, 'All others', F.BLU))):
     y = 100 * s.tz[m].values
     x = k + rng.uniform(-0.13, 0.13, len(y))
     ax[0].plot(x, y, 'o', color=col, ms=5.5, mec='white', mew=0.5, alpha=0.9)
@@ -76,8 +76,8 @@ ax[1].set_xlabel('Modelled water delivery, 8–25 Ma\n(log10 of % of maximum)')
 ax[1].set_ylabel(f'Standardised anomaly, {a.band} km')
 ax[1].text(0.03, 0.94, f'Spearman ρ = {r:+.2f}\np = {p:.3f}   n = {len(j)}',
            transform=ax[1].transAxes, va='top', color=F.INK)
-ax[1].text(0.97, 0.06, 'recent delivery covaries\nwith fast structure',
-           transform=ax[1].transAxes, ha='right', va='bottom', color=F.GRY)
+# no interpretive annotation on the panel: it sat on a data point, and the
+# reading belongs in the caption and the text
 for i, x in enumerate(ax):
     x.text(0.0, 1.10 if i == 0 else 1.02, 'ab'[i], transform=x.transAxes,
            ha='left', va='bottom', fontweight='bold',

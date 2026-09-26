@@ -44,13 +44,16 @@ for lab, col, st in STYLE:
                mew=0.4)
 ax[0].axhline(0.05, color=F.GRY, lw=0.9, ls=(0, (4, 3)))
 ax[0].text(offs[-1], 0.054, '0.05', ha='right', va='bottom', color=F.GRY)
-ax[0].annotate('adopted', xy=(a.adopted, 0.985), xytext=(a.adopted, 0.985),
+ax[0].annotate('Adopted', xy=(a.adopted, 0.985), xytext=(a.adopted, 0.985),
                xycoords=('data', 'axes fraction'), ha='center', va='top',
                color=F.GRY)
 ax[0].set_yscale('log'); F.decimal_ticks(ax[0], 'y')
 ax[0].set_xlabel('Down-dip displacement (km)')
 ax[0].set_ylabel('Adjusted probability at 410–520 km')
-ax[0].legend(frameon=False, loc='lower left', ncol=1, borderpad=0.1)
+# the same translucent key as Figure S3: the REVEAL curve runs under it
+lg = ax[0].legend(frameon=True, loc='lower left', ncol=1, borderpad=0.3,
+                  framealpha=0.8, facecolor='white', edgecolor='#bdbdbd', fancybox=False)
+lg.get_frame().set_linewidth(0.6)
 
 # (b) the dip each displacement implies, and how many volumes survive
 n = [(p[o] <= 0.05).sum() for o in offs]

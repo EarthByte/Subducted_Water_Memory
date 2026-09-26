@@ -89,7 +89,7 @@ for r, p in enumerate(rows):
         ax.axhline(r - 0.5, color=F.INK, lw=1.0)
     if k not in seen:
         seen.append(k)
-        ax.text(M.shape[1] - 0.35, r, k, ha='left', va='top', color=F.INK,
+        ax.text(M.shape[1] - 0.35, r, k[0].upper() + k[1:], ha='left', va='top', color=F.INK,
                 fontweight='bold', rotation=0)
     prev = k
 ax.set_xlim(-0.5, M.shape[1] - 0.5)

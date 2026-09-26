@@ -47,12 +47,13 @@ python3 src/fig_water_history.py        # Figure 1
 python3 src/fig_tomography.py           # Figure 2
 python3 src/fig_depth_offset.py         # Figure 3
 python3 src/fig_visibility_budget.py    # Figure 4
-python3 src/fig_geological_test.py      # Figure 5
-python3 src/fig_vpvs.py                 # Figure 6
-python3 src/fig_morb_map.py             # Figure 7
-python3 src/fig_craton_passage.py       # Figure 8 (needs the plate model)
-python3 src/fig_morb_corridor.py        # Figure 9
-python3 src/fig_three_clocks.py         # Figure 10
+python3 src/fig_geological_test.py      # Figure S7
+python3 src/fig_vpvs.py                 # Figure 5
+python3 src/fig_morb_map.py             # Figure 6 (needs the plate model)
+python3 src/fig_craton_passage.py       # Figure 7 (needs the plate model)
+python3 src/fig_morb_corridor.py        # Figure 8
+python3 src/fig_three_clocks.py         # Figure 9
+python3 src/fig_schematic.py            # Figure 10 and the graphical abstract
 python3 src/fig_age_map.py              # Figure S1
 python3 src/fig_map.py                  # Figure S2
 python3 src/fig_depth_memory.py         # Figure S3
@@ -76,7 +77,7 @@ python3 src/persistence_decay.py                # enrichment curve and its fit (
 python3 src/persistence_bootstrap.py            # spatial block bootstrap of the e-folding
 python3 src/tau_sensitivity.py                  # threshold, binning, functional form (Table S3)
 python3 src/occupancy_sweep.py                  # radius, offset, sinking rate, frame (Table S2)
-python3 src/depth_fwer.py                       # ten depths, five models, maxT correction (Table S1)
+python3 src/depth_fwer.py                       # ten depths, five models, corrected for the depth search (Table S1)
 python3 src/depth_offset_profile.py             # the same across the offset range (Table S11)
 python3 src/depth_decay.py                      # the enrichment curve by depth band (Figure S3)
 python3 src/offset_confirm.py --offset 200      # headline results at the conservative geometry (Table S10)
@@ -98,11 +99,11 @@ python3 src/province_classify.py                # the descriptive classes and th
 python3 src/province_eruption_context.py        # reconstructed eruption positions and delivery timing
 python3 src/age_limit_scan.py
 python3 src/depth_profile.py                    # the profile beneath the fields (Figure S4, Table S8)
-python3 src/table1.py                           # field statistics against free and restricted nulls (Table S7)
+python3 src/table1.py                           # volcanic fields against rotated locations, anywhere and on continents (Table S7)
 python3 src/wang_test.py                        # the comparison with Wang et al. (2025)
 ```
 
-P- and S-wave test (Section 3.5; Figure 6; Text S5):
+P- and S-wave test (Section 3.4; Figure 5; Text S5):
 
 ```
 python3 src/s19_slab_provenance.py              # fast bodies and their attribution (Figure S2)

@@ -59,11 +59,11 @@ def main():
     lo = hi / 3e3
 
     pc = ccrs.PlateCarree()
-    fig = plt.figure(figsize=(19.0 * F.CM, 12.6 * F.CM))
+    fig = plt.figure(figsize=(19.0 * F.CM, 13.6 * F.CM))
     for k, (fld, (lab, note, share)) in enumerate(zip(fields, labels), 1):
         ax = fig.add_subplot(2, 2, k, projection=ccrs.Robinson(central_longitude=160))
         ax.set_global()
-        ax.add_feature(cfeature.LAND, facecolor='#eeebe7', zorder=0)
+        ax.add_feature(cfeature.LAND, facecolor=F.LAND, zorder=0)
         m = ax.pcolormesh(lon, lat, np.ma.masked_less(fld, lo), transform=pc,
                           cmap='YlGnBu', norm=LogNorm(vmin=lo, vmax=hi),
                           shading='nearest', zorder=2, rasterized=True)
@@ -77,8 +77,10 @@ def main():
                 ha='right', va='bottom', color=F.GRY,
                 fontsize=matplotlib.rcParams['font.size'])
         ax.spines['geo'].set_edgecolor('#cfcac3'); ax.spines['geo'].set_linewidth(0.6)
+        # latitude on the left column, longitude on the bottom row
+        F.map_grid(ax, left=k in (1, 3), bottom=k in (3, 4))
 
-    cax = fig.add_axes([0.20, 0.085, 0.33, 0.024])
+    cax = fig.add_axes([0.20, 0.095, 0.33, 0.024])
     # plain decimal ticks: matplotlib sets a log exponent as a superscript about
     # three fifths the size of the mantissa, which prints below the legibility floor
     import matplotlib.ticker as mt
@@ -90,10 +92,10 @@ def main():
     cb.outline.set_linewidth(0.6); cb.outline.set_edgecolor('#cfcac3')
     from matplotlib.lines import Line2D
     fig.legend(handles=[Line2D([], [], color=F.ACC, lw=1.0,
-                               label='observed fast transition zone')],
-               loc='center left', bbox_to_anchor=(0.60, 0.097), frameon=False,
+                               label='Observed fast transition zone')],
+               loc='center left', bbox_to_anchor=(0.60, 0.107), frameon=False,
                handlelength=1.8)
-    fig.subplots_adjust(left=0.01, right=0.99, top=0.94, bottom=0.19,
+    fig.subplots_adjust(left=0.07, right=0.99, top=0.94, bottom=0.25,
                         wspace=0.03, hspace=0.20)
     F.check(fig)
     os.makedirs(FIG, exist_ok=True)

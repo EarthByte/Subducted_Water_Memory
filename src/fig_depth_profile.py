@@ -57,12 +57,13 @@ fig, ax = plt.subplots(1, 2, figsize=(17.5 * CM, 10.4 * CM), constrained_layout=
 # Two panels because one linear scale cannot show both: the lithospheric anomaly is
 # five times anything below it, so a shared range compresses the transition-zone
 # structure - the actual result - into invisibility.
-PANELS = [(0, 800, -4.6, 2.2, 'the top 800 km'),
-          (300, 2000, -0.8, 1.25, 'below the lithosphere, rescaled')]
+# panel letters rather than titles: the description of each panel is in the caption
+PANELS = [(0, 800, -4.6, 2.2, 'a'),
+          (300, 2000, -0.8, 1.25, 'b')]
 for k, (zmin, zmax, x0, x1, label) in enumerate(PANELS):
     a = ax[k]
-    for band, col, name in ((free, BLU, 'free rotation'),
-                            (cont, ACC, 'continental rotation')):
+    for band, col, name in ((free, BLU, 'Free rotation'),
+                            (cont, ACC, 'Continental rotation')):
         lo_, hi_ = np.percentile(band, [2.5, 97.5], axis=0)
         xl, yy = step(None, lo_); xh, _ = step(None, hi_)
         a.fill_betweenx(yy, xl, xh, color=col, alpha=0.18, lw=0,
@@ -71,7 +72,7 @@ for k, (zmin, zmax, x0, x1, label) in enumerate(PANELS):
         a.plot(xm, yy, color=col, lw=0.9, alpha=0.9)
     xo, yy = step(None, obs)
     a.plot(xo, yy, color=INK, lw=2.0, solid_joinstyle='miter',
-           label='observed' if k == 1 else None, zorder=5)
+           label='Observed' if k == 1 else None, zorder=5)
     a.axvline(0, color=GRY, lw=0.8, zorder=0)
     for z in (410, 660):
         if zmin <= z <= zmax:
@@ -80,9 +81,10 @@ for k, (zmin, zmax, x0, x1, label) in enumerate(PANELS):
                    va='bottom')
     a.set_ylim(zmax, zmin)
     a.set_xlim(x0, x1)
-    a.set_xlabel('shear-velocity anomaly (per cent)')
-    a.set_ylabel('depth (km)' if k == 0 else None)
-    a.set_title(label, loc='left', fontsize=11.5, color=GRY, pad=6)
+    a.set_xlabel('Shear-velocity anomaly (per cent)')
+    a.set_ylabel('Depth (km)' if k == 0 else None)
+    a.text(0.0, 1.02, label, transform=a.transAxes, ha='left', va='bottom',
+           fontweight='bold', fontsize=13)
     a.grid(axis='x', color='#ebebeb', lw=0.6, zorder=0)
     a.set_axisbelow(True)
 

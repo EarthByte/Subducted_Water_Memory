@@ -44,22 +44,22 @@ b.axhline(THERMAL, color=GRY, lw=1.0, ls='--', zorder=1)
 b.axhline(HYDROUS, color=BLU, lw=1.0, ls=':', zorder=1)
 b.fill_between(mid, lo, hi, color=ACC, alpha=0.18, lw=0)
 b.plot(mid, med, 'o-', color=ACC, ms=5, lw=1.6)
-b.text(mid[-1], THERMAL + 1.2, 'thermal, 63.4', color=GRY, ha='right', va='bottom')
-b.text(mid[-1], HYDROUS - 2.0, 'hydrous, 45 and below', color=BLU, ha='right', va='top')
+b.text(mid[-1], THERMAL + 1.2, 'Thermal, 63.4°', color=GRY, ha='right', va='bottom')
+b.text(mid[-1], HYDROUS - 2.0, 'Hydrous, 45° and below', color=BLU, ha='right', va='top')
 b.set_xscale('log')
 # the log minor tick labels collide with each other at this width
 b.xaxis.set_minor_formatter(matplotlib.ticker.NullFormatter())
 b.xaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(
     lambda v, _: f'{v:g}'))
-b.set_xlabel('anomaly amplitude (per cent)')
-b.set_ylabel('angle (degrees)')   # defined in the caption
+b.set_xlabel('Anomaly amplitude (per cent)')
+b.set_ylabel('Angle (degrees)')   # defined in the caption
 b.set_ylim(20, 80)
 # No key and no annotation on the panel. The only free corner is inside the
 # shaded hydrous band, where a label reads as data, and the caption is where a
 # reader looks for what the band and the dashed line are.
 b2 = b.twinx()
 b2.plot(mid, frac, 's--', color=INK, ms=4, lw=1.0, alpha=0.75)
-b2.set_ylabel('per cent below 45 degrees', color=INK)
+b2.set_ylabel('Per cent below 45 degrees', color=INK)
 b2.set_ylim(0, 45)
 b.text(-0.14, 1.03, 'a', transform=b.transAxes, fontsize=13, fontweight='bold',
        va='bottom', ha='right')
@@ -75,8 +75,8 @@ for d in (410, 660):
     c.text(30, d - 8, f'{d}', color=GRY, ha='left', va='bottom')
 c.set_ylim(p.depth.max(), p.depth.min())
 c.set_xlim(25, 75)
-c.set_xlabel('median angle (degrees)')
-c.set_ylabel('depth (km)')
+c.set_xlabel('Median angle (degrees)')
+c.set_ylabel('Depth (km)')
 c.text(-0.16, 1.03, 'b', transform=c.transAxes, fontsize=13, fontweight='bold',
        va='bottom', ha='right')
 

@@ -52,9 +52,14 @@ for a in ax:
     a.set_ylabel('Depth (km)')
 ax[0].set_xlabel('Enrichment at the best-explaining age, E*')
 ax[0].set_xlim(1.4, 4.4)
-ax[0].text(1.5, 535, 'transition\nzone', color=GRY, ha='left', va='center')
-ax[0].legend(frameon=False, loc='lower right', 
-             title='solid: E*   dotted: null 95th', title_fontsize=matplotlib.rcParams['font.size'])
+ax[0].text(1.5, 535, 'Transition\nzone', color=GRY, ha='left', va='center')
+# A white box at 80 per cent opacity behind the key: the curves still show
+# faintly through it, and the labels stay readable where they cross.
+lg = ax[0].legend(frameon=True, loc='lower right', framealpha=0.8, facecolor='white',
+                  edgecolor='#bdbdbd', fancybox=False,
+                  title='Solid: E*\nDotted: chance level',
+                  title_fontsize=matplotlib.rcParams['font.size'])
+lg.get_frame().set_linewidth(0.6)
 ax[1].set_xscale('log')
 ax[1].set_xlim(2e-4, 1.4)
 # Plain decimals rather than powers of ten: matplotlib sets the exponent as a
@@ -66,11 +71,11 @@ ax[1].set_xticks([0.001, 0.01, 0.1, 1.0])
 ax[1].set_xticklabels(['0.001', '0.01', '0.1', '1'])
 ax[1].set_xticks([], minor=True)
 ax[1].axvline(ALPHA, color=INK, lw=1.0, ls=(0, (5, 3)))
-ax[1].set_xlabel('adjusted probability')
+ax[1].set_xlabel('Adjusted probability')
 ax[1].text(ALPHA * 0.85, 1950, f'{ALPHA:g}', color=INK, ha='right', va='center')
 # the arrow has to point into the region that survives, which is to the LEFT of
 # the threshold; pointing at the line reads as the opposite
-ax[1].annotate('survives', xy=(0.0035, 2180), xytext=(ALPHA * 0.85, 2180),
+ax[1].annotate('Survives', xy=(0.0035, 2180), xytext=(ALPHA * 0.85, 2180),
                color=INK, ha='right', va='center',
                arrowprops=dict(arrowstyle='->', color=INK, lw=0.9))
 for i, a in enumerate(ax):

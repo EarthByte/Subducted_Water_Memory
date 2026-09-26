@@ -15,7 +15,7 @@
       corridor against the time a spreading ridge has spent within 200 km of the
       site, with the exponential fit of the excess over the Pacific median.
 
-Reads out/persistence_decay.csv (Table S4), out/morb_kinematics.csv and the Dixon table;
+Reads out/persistence_decay.csv (Table S4) and its fit, out/morb_kinematics.csv and the Dixon table;
 writes figures/fig_three_clocks. Every number is one an earlier step wrote.
 """
 import os, re, numpy as np, pandas as pd
@@ -36,28 +36,38 @@ def table_s4():
     return np.column_stack([p.t_mid.values, p.enrichment.values, p.sigma.values])
 
 
+def decay_fit():
+    """The exponential-plus-floor fit the text quotes, as persistence_decay.py
+    wrote it. Drawn from the file rather than refitted here, so that the number
+    on the figure is the number in the text: a refit of the same ten points
+    lands at 36.4 or 36.6 Myr depending on the optimiser, either side of the
+    rounding to 37."""
+    q = pd.read_csv(os.path.join(P.OUT, 'persistence_decay_fit.csv')).iloc[0]
+    return float(q.E0), float(q.Einf), float(q.tau)
+
+
 k = pd.read_csv(os.path.join(P.OUT, 'morb_kinematics.csv'))
 d = morb.load()
 assert (k.Sample.values == d.Sample.values).all()
 plume = morb.plume_mask(d)
 
 fig, (ax_a, ax_b, ax_c) = plt.subplots(1, 3, figsize=(16.0 * F.CM, 7.4 * F.CM),
-                                       gridspec_kw=dict(wspace=0.42))
+                                       gridspec_kw=dict(wspace=0.52))
 
 # (a) seismic visibility
 t, e, s = table_s4().T
 ax_a.errorbar(t, e, yerr=s, fmt='o', color=F.INK, ms=4, lw=1, capsize=2, zorder=3)
 f = lambda t, e0, ei, tau: ei + (e0 - ei) * np.exp(-t / tau)
-pp, _ = curve_fit(f, t, e, p0=[4, 0.3, 37], sigma=s, bounds=([0, -1, 3], [60, 5, 600]))
+pp = decay_fit()
 tt = np.linspace(0, 400, 400)
 ax_a.plot(tt, f(tt, *pp), color=F.BLU, lw=1.6, zorder=2)
 ax_a.axhline(1, color=F.GRY, lw=0.8, ls='--', zorder=1)
-ax_a.set_xlabel('delivery age (Ma)')
-ax_a.set_ylabel('excess fast 410–660 km')
+ax_a.set_xlabel('Delivery age\n(Ma)')
+ax_a.set_ylabel('Excess fast 410–660 km')
 ax_a.set_xlim(0, 400); ax_a.set_ylim(0, 4.6)
 ax_a.text(0.97, 0.90, f'{pp[2]:.0f} Myr', transform=ax_a.transAxes, ha='right', va='top',
           color=F.BLU)
-print(f'(a) e-folding {pp[2]:.1f} Myr from Table S4')
+print(f'(a) e-folding {pp[2]:.2f} Myr, the fit of persistence_decay.py')
 
 # (b) chemical survival
 pac = morb.pacific(k)
@@ -74,7 +84,7 @@ ax_b.scatter(cm['craton'][~over], cm['median'][~over], s=26, facecolor='white',
              edgecolor=F.INK, lw=1.0, zorder=3)
 ax_b.scatter(cm['craton'][over], cm['median'][over], s=26, color=F.ACC, edgecolor='none',
              zorder=4)
-ax_b.set_xlabel('time beneath a craton (Myr)')
+ax_b.set_xlabel('Time beneath\na craton (Myr)')
 ax_b.set_ylabel('H$_2$O/Ce, cluster median')
 ax_b.set_xlim(-5, 260); ax_b.set_ylim(120, 460)
 print(f'(b) {len(cm)} hydrated clusters without plume segments, {int(over.sum())} overrun; '
@@ -97,7 +107,7 @@ ax_c.scatter(dw[isH], cc['median'].values[isH], s=26, color=F.BLU, edgecolor='no
              zorder=4)
 td = np.linspace(0, 160, 200)
 ax_c.plot(td, base + g(td, *qq), color=F.BLU, lw=1.6, zorder=2)
-ax_c.set_xlabel('ridge residence (Myr)')
+ax_c.set_xlabel('Ridge residence\n(Myr)')
 ax_c.set_ylabel('H$_2$O/Ce, cluster median')
 ax_c.set_xlim(0, 160); ax_c.set_ylim(120, 460)
 ax_c.text(0.97, 0.90, f'{qq[1]:.0f} Myr', transform=ax_c.transAxes, ha='right', va='top',
@@ -107,8 +117,9 @@ print(f'(c) {len(cc)} corridor clusters, e-folding {qq[1]:.1f} Myr, excess at ze
 for ax, letter in zip((ax_a, ax_b, ax_c), 'abc'):
     ax.text(-0.22, 1.02, letter, transform=ax.transAxes, fontsize=13, fontweight='bold',
             va='bottom', ha='left')
-fig.subplots_adjust(left=0.08, right=0.97, top=0.92, bottom=0.2)
+fig.subplots_adjust(left=0.09, right=0.94, top=0.92, bottom=0.27)
 F.check(fig)
 for ext in ('pdf', 'png'):
-    fig.savefig(os.path.join(P.FIG, f'fig_three_clocks.{ext}'), bbox_inches='tight')
+    fig.savefig(os.path.join(P.FIG, f'fig_three_clocks.{ext}'), bbox_inches='tight',
+                pad_inches=0.2)
 print('wrote figures/fig_three_clocks.pdf and .png')

@@ -28,6 +28,7 @@ import pygplates
 from gplately import PlateReconstruction
 import paths as P
 import figstyle as F
+import plate_boundaries as PB
 import morb
 from morb_kinematics import (continental_cells, plate_ids, craton_flags, reconstruct_xyz,
                              to_xyz, KEEL)
@@ -73,7 +74,7 @@ else:
 nrow = int(np.ceil(len(a.times) / ncol))
 fig, axes = plt.subplots(nrow, ncol, figsize=size, subplot_kw=dict(projection=proj))
 axes = np.atleast_1d(axes).ravel()
-fig.subplots_adjust(left=0.02, right=0.98, top=0.98, bottom=0.07, wspace=0.03, hspace=0.05)
+fig.subplots_adjust(left=0.08, right=0.98, top=0.98, bottom=0.09, wspace=0.05, hspace=0.08)
 geo = ccrs.PlateCarree()
 norm = matplotlib.colors.Normalize(100, 400)
 from cmcrameri import cm as ccm
@@ -81,40 +82,43 @@ from cmcrameri import cm as ccm
 for ax, t in zip(axes, a.times):
     ax.set_global() if extent is None else ax.set_extent(extent, crs=geo)
     ax.spines['geo'].set_linewidth(0.8)
+    # latitude on the left column, longitude on the bottom row
+    i = list(a.times).index(t)
+    F.map_grid(ax, left=i % ncol == 0, bottom=i >= len(a.times) - ncol, dlon=60)
     rxyz, ok = reconstruct_xyz(rotation_model, cell_xyz, cell_pid, float(t))
     lo, la = lonlat(rxyz[ok])
     th, cr = cthick[ok], ccraton[ok]
-    ax.scatter(lo, la, s=1.2, c=F.LAND, marker='s', lw=0, transform=geo, zorder=1)
-    ax.scatter(lo[th >= KEEL], la[th >= KEEL], s=1.2, c='#b9b4ad', marker='s', lw=0,
+    # A cell of the grid covers more of the map the closer it is to the pole,
+    # and the reconstructed grid also deforms, so a fixed marker leaves white
+    # combs across the polar continents. The marker grows with latitude instead.
+    sz = np.clip(1.2 / np.cos(np.radians(np.clip(np.abs(la), 0, 86))), 1.2, 6.0)
+    ax.scatter(lo, la, s=sz, c=F.LAND, marker='s', lw=0, transform=geo, zorder=1)
+    k_keel = th >= KEEL
+    ax.scatter(lo[k_keel], la[k_keel], s=sz[k_keel], c='#b0b0b0', marker='s', lw=0,
                transform=geo, zorder=2)
-    ax.scatter(lo[cr], la[cr], s=1.2, c='#d9a79a', marker='s', lw=0, transform=geo, zorder=3)
+    ax.scatter(lo[cr], la[cr], s=sz[cr], c='#d9a79a', marker='s', lw=0, transform=geo, zorder=3)
     # plate boundaries of the model at t
-    try:
-        mor = recon.tessellate_mid_ocean_ridges(float(t), tessellation_threshold_radians=0.01,
-                                                ignore_warnings=True)
-        if mor is not None and len(mor):
-            ax.scatter(mor[:, 0], mor[:, 1], s=0.5, c=F.BLU, lw=0, transform=geo, zorder=4)
-        sz = recon.tessellate_subduction_zones(float(t), tessellation_threshold_radians=0.01,
-                                               ignore_warnings=True)
-        if sz is not None and len(sz):
-            ax.scatter(sz[:, 0], sz[:, 1], s=0.5, c=F.INK, lw=0, transform=geo, zorder=4)
-    except Exception as e:
-        print(f'  no boundaries at {t:.0f} Ma: {e}')
+    PB.ridges(ax, recon, float(t), geo, zorder=4)
+    PB.trenches(ax, recon, float(t), geo, zorder=4, tooth_deg=1.8, spacing_deg=5.5)
     # the sites: hydrated by time t and coloured by H2O/Ce; the rest grey
     lit = k.hydrated.values & (k.age.values >= t)
     ax.scatter(k.Longitude[~lit], k.Latitude[~lit], s=4, c='#c8c8c8', lw=0, transform=geo,
                zorder=5)
     sc = ax.scatter(k.Longitude[lit], k.Latitude[lit], c=k.H2O_Ce[lit], s=6, cmap=ccm.lajolla,
                     norm=norm, lw=0.2, edgecolor=F.INK, transform=geo, zorder=6)
+    # the age sits over the map, so it carries a semi-transparent box: the
+    # coastlines and sites underneath stay faintly visible through it
     ax.text(0.02, 0.97, f'{t:.0f} Ma', transform=ax.transAxes, ha='left', va='top',
-            fontsize=11, fontweight='bold', zorder=7)
+            fontsize=11, fontweight='bold', zorder=7,
+            bbox=dict(boxstyle='square,pad=0.25', facecolor='white', alpha=0.8,
+                      edgecolor='#bdbdbd', linewidth=0.5))
     print(f'{t:6.0f} Ma  {int(lit.sum())} sites hydrated by then, '
           f'{int(ok.sum())} continental cells reconstructed')
 for ax in axes[len(a.times):]:
     ax.set_visible(False)
 
 cb = fig.colorbar(sc, ax=list(axes[:len(a.times)]), orientation='horizontal', fraction=0.018,
-                  pad=0.02, aspect=45, shrink=0.6, ticks=[100, 200, 300, 400])
+                  pad=0.06, aspect=45, shrink=0.6, ticks=[100, 200, 300, 400])
 cb.set_label('H$_2$O/Ce of sites hydrated by that time')
 F.check(fig)
 for ext in ('pdf', 'png'):

@@ -41,13 +41,19 @@ for x in ax:
     x.set_xlim(0, 400)
     x.set_xlabel('Age of reconstructed delivery (Ma)')
 
-ax[0].plot(p.t_mid, p.enrichment, 'o-', color=F.ACC, ms=4.5, lw=1.5)
+# the exponential-plus-floor fit the text quotes, read from the file
+# persistence_decay.py wrote rather than refitted here, so that the curve on
+# the figure is the fit in the text (as fig_three_clocks.py does)
+q = pd.read_csv(os.path.join(OUT, 'persistence_decay_fit.csv')).iloc[0]
+tt = np.linspace(float(p.t_mid.min()), 400, 401)   # drawn over the fitted points, not extrapolated to 0 Ma
+ax[0].plot(tt, q.Einf + (q.E0 - q.Einf) * np.exp(-tt / q.tau), '-', color=F.BLU, lw=1.6, zorder=2)
+ax[0].plot(p.t_mid, p.enrichment, 'o-', color=F.ACC, ms=4.5, lw=1.5, zorder=3)
 ax[0].axhline(1.0, color=F.GRY, lw=0.9, ls=(0, (4, 3)))
 ax[0].set_ylabel('Enrichment of fast\ntransition-zone structure')
 ax[0].text(a.tau_max + 12, ax[0].get_ylim()[1] * 0.92,
-           f'sensitivity range\n{a.tau_min:.0f}\u2013{a.tau_max:.0f} Myr',
+           f'Sensitivity range\n{a.tau_min:.0f}\u2013{a.tau_max:.0f} Myr',
            color=F.GRY, va='top')
-ax[0].text(395, 1.12, 'no enrichment', ha='right', va='bottom', color=F.GRY)
+ax[0].text(395, 1.12, 'No enrichment', ha='right', va='bottom', color=F.GRY)
 
 ax[1].step(edges, 100 * cum, where='post', color=F.BLU, lw=1.8)
 ax[1].fill_between(edges, 0, 100 * cum, step='post', color=F.BLU, alpha=0.12)

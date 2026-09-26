@@ -46,12 +46,14 @@ from cmcrameri import cm as _cm
 BOUNDS = [10, 25, 50, 75, 100, 150, 200, 300, 400]
 cmap = getattr(_cm, ORDER).resampled(len(BOUNDS) - 1)
 norm = BoundaryNorm(BOUNDS, cmap.N)
-NODATA, LANDC, COAST = '#e4e7ea', '#d2d6d9', '#83878b'
+NODATA, LANDC, COAST = '#e4e7ea', '#d9d9d9', '#83878b'
 OUTLINE = F.ACC          # red: nuuk contains no red at any step
 
 pc = ccrs.PlateCarree()
-fig = plt.figure(figsize=(19.0 * F.CM, 12.2 * F.CM))
-ax = plt.axes(projection=ccrs.Robinson(central_longitude=0))
+fig = plt.figure(figsize=(19.0 * F.CM, 13.6 * F.CM))
+# Fixed positions in figure fractions, top to bottom: the map with its
+# latitude and longitude labels, a clear gap, the key, the colour bar.
+ax = fig.add_axes([0.05, 0.33, 0.90, 0.65], projection=ccrs.Robinson(central_longitude=0))
 ax.set_global()
 ax.set_facecolor(NODATA)
 ax.add_feature(cfeature.LAND, facecolor=LANDC, edgecolor='none', zorder=1)
@@ -61,21 +63,22 @@ m = ax.pcolormesh(lon, lat, np.ma.masked_invalid(t_min), transform=pc,
 ax.add_feature(cfeature.COASTLINE, linewidth=0.4, edgecolor=COAST, zorder=3)
 ax.contour(lon, lat, obs.astype(float), levels=[0.5], transform=pc,
            colors=[OUTLINE], linewidths=1.5, zorder=5)
+F.map_grid(ax, left=True, right=True, bottom=True)
 
-cb = fig.colorbar(m, ax=ax, orientation='horizontal', fraction=0.045, pad=0.06,
-                  aspect=42, ticks=BOUNDS, spacing='uniform')
+cax = fig.add_axes([0.08, 0.10, 0.84, 0.032])
+cb = fig.colorbar(m, cax=cax, orientation='horizontal', ticks=BOUNDS,
+                  spacing='uniform')
 cb.set_label('Age of the youngest subduction that can account for a slab (Ma)')
 cb.ax.tick_params(length=4)
 handles = [Line2D([], [], color=OUTLINE, lw=1.8,
-                  label='observed fast transition zone'),
+                  label='Observed fast transition zone'),
            Patch(facecolor=NODATA, edgecolor='#8f9297', linewidth=0.5,
-                 label='no subduction in 400 Myr')]
-ax.legend(handles=handles, loc='lower left', bbox_to_anchor=(0.0, -0.075),
-          ncol=2, frameon=False, handlelength=1.9, columnspacing=2.2,
-          borderpad=0.0)
+                 label='No subduction in 400 Myr')]
+fig.legend(handles=handles, loc='center', bbox_to_anchor=(0.5, 0.225),
+           ncol=2, frameon=False, handlelength=1.9, columnspacing=2.2,
+           borderpad=0.0)
 ax.spines['geo'].set_edgecolor('#cfcac3')
 ax.spines['geo'].set_linewidth(0.7)
-fig.subplots_adjust(left=0.01, right=0.99, top=0.99, bottom=0.20)
 F.check(fig)
 tag = '' if ORDER == 'nuuk' else '_' + ORDER
 for ext in ('pdf', 'png'):

@@ -72,7 +72,7 @@ ax_a.set_ylabel('H$_2$O/Ce')
 cax = ax_a.inset_axes([0.14, 0.80, 0.30, 0.06])
 cb = fig.colorbar(plt.cm.ScalarMappable(norm=norm, cmap=cmap), cax=cax,
                   orientation='horizontal')
-cb.set_label('ridge residence (Myr)', labelpad=2)
+cb.set_label('Ridge residence (Myr)', labelpad=2)
 cb.set_ticks([0, 40, 80, 160])
 cax.xaxis.set_ticks_position('bottom')
 
@@ -80,8 +80,8 @@ cax.xaxis.set_ticks_position('bottom')
 # hydrated sites only, so that both bars count from the same clock
 tr = np.where(hyd, k.t_ridge_200.values, np.nan)
 tk = np.where(hyd, k.t_keel.values, np.nan)
-ax_b.bar(mid - 1.0, binned(tr), width=2.0, color=F.BLU, label='ridge within 200 km')
-ax_b.bar(mid + 1.0, binned(tk), width=2.0, color=F.ACC, label='under a keel')
+ax_b.bar(mid - 1.0, binned(tr), width=2.0, color=F.BLU, label='Ridge within 200 km')
+ax_b.bar(mid + 1.0, binned(tk), width=2.0, color=F.ACC, label='Under a cratonic keel')
 ax_b.set_ylabel('Myr since hydration')
 ax_b.legend(frameon=False, loc='upper left', ncol=2, handlelength=1.0)
 ax_b.set_ylim(0, 170)
@@ -90,15 +90,21 @@ ax_b.set_ylim(0, 170)
 for ax, key, lab in ((ax_c, '410_520', '410–520 km'), (ax_d, '100_200', '100–200 km')):
     for tag, mdl in models.items():
         v = MT.sample(mdl, key, k.Longitude.values, lat)
-        ax.plot(mid, binned(v), color=MODEL_COLOURS[tag], lw=1.5, label=tag)
+        ax.plot(mid, binned(v), color=MODEL_COLOURS[tag], lw=1.5,
+                label={'GLADM35': 'GLAD-M35', 'SEMUCBWM1': 'SEMUCB-WM1'}.get(tag, tag))
     ax.axhline(0, color=F.GRY, lw=0.8, zorder=1)
     ax.set_ylabel(f'dVs/Vs (%)\n{lab}')
 ax_c.set_ylim(-1.6, 1.6)
-ax_d.legend(frameon=False, loc='lower right', ncol=3, handlelength=1.2)
-ax_d.set_xlabel('latitude (°N)')
+# Flush against the y-axis, in the latitude gap with no ridge samples, where the
+# key covers no curve.
+ax_d.legend(frameon=False, loc='lower left', ncol=2, handlelength=1.2,
+            borderaxespad=0.5, columnspacing=1.2)
+ax_d.set_xlabel('Latitude (°N)')
 ax_d.set_xlim(-60, 88)
+# The letters sit at the top edge of each panel, above any line drawn across it:
+# in (d) the zero line runs close under the top of the axis.
 for ax, letter in zip(axes, 'abcd'):
-    ax.text(0.01, 0.92, letter, transform=ax.transAxes, fontsize=13, fontweight='bold',
+    ax.text(0.01, 0.975, letter, transform=ax.transAxes, fontsize=13, fontweight='bold',
             va='bottom', ha='left')
 for ax in axes[:-1]:
     ax.tick_params(labelbottom=False)

@@ -143,14 +143,16 @@ def main():
         print(f'  {nm:24}: {fld[f].min():+.2f} to {fld[f].max():+.2f} %, '
               f'top decile above {np.percentile(fld[f], PCTL):+.2f} %')
 
-    fig = plt.figure(figsize=(19.0 * F.CM, 13.0 * F.CM))
+    fig = plt.figure(figsize=(19.0 * F.CM, 14.0 * F.CM))
     proj = ccrs.Robinson(central_longitude=0)
     m = None
     for i, (lon, lat, fld, label, which) in enumerate(panels, 1):
         ax = fig.add_subplot(2, 2, i, projection=proj)
         m = draw(ax, lon, lat, fld, label, contour=(which == 'S'))
+        # latitude on the left column, longitude on the bottom row
+        F.map_grid(ax, left=i in (1, 3), bottom=i in (3, 4))
 
-    cax = fig.add_axes([0.20, 0.125, 0.33, 0.026])
+    cax = fig.add_axes([0.20, 0.10, 0.33, 0.026])
     cb = fig.colorbar(m, cax=cax, orientation='horizontal',
                       extend='both', ticks=np.arange(-2, 2.1, 1))
     cb.set_label('Velocity anomaly, 410–660 km (per cent)')
@@ -158,10 +160,10 @@ def main():
     cb.outline.set_edgecolor('#cfcac3')
     # beside the bar, not under it: under it the key sits on the tick labels
     fig.legend(handles=[Line2D([], [], color='#1a1a1a', lw=0.8,
-                               label='top decile, the fast transition zone')],
-               loc='center left', bbox_to_anchor=(0.60, 0.138), frameon=False,
+                               label='Top decile, the fast transition zone')],
+               loc='center left', bbox_to_anchor=(0.60, 0.113), frameon=False,
                handlelength=1.8)
-    fig.subplots_adjust(left=0.01, right=0.99, top=0.94, bottom=0.21,
+    fig.subplots_adjust(left=0.07, right=0.99, top=0.94, bottom=0.24,
                         wspace=0.03, hspace=0.20)
     F.check(fig)
     for ext in ('pdf', 'png'):

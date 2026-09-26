@@ -79,6 +79,12 @@ def main():
                     help='occupancy map in --out, e.g. hydration_age_map_offset200.npz')
     ap.add_argument('--suffix', default='',
                     help="appended to the output name, e.g. '_off200'")
+    # the summary keeps only the 95th percentile of the rotated values. Saving
+    # the rotated values themselves lets the excess be expressed in units of
+    # the spread of the comparison distribution, which is what separates the
+    # volumes: same seed, same rotations, so the csv is unchanged.
+    ap.add_argument('--nulls-out', default='',
+                    help='also write the rotated values per band to this npz in --out')
     a = ap.parse_args()
 
     zf = os.path.join(a.out, a.occupancy)
@@ -108,8 +114,21 @@ def main():
     denom = np.bincount(age_id[age_id >= 0], weights=w[age_id >= 0], minlength=nage)
     print(f'{nage} age bands usable, {int((age_id >= 0).sum())} cells assigned')
 
-    import xarray as xr
     def bands_for(tag):
+        # the depth-averaged bands of every volume are cached beside the
+        # tomography, REVEAL's in out/ as well; reading the cache keeps the run
+        # to seconds and needs neither the full grid nor xarray
+        for cached in (os.path.join(a.out, f'bands_{tag}.npz'),
+                       f'{U}/REVEAL_mantle_tomography/bands_{tag}.npz'):
+            if os.path.exists(cached):
+                f = np.load(cached, allow_pickle=True)
+                out = {}
+                for b0, b1 in DEPTHS:
+                    key = f'{b0}_{b1}'
+                    if key in f.files:
+                        out[(b0, b1)] = f[key].astype(float)
+                return f['lat'], f['lon'], out
+        import xarray as xr
         if tag == 'REVEAL':
             ds = xr.open_dataset(f'{U}/REVEAL_vs_full.nc')
             v = np.sqrt((2.0 * ds['vsv']**2 + ds['vsh']**2) / 3.0)
@@ -141,6 +160,7 @@ def main():
                 out[(b0, b1)] = f[key].astype(float)
         return f['lat'], f['lon'], out
 
+    saved = {}
     rng = np.random.default_rng(20260902)
     ROT = [rotation(rng, a.rotation) for _ in range(a.n_null)]   # shared across depths
     rows = []
@@ -207,6 +227,10 @@ def main():
             rows.append(dict(model=tag, z0=b0, z1=b1, e_best=E[b],
                              null_p95=float(np.percentile(N[b], 95)),
                              p_raw=praw[b], p_adj=padj[b]))
+        if a.nulls_out:
+            saved[f'{tag}_E'] = E
+            for b, (b0, b1) in enumerate(keys):
+                saved[f'{tag}_{b0}_{b1}'] = N[b]
         print(f'{tag}: {time.time() - t0:.0f} s')
 
     d = pd.DataFrame(rows)
@@ -221,6 +245,9 @@ def main():
     print(f'\n{n_raw} of {len(d)} bands clear at p <= 0.05 uncorrected, '
           f'{n_adj} after correcting for the {len(d) // 3} depths tested in each volume')
     print(f'wrote {a.out}/depth_fwer{a.suffix}.csv')
+    if a.nulls_out:
+        np.savez_compressed(os.path.join(a.out, a.nulls_out), **saved)
+        print(f'wrote {a.out}/{a.nulls_out}')
 
 
 if __name__ == '__main__':
