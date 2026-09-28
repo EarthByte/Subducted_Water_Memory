@@ -55,7 +55,7 @@ def base(ax, cratons=False):
     # ridges run under the sample symbols, trenches carry teeth towards the
     # overriding plate
     PB.ridges(ax, recon, 0.0, geo, zorder=3)
-    PB.trenches(ax, recon, 0.0, geo, zorder=3, tooth_deg=1.3, spacing_deg=9.0)
+    PB.trenches(ax, recon, 0.0, geo, zorder=3, tooth_deg=3.6, spacing_deg=10.0)
     if cratons:
         ax.add_geometries(cr.geometry, crs=geo, facecolor='none', edgecolor=F.ACC,
                           lw=0.9, zorder=3)
@@ -78,7 +78,10 @@ base(axes[0], cratons=True)
 over = hyd & (k.t_craton.values > 0)
 cb_c = [0, 25, 50, 100, 150, 250]
 norm_c = BoundaryNorm(cb_c, 256, clip=False)
-cmap_c = ListedColormap(ccm.oslo_r(np.linspace(0.25, 0.95, 256)))
+cmap_c = ListedColormap(ccm.buda_r(np.linspace(0.05, 0.92, 256)))
+# buda_r, yellow to magenta: it holds no blue, so a long craton residence cannot
+# be confused with the blue ridge lines, and no white, so a short residence cannot
+# be taken for a site never overlain, which is drawn as an open white symbol
 draw(axes[0], over, k.t_craton.values, cmap_c, norm_c,
      'Time beneath a craton outline since hydration (Myr)', cb_c)
 

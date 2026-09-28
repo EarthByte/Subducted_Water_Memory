@@ -1,5 +1,5 @@
 {
-  "title": "Subducted_Water_Memory: code, figures and derived data for \"Seismic and chemical memory of subducted water in the mantle\"",
+  "title": "Subducted_Water_Memory: code, figures and derived data for \"Where subducted water resides: seismic carriers, shallow storage and removal at mid-ocean ridges\"",
   "version": "1.0.0",
   "upload_type": "software",
   "license": "MIT",
@@ -47,5 +47,5 @@
       "resource_type": "software"
     }
   ],
-  "description": "<p>Analysis code, figures and derived data products for the paper <em>Seismic and chemical memory of subducted water in the mantle</em> (Müller, Fichtner, Schiller, Mather, Dutkiewicz and Dixon, Earth and Planetary Science Letters). The archive rebuilds every figure and supplementary table of the paper from the derived products in out/ without the tomography models or the plate model; README.md gives the layout, the inputs, the commands and the licences. Code under MIT; figures and derived data under CC BY 4.0; third-party data retain their source licences.</p>"
+  "description": "<p>Analysis code, figures and derived data products for the paper <em>Where subducted water resides: seismic carriers, shallow storage and removal at mid-ocean ridges</em> (Müller, Fichtner, Schiller, Mather, Dutkiewicz and Dixon, in preparation for Earth and Planetary Science Letters). The archive rebuilds every figure and supplementary table of the paper from the derived products in out/ without the tomography models or the plate model; README.md gives the layout, the inputs, the commands and the licences. Code under MIT; figures and derived data under CC BY 4.0; third-party data retain their source licences.</p>"
 }

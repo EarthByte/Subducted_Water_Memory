@@ -36,11 +36,12 @@ DEEP = '#7d5ba6'         # water still chemically bound in the slab
 # distinguishable in the common forms of colour blindness: a muted green and a
 # pale yellow differ in hue from the blue of the water and in lightness from
 # each other and from the slab.
-SLAB = '#7f8c99'         # the cold slab, and the 37 Myr bar
+SLAB = '#a3aeb8'         # the cold slab, light enough for the arrow drawn on it
 KEEL = '#b7c4ad'         # the cratonic keel
 BACK = '#f4f4f4'         # the mantle behind the section
 TZONE = '#f4e3b2'        # the transition zone, as a background band
-TZEDGE = '#c9932a'       # an outline and a label colour for it, the same hue
+TZEDGE = '#a2731a'       # an outline and a label colour for it, the same hue,
+                         # dark enough to read against the band's own pale fill
 
 
 def over(colour, alpha, back):
@@ -58,7 +59,10 @@ def section(ax, fs, compact=False):
     ax.set_xlim(0, 100); ax.set_ylim(700, -60); ax.axis('off')
     ax.add_patch(Rectangle((0, 0), 100, 700, facecolor=BACK, edgecolor='none'))
     ax.add_patch(Rectangle((0, 410), 100, 250, facecolor=TZONE, edgecolor='none'))
-    ax.text(97, 628, 'Transition zone', ha='right', va='center', fontsize=fs, color=TZEDGE)
+    # the band is named in bold, so that it reads as the label of the layer rather
+    # than as one more annotation among those above it
+    ax.text(97, 628, 'Mantle transition zone', ha='right', va='center', fontsize=fs,
+            color=TZEDGE, fontweight='bold')
 
     # The mantle that holds the released water: on this axis the dashed line at
     # 170 is 125 km, so the band lies mostly above it and its base is well above
@@ -68,7 +72,7 @@ def section(ax, fs, compact=False):
     # the surface, with the trench at the left and a ridge at the right
     ax.add_patch(Polygon([(1, 0), (10, 0), (46, 480), (37, 480)], closed=True,
                          facecolor=SLAB, edgecolor='none', zorder=3))
-    ax.text(30, 340, 'Slab', fontsize=fs, color='white', fontweight='bold',
+    ax.text(30, 340, 'Slab', fontsize=fs, color='white',
             ha='center', va='center', rotation=-52, zorder=4)
     ax.plot([0, 100], [0, 0], color=INK, lw=1.3, zorder=6)
     ax.text(0.5, -30, 'Trench', fontsize=fs, color=INK, ha='left', va='center')
@@ -78,6 +82,8 @@ def section(ax, fs, compact=False):
         ax.annotate('', xy=(x0, 8), xytext=(x1, 148), zorder=6,
                     arrowprops=dict(arrowstyle='-|>,head_width=0.17,head_length=0.4',
                                     lw=1.2, color=ACC))
+    # the arrows are the melting column, named in their own colour below their tails
+    ax.text(93, 158, 'Melt', fontsize=fs, color=ACC, ha='center', va='top', zorder=6)
 
     # three quarters released above 125 km
     ax.plot([2, 46], [170, 170], color=INK, lw=0.7, ls=(0, (3.5, 3)), zorder=4)
@@ -85,9 +91,13 @@ def section(ax, fs, compact=False):
     ax.annotate('', xy=(38, 130), xytext=(22, 205), zorder=5,
                 arrowprops=dict(arrowstyle='-|>,head_width=0.30,head_length=0.55',
                                 lw=3.4, color=WET, shrinkA=0, shrinkB=0))
-    released = '¾ released\nabove 125 km' if compact else 'Three quarters\nreleased above\n125 km'   # the blue band
-    ax.text(2, 95, released, fontsize=fs, color=WET,
-            fontweight='bold', ha='left', va='center', linespacing=1.25, zorder=6)
+    released = '¾ released\nabove 125 km' if compact else 'Three quarters released\nabove 125 km'   # the blue band
+    # the label sits on the blue band it names, so it carries a translucent white
+    # backing to keep it legible without hiding the band beneath it
+    ax.text(1.4, 86, released, fontsize=fs, color=WET,
+            ha='left', va='center', linespacing=1.25, zorder=6,
+            bbox=dict(boxstyle='round,pad=0.10', facecolor='white', alpha=0.72,
+                      edgecolor='none'))
 
     # the cratonic keel, passing over the hydrated mantle
     # the keel reaches 200 km, which on this exaggerated depth axis is 270
@@ -106,7 +116,7 @@ def section(ax, fs, compact=False):
                 arrowprops=dict(arrowstyle='-|>,head_width=0.22,head_length=0.55',
                                 lw=1.9, color=DEEP, shrinkA=0, shrinkB=0))
     bound = '¼ stays bound' if compact else 'One quarter stays bound'
-    ax.text(46, 430, bound, fontsize=fs, color=DEEP,
+    ax.text(46, 455, bound, fontsize=fs, color=DEEP,
             ha='left', va='center', zorder=6)
     ax.text(56, 540, 'Tomography sees\nthe cold slab', fontsize=fs, color=TZEDGE,
             ha='left', va='center', linespacing=1.25)
@@ -120,7 +130,7 @@ def timescales(ax, fs, compact=False):
         ax.spines[s].set_visible(False)
     ax.set_xticks([10, 30, 100, 300])
     ax.set_xticklabels(['10', '30', '100', '300'])
-    ax.set_xlabel('Time since delivery (Myr)', fontsize=fs + 0.4, labelpad=2)
+    ax.set_xlabel('Time since mantle hydration (Myr)', fontsize=fs + 0.4, labelpad=2)
     ax.tick_params(labelsize=fs, pad=2)
     # The 37 Myr is the visibility of the slab in the transition zone, so its bar
     # is filled with the colour of the transition zone itself, not a darker
@@ -157,9 +167,10 @@ def abstract(out):
     ax_t = fig.add_subplot(gs[0, :]); ax_t.axis('off')
     ax_t.text(0.5, 0.70, 'Subducted water outlives the slab that carried it',
               ha='center', va='center', fontsize=11.5, fontweight='bold', color=INK)
+    # italic, so that the subtitle is not read as the first of the labels below it
     ax_t.text(0.5, 0.08,
               'Released above 125 km, it survives cratonic keels and is erased by ridge melting',
-              ha='center', va='center', fontsize=8.8, color=INK)
+              ha='center', va='center', fontsize=8.8, color=INK, style='italic')
     section(fig.add_subplot(gs[1, 0]), fs, compact=True)
     timescales(fig.add_subplot(gs[1, 1]), fs, compact=True)
     F.check(fig, placed_cm=wide)

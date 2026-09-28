@@ -2,9 +2,9 @@
 
 Code, figures and derived data for
 
-> Müller, R. D., Fichtner, A., Schiller, C. J., Mather, B., Dutkiewicz, A., & Dixon, J. E. (2026). Seismic and chemical memory of subducted water in the mantle. *Earth and Planetary Science Letters*.
+> Müller, R. D., Fichtner, A., Schiller, C. J., Mather, B., Dutkiewicz, A., & Dixon, J. E. (2026). Where subducted water resides: seismic carriers, shallow storage and removal at mid-ocean ridges. In preparation for *Earth and Planetary Science Letters*.
 
-The paper asks what becomes of the water that subducting plates carry into the mantle, by reading two independent records against one plate reconstruction: global seismic tomography of the transition zone, and the H₂O/Ce of mid-ocean ridge basalts erupted above mantle that the reconstruction dates as hydrated. Reconstructed slab delivery overlaps fast 410–520 km structure in five velocity models, and the overlap decays with delivery age with an e-folding time of about 37 Myr; the joint P- and S-wave pattern beneath volcanic provinces is thermal. Ridge basalts above mantle hydrated 120–380 Myr ago retain elevated H₂O/Ce, keep it beneath sites that cratonic keels later passed over, and lose it with the duration of spreading-ridge residence, with an e-folding time of about 30 Myr.
+The paper investigates what becomes of the water that subducting plates carry into the mantle, by reading two independent records against one plate reconstruction: global seismic tomography of the transition zone, and the H₂O/Ce of mid-ocean ridge basalts erupted above mantle that the reconstruction dates as hydrated. Reconstructed slab delivery overlaps fast 410–520 km structure in five velocity models, and the overlap decays with delivery age with an e-folding time of about 37 Myr; the joint P- and S-wave pattern beneath volcanic provinces is thermal. Ridge basalts above mantle hydrated 120–380 Myr ago retain elevated H₂O/Ce, keep it beneath sites that cratonic keels later passed over, and lose it with the duration of spreading-ridge residence, with an e-folding time of about 30 Myr.
 
 This repository holds everything needed to rebuild every figure and every supplementary table of the paper. The derived products of each analysis step are archived on Zenodo (see *Citation*), so the figures and tables rebuild from them without the tomography models or the plate model; the analysis scripts that produce those products are here too, with the inputs they need named below.
 
@@ -54,15 +54,15 @@ python3 src/fig_craton_passage.py       # Figure 7 (needs the plate model)
 python3 src/fig_morb_corridor.py        # Figure 8
 python3 src/fig_three_clocks.py         # Figure 9
 python3 src/fig_schematic.py            # Figure 10 and the graphical abstract
-python3 src/fig_age_map.py              # Figure S1
-python3 src/fig_map.py                  # Figure S2
-python3 src/fig_depth_memory.py         # Figure S3
-python3 src/fig_depth_profile.py        # Figure S4
+python3 src/fig_age_map.py              # Figure S2
+python3 src/fig_map.py                  # Figure S3
+python3 src/fig_depth_memory.py         # Figure S4
+python3 src/fig_depth_profile.py        # Figure S5
 python3 src/fig_province_heatmap.py     # Figure S6
 ./checkfigs.sh
 ```
 
-Figure S5 (`figures/fig_workflow.svg`) is a drawn diagram. `fig_craton_passage.py` reconstructs the continents and craton outlines with the plate model, which `plate_model_manager` fetches on first use. `fig_tomography.py` and `fig_map.py` also read `REVEAL_vs_full.nc` for the REVEAL panels; `fig_tomography.py` reads its cached reduction `out/tz_REVEAL.npz` unless `--refresh` is passed.
+Figure S1 (`figures/fig_workflow.svg`) is a drawn diagram. `fig_craton_passage.py` reconstructs the continents and craton outlines with the plate model, which `plate_model_manager` fetches on first use. `fig_tomography.py` and `fig_map.py` also read `REVEAL_vs_full.nc` for the REVEAL panels; `fig_tomography.py` reads its cached reduction `out/tz_REVEAL.npz` unless `--refresh` is passed.
 
 ## The analysis steps
 
@@ -79,11 +79,11 @@ python3 src/tau_sensitivity.py                  # threshold, binning, functional
 python3 src/occupancy_sweep.py                  # radius, offset, sinking rate, frame (Table S2)
 python3 src/depth_fwer.py                       # ten depths, five models, corrected for the depth search (Table S1)
 python3 src/depth_offset_profile.py             # the same across the offset range (Table S11)
-python3 src/depth_decay.py                      # the enrichment curve by depth band (Figure S3)
+python3 src/depth_decay.py                      # the enrichment curve by depth band (Figure S4)
 python3 src/offset_confirm.py --offset 200      # headline results at the conservative geometry (Table S10)
 ```
 
-The water-delivery field and its age budget (Sections 2.2, 3.3; Figure 4; Table S6):
+The water-delivery field and its age budget (Sections 2.2, 3.2; Figure 4; Table S6):
 
 ```
 python3 src/water_forward.py
@@ -91,27 +91,27 @@ python3 src/water_offset_sweep.py
 python3 src/water_bootstrap.py
 ```
 
-Volcanic provinces (Sections 2.4, 3.4; Figures 5 and S6; Tables S5, S7–S9):
+Volcanic provinces (Section 3.3; Figures S6 and S7; Tables S5, S7–S9):
 
 ```
 python3 src/province_pivot.py                   # province scores against continent-restricted nulls
 python3 src/province_classify.py                # the descriptive classes and the leave-one-out test
 python3 src/province_eruption_context.py        # reconstructed eruption positions and delivery timing
 python3 src/age_limit_scan.py
-python3 src/depth_profile.py                    # the profile beneath the fields (Figure S4, Table S8)
+python3 src/depth_profile.py                    # the profile beneath the fields (Figure S5, Table S8)
 python3 src/table1.py                           # volcanic fields against rotated locations, anywhere and on continents (Table S7)
 python3 src/wang_test.py                        # the comparison with Wang et al. (2025)
 ```
 
-P- and S-wave test (Section 3.4; Figure 5; Text S5):
+P- and S-wave test (Section 3.4; Figure 5):
 
 ```
-python3 src/s19_slab_provenance.py              # fast bodies and their attribution (Figure S2)
+python3 src/s19_slab_provenance.py              # fast bodies and their attribution (Figure S3)
 python3 src/s21_vpvs_water.py
 python3 src/vpvs_uncertainty.py
 ```
 
-The ridge record (Sections 2.5, 3.6; Figures 7–10; Text S7; Tables S12–S15):
+The ridge record (Sections 2.4, 3.5; Figures 6–9; Tables S12–S15):
 
 ```
 python3 src/morb_tomography.py                  # tomography beneath hydrated and unhydrated sites
@@ -138,7 +138,7 @@ The code in `src/` is released under the MIT licence (`LICENSE`). The figures an
 
 Cite the paper, and the archive for the code and data:
 
-> Müller, R. D., Fichtner, A., Schiller, C. J., Mather, B., Dutkiewicz, A., & Dixon, J. E. (2026). Subducted_Water_Memory: code, figures and derived data for "Seismic and chemical memory of subducted water in the mantle" (v1.0.0). Zenodo. DOI to be added on deposit.
+> Müller, R. D., Fichtner, A., Schiller, C. J., Mather, B., Dutkiewicz, A., & Dixon, J. E. (2026). Subducted_Water_Memory: code, figures and derived data for "Where subducted water resides: seismic carriers, shallow storage and removal at mid-ocean ridges" (v1.0.0). Zenodo. DOI to be added on deposit.
 
 `CITATION.cff` carries the same in machine-readable form.
 
