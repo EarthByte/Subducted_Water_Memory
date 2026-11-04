@@ -28,14 +28,14 @@ Carried in `data/`:
 - `Craton_Boundaries_Shirmard2025/`: the twenty craton outlines that Shirmard et al. (2025) delimited tomographically from REVEAL (github.com/EarthByte/Craton_Boundaries).
 - `hotspots_courtillot2003.csv`: the hotspot list of Courtillot et al. (2003).
 - `catalogues/`: the continental intraplate volcanic-field catalogues built from GEOROC (Lehnert et al., 2000) and the Global Volcanism Program by `src/build_ipv_catalogue.py`; `ipv_catalogue_georoc_v3.csv` is the 385-field catalogue the paper uses.
-- `morb/`: the mid-ocean ridge H₂O/Ce compilation of Dixon et al. (in review) with each sample's hydration age in the published, no-net-rotation and maximum-net-rotation reference frames and the per-site subduction histories. These files are reproduced here with the permission of that study's authors and are to be cited as Dixon et al.
+- `morb/`: the mid-ocean ridge H₂O/Ce compilation of Dixon et al. (2026) with each sample's hydration age in the published, no-net-rotation and maximum-net-rotation reference frames and the per-site subduction histories. These files are reproduced here with the permission of that study's authors and are to be cited as Dixon et al.
 - `tomography/REVEAL_mantle_tomography/bands_*.npz`: depth-band means of the four published velocity models that `src/extract_bands.py` reduces from the full volumes (RevealLO, GLAD-M35, SPiRaL, SEMUCB-WM1); `out/bands_REVEAL.npz` in the archive is the same reduction of REVEAL.
 
 Obtained from their sources when an analysis step is rerun from scratch:
 
 - REVEAL (Thrastarson et al., 2024), as `REVEAL_vs_full.nc` in `TOMO_DIR`; GLAD-M35 (Cui et al., 2024) as `GLADM35_mtz.nc`; SPiRaL (Simmons et al., 2021) and SEMUCB-WM1 (French & Romanowicz, 2014) as NetCDF volumes in `TOMO_DIR/REVEAL_mantle_tomography/`. RevealLO is an unpublished development of REVEAL from the Seismology and Wave Physics group at ETH Zürich (the volume `Reveal_33s_with_LO.nc`, or `REVEALLO_NC`); its depth-band reduction is carried here.
 - The Zahirovic et al. (2022) plate reconstruction, fetched by `plate_model_manager` into `MODEL_DIR` on first use, and the optAPM reference-frame rotation files of Tetley et al. (2019) for the two bounding frames.
-- The cumulative subducted-water grids of Dixon et al. (in review) in `GRIDS_DIR`: the total, the part released above 125 km and the part bound below it, for the water-delivery field (`src/water_forward.py`) and the partition (`src/water_partition.py`).
+- The cumulative subducted-water grids of Dixon et al. (2026) in `GRIDS_DIR`: the total, the part released above 125 km and the part bound below it, for the water-delivery field (`src/water_forward.py`) and the partition (`src/water_partition.py`).
 
 ## Rebuilding the figures from the archive
 
@@ -147,7 +147,7 @@ Cite the paper, and the archive for the code and data:
 Afonso, J. C., et al. (2019). *Geophysical Journal International*, 217, 1602–1628. https://doi.org/10.1093/gji/ggz094
 Courtillot, V., Davaille, A., Besse, J., & Stock, J. (2003). Three distinct types of hotspots in the Earth's mantle. *Earth and Planetary Science Letters*, 205, 295–308. https://doi.org/10.1016/S0012-821X(02)01048-8
 Cui, C., et al. (2024). GLAD-M35. *Geophysical Journal International*, 239, 478–502. https://doi.org/10.1093/gji/ggae270
-Dixon, J. E., Müller, R. D., Dutkiewicz, A., & Mather, B. R. (in review). A 400-million-year memory of subduction in the mid-ocean ridge source. *Geology*.
+Dixon, J. E., Müller, R. D., Dutkiewicz, A., & Mather, B. R. (2026). A 400 Myr subduction memory in the mid-ocean ridge source. *EarthArXiv* preprint. https://doi.org/10.31223/X5PF9H
 French, S. W., & Romanowicz, B. A. (2014). SEMUCB-WM1. *Geophysical Journal International*, 199, 1303–1327. https://doi.org/10.1093/gji/ggu334
 Lehnert, K., et al. (2000). GEOROC. *Geochemistry, Geophysics, Geosystems*, 1, 1999GC000026. https://doi.org/10.1029/1999GC000026
 Shirmard, H., et al. (2025). Craton boundaries from REVEAL. github.com/EarthByte/Craton_Boundaries

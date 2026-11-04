@@ -9,7 +9,7 @@
 
 Unhydrated sites (no subducted water in 410 Myr) are open in every panel. The
 compilation itself and the hydration age of each site are Figures 1 and 4 of
-Dixon et al. (in review) and are not re-plotted here. Reads
+Dixon et al. (2026) and are not re-plotted here. Reads
 out/morb_kinematics.csv and the craton shapefile; writes figures/fig_morb_map.
 """
 import os, numpy as np, pandas as pd, geopandas as gpd

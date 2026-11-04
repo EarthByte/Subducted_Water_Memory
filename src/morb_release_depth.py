@@ -23,17 +23,42 @@ import paths as P
 import morb
 
 
-def episode_water(times, W, age_min, age_end):
+def episode_water(times, W, age_min, age_end, label=''):
     """Water delivered between age_end and age_min at each site, from cumulative
     histories W (times x sites); cumulative grows into the past, so delivery in
-    a window is the difference across it."""
+    a window is the difference across it.
+
+    The difference is floored at zero, and the floor is reported rather than applied
+    silently. A window can only come out negative if a site's cumulative history is
+    not monotone, which the released component can be in the grids it is sampled
+    from: the step audit (`src/grid_step_audit.py`) finds the partition between the
+    released and bound water re-apportioned within a cell at 45 of 410 steps, by at
+    most 1.6e-3 of a step's delivery. At the 20 Myr sampling of these histories that
+    is swamped by twenty steps of delivery, and on the Dixon histories of
+    17 October 2026 not one of the 26,880 site windows is negative, so the floor
+    never binds. It is asserted rather than trusted, because a future regrid could
+    make it bind.
+    """
     t = np.asarray(times, float)
     out = np.full(W.shape[1], np.nan)
+    clipped, worst = 0, 0.0
     for j in range(W.shape[1]):
         if not np.isfinite(age_min[j]):
             continue
         k0 = np.argmin(np.abs(t - age_min[j])); k1 = np.argmin(np.abs(t - age_end[j]))
-        out[j] = max(W[k0, j] - W[k1, j], 0.0)
+        raw = W[k0, j] - W[k1, j]
+        if raw < 0.0:
+            clipped += 1
+            worst = min(worst, raw)
+        out[j] = max(raw, 0.0)
+    scale = float(np.nanmax(W)) if np.isfinite(W).any() else 1.0
+    if clipped:
+        print(f'  {label or "windows"}: {clipped} of {int(np.isfinite(age_min).sum())} came out '
+              f'negative and were floored at zero, worst {worst:.3g} '
+              f'({abs(worst) / max(scale, 1e-30):.2e} of the largest cumulative value)')
+    assert abs(worst) <= 1e-6 * max(scale, 1e-30), (
+        'a site window is materially negative: the cumulative histories are no longer monotone '
+        'at this sampling, so the floor is hiding something that has to be looked at')
     return out
 
 
@@ -44,8 +69,10 @@ def main():
     times = h['times']
     age_min = d['age'].values
     age_end = d['age_end_total_mantle_rate0p5'].astype(float).values
-    shallow = episode_water(times, h['slab_outflux_mantle'], age_min, age_end)
-    deep = episode_water(times, h['stored_water_mantle'], age_min, age_end)
+    shallow = episode_water(times, h['slab_outflux_mantle'], age_min, age_end,
+                            label='released above 125 km')
+    deep = episode_water(times, h['stored_water_mantle'], age_min, age_end,
+                         label='bound below 125 km')
     tot = shallow + deep
     share = np.where(tot > 0, shallow / np.maximum(tot, 1e-12), np.nan)
     d['shallow_episode'] = shallow; d['deep_episode'] = deep; d['shallow_share'] = share

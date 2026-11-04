@@ -36,12 +36,13 @@ HOTSPOTS = os.environ.get('HOTSPOTS_CSV',
                           os.path.join(DATA_DIR, 'hotspots_courtillot2003.csv'))
 
 REVEAL = os.path.join(TOMO, 'REVEAL_vs_full.nc')
-# RevealLO: the September 2026 revision Reveal_33s_with_LO.nc is read when
-# present, the file it supersedes otherwise. Same grid. REVEALLO_NC overrides.
+# RevealLO is RevealLO.nc: the September 2026 revision, which carried the name
+# Reveal_33s_with_LO.nc until 28 September 2026 and is read under either name.
+# The first version it superseded has been deleted. REVEALLO_NC overrides.
 _LO = os.path.join(TOMO, 'REVEAL_mantle_tomography')
 REVEALLO = os.environ.get('REVEALLO_NC') or next(
-    (p for p in (os.path.join(_LO, 'Reveal_33s_with_LO.nc'), os.path.join(_LO, 'RevealLO.nc'))
-     if os.path.exists(p)), os.path.join(_LO, 'Reveal_33s_with_LO.nc'))
+    (p for p in (os.path.join(_LO, 'RevealLO.nc'), os.path.join(_LO, 'Reveal_33s_with_LO.nc'))
+     if os.path.exists(p)), os.path.join(_LO, 'RevealLO.nc'))
 IPV_V3 = os.path.join(DATA_DIR, 'catalogues', 'ipv_catalogue_georoc_v3.csv')
 IPV_GVP = os.path.join(DATA_DIR, 'catalogues', 'ipv_catalogue_gvp.csv')
 

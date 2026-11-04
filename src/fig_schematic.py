@@ -67,7 +67,16 @@ def section(ax, fs, compact=False):
     # The mantle that holds the released water: on this axis the dashed line at
     # 170 is 125 km, so the band lies mostly above it and its base is well above
     # the base of the keel, which is what the argument requires.
-    ax.add_patch(Rectangle((14, 55), 86, 145, facecolor=WET, alpha=0.26, edgecolor='none'))
+    # The band fades downwards rather than ending at a line: the model divides the
+    # water at 125 km, the base of the mantle wedge, but a slab goes on losing
+    # water below that depth, so the figure must not draw a floor the mantle has not.
+    import matplotlib.colors as _mc
+    _r, _g, _b = _mc.to_rgb(WET)
+    _a = np.linspace(0.30, 0.04, 256)[:, None]
+    _img = np.dstack([np.full((256, 1), _r), np.full((256, 1), _g),
+                      np.full((256, 1), _b), _a])
+    ax.imshow(_img, extent=(14, 100, 410, 55), origin='upper', aspect='auto',
+              interpolation='bilinear', zorder=1)
 
     # the surface, with the trench at the left and a ridge at the right
     ax.add_patch(Polygon([(1, 0), (10, 0), (46, 480), (37, 480)], closed=True,
