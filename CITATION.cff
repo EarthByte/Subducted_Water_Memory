@@ -2,7 +2,8 @@ cff-version: 1.2.0
 message: If you use this repository, cite the paper and the archive below.
 title: "Subducted_Water_Memory: code, figures and derived data for 'Where subducted water resides: seismic carriers, shallow storage and removal at mid-ocean ridges'"
 version: 1.0.0
-date-released: 2026-11-17
+date-released: 2026-11-18
+doi: 10.5281/zenodo.24295111
 license: MIT
 repository-code: https://github.com/EarthByte/Subducted_Water_Memory
 authors:
