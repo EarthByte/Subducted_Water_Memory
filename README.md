@@ -150,7 +150,7 @@ Cui, C., et al. (2024). GLAD-M35. *Geophysical Journal International*, 239, 478�
 Dixon, J. E., Müller, R. D., Dutkiewicz, A., & Mather, B. R. (2026). A 400 Myr subduction memory in the mid-ocean ridge source. *EarthArXiv* preprint. https://doi.org/10.31223/X5PF9H
 French, S. W., & Romanowicz, B. A. (2014). SEMUCB-WM1. *Geophysical Journal International*, 199, 1303–1327. https://doi.org/10.1093/gji/ggu334
 Lehnert, K., et al. (2000). GEOROC. *Geochemistry, Geophysics, Geosystems*, 1, 1999GC000026. https://doi.org/10.1029/1999GC000026
-Schiller, C. J., van Herwaarden, D.-P., Thrastarson, S., Noe, S., & Fichtner, A. (2026). RevealLO: a global full-waveform inversion model constrained by long-period multi-orbit data. *arXiv* preprint.
+Schiller, C. J., Keating, S., Afanasiev, M., Marty, P., & Fichtner, A. (2026). RevealLO: Global-scale FWI including long-period major-arc surface wave and multi-orbit body wave data. *arXiv*. https://doi.org/10.48550/arXiv.2611.21322
 Shirmard, H., et al. (2025). Craton boundaries from REVEAL. github.com/EarthByte/Craton_Boundaries
 Simmons, N. A., et al. (2021). SPiRaL. *Geophysical Journal International*, 227, 1366–1391. https://doi.org/10.1093/gji/ggab277
 Tetley, M. G., Williams, S. E., Gurnis, M., Flament, N., & Müller, R. D. (2019). Constraining absolute plate motions since the Triassic. *Journal of Geophysical Research: Solid Earth*, 124, 7231–7258. https://doi.org/10.1029/2019JB017442
