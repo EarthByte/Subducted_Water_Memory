@@ -487,6 +487,12 @@ TYPE_EXAMPLES = ['Changbaishan', 'Baitoushan', 'Wudalianchi', 'Hainan', 'Leizhou
 
 
 def main():
+    """Build the intraplate volcanism catalogue from one downloaded source.
+
+    The two sources describe a volcanic field differently, so each is normalised to the
+    same columns here rather than in the analysis, and the source is recorded per row so
+    that a result can be traced back to the compilation it came from.
+    """
     ap = argparse.ArgumentParser(
         description='Build a continental intraplate volcanism catalogue.')
     ap.add_argument('--source', choices=['gvp', 'georoc'], required=True)

@@ -104,6 +104,12 @@ class Model:
     several gigabytes and none of it below 700 km is wanted here.
     """
     def __init__(self, path):
+        """Open a velocity volume and prepare the depth bands this script reads.
+
+        The variable names and the depth axis differ between models, so both are found
+        rather than assumed, and a depth axis in metres or as a radius is converted to
+        kilometres; getting that wrong puts every shell outside every band.
+        """
         ds = xr.open_dataset(path)
         names = {k.lower(): k for k in ds.variables}
         latn = names.get('latitude') or names.get('lat')
@@ -181,6 +187,12 @@ class Model:
 
 
 def main():
+    """Cluster the volcanic fields, score each cluster against tomography, and test it.
+
+    Writes the per-cluster table and the null distributions. The rotation null can be
+    restricted to continental lithosphere, which is the comparison the paper reports,
+    because the fields are continental and oceanic mantle is not their counterfactual.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--models', nargs='+', default=list(MODEL_FILE))
     ap.add_argument('--continental', action='store_true',

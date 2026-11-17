@@ -93,6 +93,12 @@ def sigma_rows(field, lat, lon, window, half_km=HALF_WIDTH_KM, max_rms=0.02):
 
 
 def main():
+    """Measure the smoothing already in the water grids from one time step of delivery.
+
+    A single step along a straight margin is a line source, so a Gaussian fitted across it
+    row by row returns the filter the grids carry. Writes `grid_smoothing.csv` with the
+    fitted standard deviation of every usable row.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--times', type=int, nargs=2, default=[100, 99], help='older then younger')
     ap.add_argument('--product', default='subducted', choices=['subducted', 'stored', 'outflux'])

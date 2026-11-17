@@ -1,0 +1,30 @@
+occupancy (10, 361, 721) on 361x721, bands [10. 25.] .. [350. 400.]
+
+=== threshold on the fast transition zone (REVEAL, native binning, exp+floor)
+  top 20 per cent   base 20.5 %   tau =  26.4 +/- 10.1 Myr   (10 bands)
+  top 15 per cent   base 15.9 %   tau =  27.0 +/-  8.0 Myr   (10 bands)
+  top 12 per cent   base 13.3 %   tau =  28.0 +/-  7.2 Myr   (10 bands)
+  top 10 per cent   base 11.1 %   tau =  28.4 +/-  6.2 Myr   (10 bands)
+  top  8 per cent   base  9.0 %   tau =  28.6 +/-  5.1 Myr   (10 bands)
+  top  5 per cent   base  5.7 %   tau =  27.1 +/-  3.8 Myr   (10 bands)
+
+=== age binning: width in stored bands, and where the bands start (REVEAL, 90th)
+  width 1, offset 0   10 bands   tau =  28.4 +/-  6.2 Myr
+  width 2, offset 0    5 bands   tau =  23.9 +/-  3.8 Myr
+  width 2, offset 1    6 bands   tau =  28.6 +/-  6.6 Myr
+  width 3, offset 0    4 bands   tau =  12.2 +/- 463.4 Myr
+  width 3, offset 1    4 bands   tau =  36.7 +/-  1.6 Myr
+  width 3, offset 2    4 bands   tau =  16.2 +/-  1.9 Myr
+
+=== functional form (REVEAL, 90th, native binning)
+  exp+floor   tau =  28.4 +/-  6.2 Myr
+  exp         tau =  50.3 +/- 14.3 Myr
+  power       tau =   3.0 +/-  9.0 Myr
+  stretched   tau =  44.1 +/-  7.8 Myr
+
+=== the same three axes, all three models, exp+floor at the 90th
+  REVEAL    native  28.4 +/-  6.2 Myr   across binnings  12.2 to  36.7 Myr
+  RevealLO  native  29.2 +/-  9.3 Myr   across binnings   9.1 to  38.9 Myr
+  GLADM35   native  24.3 +/-  6.0 Myr   across binnings   9.9 to  31.2 Myr
+
+wrote /Users/dietmar/Documents/Papers/in_prep/Muller_mantle_tomography_subduction/Paper_hydration/out/tau_sensitivity.csv

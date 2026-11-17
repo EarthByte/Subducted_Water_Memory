@@ -1,5 +1,5 @@
-# Derived products are in the Zenodo archive, not the repository
-out/
+# Large outputs a run writes; not part of the archive
+out/large/
 # Large inputs are obtained from their sources; see README
 data/tomography/*.nc
 data/tomography/REVEAL_mantle_tomography/*.nc

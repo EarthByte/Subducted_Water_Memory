@@ -30,6 +30,12 @@ ORDER = ['REVEAL', 'RevealLO', 'GLAD-M35', 'SPiRaL', 'SEMUCB-WM1']
 
 
 def main():
+    """Repeat the depth localisation at each down-dip offset and report how it moves.
+
+    Every offset is a separately constructed delivery map, so this compares five maps, each
+    with its own correction for the depths tested in it, rather than one map read at
+    several depths. Writes the profile the offset sweep in the supplement is drawn from.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--band', default='410-520')
     ap.add_argument('--alpha', type=float, default=0.05)

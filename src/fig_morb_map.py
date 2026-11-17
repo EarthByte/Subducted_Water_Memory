@@ -47,6 +47,11 @@ fig.subplots_adjust(left=0.08, right=0.97, top=0.98, bottom=0.07, hspace=0.36)
 
 
 def base(ax, cratons=False):
+    """Draw the common map furniture: land, coastlines, graticule and plate boundaries.
+
+    Ridges are drawn beneath the sample symbols and trenches carry their teeth towards the
+    overriding plate, so that the geometry is readable where the sites are dense.
+    """
     ax.set_global()
     ax.add_feature(cfeature.LAND.with_scale('110m'), facecolor=F.LAND, edgecolor='none', zorder=1)
     ax.coastlines('110m', lw=0.4, color='#b0aba4', zorder=2)

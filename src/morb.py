@@ -108,6 +108,12 @@ def _dist_to_segment_km(lon, lat, a, b, n=200):
 
 
 def plume_mask(d, km=PLUME_KM, report=True):
+    """Which samples lie on a plume-influenced ridge segment, by distance to its axis.
+
+    The segments are named rather than inferred, and the count on each is reported, so
+    that a result quoted with and without them can be read against how many samples the
+    exclusion actually removes.
+    """
     m = np.zeros(len(d), bool)
     counts = {}
     for name, (a, b) in PLUME_SEGMENTS.items():

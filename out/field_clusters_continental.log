@@ -1,0 +1,12 @@
+385 fields in 27 provinces at 500 km linkage; null is continent-restricted, 3000 rotations
+
+  REVEAL      levels 10/6/13   TZ +0.399 [+0.148,+0.654] p=0.233   350-410 +0.397 p=0.430   minus ref -0.295 p=0.486
+  RevealLO    levels 10/6/25   TZ +0.554 [+0.303,+0.797] p=0.500   350-410 +0.468 p=0.278   minus ref -0.003 p=0.389
+  GLAD-M35    levels 10/6/25   TZ +0.500 [+0.215,+0.765] p=0.229   350-410 +0.450 p=0.312   minus ref +0.038 p=0.373
+  SPiRaL      levels 2/1/7   TZ +0.184 [-0.094,+0.455] p=0.341   350-410 +0.069 p=0.258   minus ref +0.428 p=0.280
+  SEMUCB-WM1  levels 5/3/6   TZ +0.353 [+0.145,+0.568] p=0.307   350-410 +0.407 p=0.362   minus ref -0.085 p=0.490
+
+  transition zone positive in 5 of 5 volumes; 350-410 km positive in 5 of 5
+  levels are 250-350 / 350-410 / 410-660; a volume with one level in an
+  interval is not really measuring it
+wrote /Users/dietmar/Documents/Papers/in_prep/Muller_mantle_tomography_subduction/Paper_hydration/out/field_clusters_continental.csv

@@ -1,0 +1,40 @@
+2026-09-15 10:39:29 - gplately - ERROR - Failed to import PyGMT. PyGMT requires Python>=3.11.
+2026-09-15 10:39:30 - gplately - ERROR - Failed to import PyGMT. PyGMT requires Python>=3.11.
+/usr/local/lib/python3.11/dist-packages/xarray/backends/plugins.py:109: RuntimeWarning: Engine 'gmt' loading failed:
+Error loading GMT shared library at 'libgmt.so'.
+libgmt.so: cannot open shared object file: No such file or directory
+119217 continental cells; 54525 at least 150 km thick, 14991 at least 200 km
+25859 cells inside a craton polygon
+
+ t (Ma)  sites under continent  under keel  ridge within 200 km
+      0                      6           0                 1320
+     20                     20           0                  943
+     40                    181           2                  452
+     60                    209          13                  224
+     80                    218          58                  123
+    100                    473          87                  139
+    120                    586         107                   79
+    140                    650          74                   70
+    160                    646         120                   58
+    180                    650          84                   32
+    200                    672          66                   70
+    220                    538          66                   46
+    240                    508           3                   30
+    260                    379          36                   13
+    280                    327           0                   42
+    300                    315           5                  133
+    320                    452          17                   55
+    340                    332          16                   68
+    360                    467          16                   19
+    380                    479          37                   23
+    400                    435          78                   49
+
+543 hydrated samples. Since hydration:
+  under continental lithosphere at some time: 427 (79%), median 100 Myr among those
+  under lithosphere >= 150 km: 307 (57%)
+  under a keel >= 200 km: 183 (34%)
+  under a craton polygon: 267 (49%)
+  ridge within 100 km: median 25 Myr, 10-90% 5-45
+  ridge within 200 km: median 35 Myr, 10-90% 5-65
+  ridge within 300 km: median 40 Myr, 10-90% 5-70
+wrote out/morb_kinematics.csv and .npz

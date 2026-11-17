@@ -49,6 +49,11 @@ def fit_tau(t, E, sigma):
 
 
 def main():
+    """Rerun the confirmation at one down-dip offset and tag its outputs with it.
+
+    The tag keeps a sweep from overwriting the reference run, so that the conservative
+    geometry and the reference one can be compared afterwards rather than in sequence.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--offset', type=float, default=200.0)
     ap.add_argument('--band', default=BAND)

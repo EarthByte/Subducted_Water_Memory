@@ -1,0 +1,62 @@
+occupancy: hydration_age_map_offset500.npz
+10 age bands usable, 165041 cells assigned
+REVEAL: 18 s
+RevealLO: 16 s
+GLADM35: 16 s
+SPiRaL: 16 s
+SEMUCBWM1: 15 s
+
+model             band     E*  null95       p   p adj
+REVEAL      410-520      3.53    2.29  0.0005  0.0005  <-- survives
+REVEAL      520-660      3.59    2.69  0.0015  0.0085  <-- survives
+REVEAL      660-720      2.42    2.42  0.0500  0.3203
+REVEAL      720-780      2.51    2.36  0.0305  0.2134
+REVEAL      780-880      2.64    2.42  0.0235  0.1679
+REVEAL      880-1010     1.71    2.29  0.4013  0.9585
+REVEAL     1000-1300     2.10    2.55  0.1914  0.7641
+REVEAL     1300-1600     3.23    2.60  0.0045  0.0345  <-- survives
+REVEAL     1600-2000     2.99    2.56  0.0145  0.1089
+REVEAL     2000-2500     2.98    2.60  0.0145  0.1089
+RevealLO    410-520      3.15    2.35  0.0015  0.0085  <-- survives
+RevealLO    520-660      3.48    2.75  0.0010  0.0050  <-- survives
+RevealLO    660-720      2.66    2.64  0.0490  0.2924
+RevealLO    720-780      2.77    2.45  0.0155  0.1109
+RevealLO    780-880      2.85    2.35  0.0050  0.0380  <-- survives
+RevealLO    880-1010     1.94    2.20  0.1594  0.6722
+RevealLO   1000-1300     2.30    2.53  0.1084  0.5337
+RevealLO   1300-1600     3.05    2.59  0.0085  0.0655
+RevealLO   1600-2000     3.11    2.64  0.0155  0.1109
+RevealLO   2000-2500     3.13    2.47  0.0030  0.0225  <-- survives
+GLADM35     410-520      4.20    3.33  0.0055  0.0355  <-- survives
+GLADM35     520-660      4.26    3.46  0.0040  0.0265  <-- survives
+GLADM35     660-720      3.36    2.64  0.0045  0.0290  <-- survives
+GLADM35     720-780      3.18    2.53  0.0045  0.0290  <-- survives
+GLADM35     780-880      3.15    2.50  0.0050  0.0325  <-- survives
+GLADM35     880-1010     2.64    2.31  0.0155  0.0920
+GLADM35    1000-1300     3.36    2.66  0.0045  0.0290  <-- survives
+GLADM35    1300-1600     3.85    3.06  0.0065  0.0410  <-- survives
+GLADM35    1600-2000     3.59    2.93  0.0125  0.0780
+GLADM35    2000-2500     2.61    2.86  0.0995  0.4563
+SPiRaL      410-520      3.48    2.53  0.0010  0.0050  <-- survives
+SPiRaL      520-660      3.07    2.47  0.0035  0.0255  <-- survives
+SPiRaL      660-720      1.89    2.33  0.2449  0.8731
+SPiRaL      720-780      2.29    2.15  0.0215  0.1544
+SPiRaL      780-880      1.80    2.01  0.1424  0.6852
+SPiRaL      880-1010     1.70    2.01  0.2399  0.8681
+SPiRaL     1000-1300     2.30    2.20  0.0320  0.2284
+SPiRaL     1300-1600     2.22    2.37  0.0900  0.5152
+SPiRaL     1600-2000     1.88    2.50  0.3128  0.9355
+SPiRaL     2000-2500     1.75    2.49  0.4913  0.9915
+SEMUCBWM1   410-520      3.31    2.49  0.0015  0.0080  <-- survives
+SEMUCBWM1   520-660      3.51    2.56  0.0010  0.0050  <-- survives
+SEMUCBWM1   660-720      3.08    2.43  0.0010  0.0050  <-- survives
+SEMUCBWM1   720-780      2.80    2.30  0.0030  0.0205  <-- survives
+SEMUCBWM1   780-880      2.42    2.08  0.0130  0.0840
+SEMUCBWM1   880-1010     2.31    2.14  0.0260  0.1559
+SEMUCBWM1  1000-1300     3.38    2.41  0.0015  0.0080  <-- survives
+SEMUCBWM1  1300-1600     3.98    3.09  0.0090  0.0595
+SEMUCBWM1  1600-2000     3.15    3.22  0.0590  0.3183
+SEMUCBWM1  2000-2500     3.04    3.18  0.0665  0.3498
+
+37 of 50 bands clear at p <= 0.05 uncorrected, 21 after correcting for the 16 depths tested in each volume
+wrote /Users/dietmar/Documents/Papers/in_prep/Muller_mantle_tomography_subduction/Paper_hydration/out/depth_fwer_off500.csv

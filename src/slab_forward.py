@@ -50,6 +50,12 @@ def displace(lon, lat, az_deg, km):
 
 
 def main():
+    """Carry slabs down to the transition zone and record when each arrives.
+
+    The sinking rate and the residence once a slab stagnates are both explicit, because
+    they set which delivery counts as recent; the reconstruction supplies the geography
+    and this supplies the timing.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--model', default='alfonso2024')
     ap.add_argument('--v-sink', type=float, default=50.0, help='km/Myr in the upper mantle')

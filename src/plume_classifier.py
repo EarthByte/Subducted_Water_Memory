@@ -258,6 +258,12 @@ def band_cuts(depth, arr):
 
 
 def column_descriptors(name, hlat, hlon, depth, lat, lon, arr):
+    """The velocity structure beneath one hotspot, at several radii and depths.
+
+    Several seed radii are used because a column narrower than the model resolves is not a
+    measurement, and a wide one dilutes a narrow plume; reporting all of them lets the
+    reader see which conclusions depend on that choice.
+    """
     cuts = band_cuts(depth, arr)
     rows = []
     for r in SEED_RADII:
@@ -283,6 +289,12 @@ def column_descriptors(name, hlat, hlon, depth, lat, lon, arr):
 # stage C — persistence: at what threshold does this structure lose its identity?
 # --------------------------------------------------------------------------
 def persistence(name, hlat, hlon, depth, lat, lon, labels, scan):
+    """How far down a connected slow body beneath one hotspot can be followed.
+
+    The percolation scan says at which threshold the body joins the global network; a
+    column that only continues because it has merged into that network is not a plume
+    continuing, which is what the giant-component bookkeeping here separates out.
+    """
     giant = {r['pct']: r.get('giant_id', -1) for r in scan.to_dict('records')}
     perc = {r['pct']: r['percolated'] for r in scan.to_dict('records')}
 
@@ -356,6 +368,11 @@ def persistence(name, hlat, hlon, depth, lat, lon, labels, scan):
 
 # --------------------------------------------------------------------------
 def main():
+    """Describe every hotspot column and write the classification tables.
+
+    The descriptors are computed once and reused by the null scripts, so that the
+    observation and its null are formed by the same code rather than by two versions of it.
+    """
     global HOTSPOTS, OUT
     ap = argparse.ArgumentParser()
     ap.add_argument('--model', default='REVEAL', choices=list(MODELS))

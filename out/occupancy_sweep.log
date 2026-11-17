@@ -1,0 +1,27 @@
+fitting on REVEAL, RevealLO, GLADM35
+
+  reference                REVEAL  28.4  RevealLO  29.2  GLADM35  24.3
+  radius    150.0          REVEAL  34.0  RevealLO  35.3  GLADM35  29.1
+  radius    200.0          REVEAL  31.2  RevealLO  32.6  GLADM35  26.6
+  radius    350.0          REVEAL  22.5  RevealLO  24.5  GLADM35  21.3
+  radius    500.0          REVEAL  15.3  RevealLO  18.3  GLADM35  17.9
+  offset    150.0          REVEAL  36.1  RevealLO  36.3  GLADM35  27.9
+  offset    200.0          REVEAL  33.5  RevealLO  34.1  GLADM35  26.8
+  offset    400.0          REVEAL  23.2  RevealLO  25.8  GLADM35  23.1
+  offset    500.0          REVEAL  19.5  RevealLO  23.6  GLADM35  22.8
+  v_sink    30.0           REVEAL  29.2  RevealLO  31.4  GLADM35  25.6
+  v_sink    40.0           REVEAL  28.8  RevealLO  29.8  GLADM35  24.7
+  v_sink    70.0           REVEAL  28.4  RevealLO  29.2  GLADM35  24.3
+  v_sink    90.0           REVEAL  28.4  RevealLO  29.2  GLADM35  24.3
+  frame     NNR            REVEAL  30.2  RevealLO  35.3  GLADM35  34.6   [0 min]
+  frame     maxNR          REVEAL  24.8  RevealLO  24.9  GLADM35  22.5   [0 min]
+
+15 settings, 45 fits
+  reference: REVEAL 28.4, RevealLO 29.2, GLADM35 24.3 Myr
+  across every setting and volume: 15.3 to 36.3 Myr, median 27.9
+  varying radius  :  15.3 to  35.3 Myr
+  varying offset  :  19.5 to  36.3 Myr
+  varying v_sink  :  24.3 to  31.4 Myr
+  varying frame   :  22.5 to  35.3 Myr
+
+wrote /Users/dietmar/Documents/Papers/in_prep/Muller_mantle_tomography_subduction/Paper_hydration/out/occupancy_sweep.csv   [1 min total]

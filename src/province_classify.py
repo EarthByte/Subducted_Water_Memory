@@ -53,6 +53,12 @@ def classify(fam, thr, min_fam):
 
 
 def main():
+    """Classify each province as fast, slow or near-neutral, and say how firmly.
+
+    A province counts as a material departure only when its score exceeds the threshold
+    and independent model families agree on the sign, which keeps a single inversion from
+    deciding a class on its own. Writes the classification the province tables use.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--null', default='continental')
     ap.add_argument('--thr', type=float, default=1.25,

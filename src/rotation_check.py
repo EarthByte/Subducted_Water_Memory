@@ -51,6 +51,12 @@ def haar(rng):
 
 
 def main():
+    """Check that the rotation null is drawn uniformly and moves the set far enough.
+
+    Draws many rotations, reports the distribution of the angle and of the displacement
+    they give the fast set, and compares it with the Haar expectation. A null that starves
+    the large rotations carries the observed association into itself, which this is for.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--n', type=int, default=1500)
     ap.add_argument('--band', type=float, nargs=2, default=[410.0, 520.0])

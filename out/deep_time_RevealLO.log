@@ -1,0 +1,55 @@
+mask from bands_RevealLO.npz
+23 coherent bodies above 4e+05 km2, 21429 cells
+zahirovic2022: scanning 196 epochs from 10.0 to 400 Ma
+offset 300 km down-dip, 250 km search radius, sinking 50 km/Myr
+
+57.9 per cent of the surface has any subduction explanation within 400 Myr
+
+observed fast transition zone: 21429 cells, 83 per cent with an explanation
+  youngest explaining subduction age, percentiles (Ma):
+   p10=10  p25=10  p50=30  p75=82  p90=204  p95=320  p99=378
+  the same percentiles for randomly rotated positions (median of 2000):
+   p10=10  p25=36  p50=98  p75=218  p90=330  p95=354  p99=392
+  one-sided p that the observed percentile is older than chance:
+   p10=1.000  p25=1.000  p50=0.986  p75=0.989  p90=0.969  p95=0.920  p99=0.836
+
+persistence. Base rate of a fast transition zone is 11.4 per cent of the surface by construction.
+    subduction age     cells   fast TZ  enrichment         95% band
+      10-25            22588     41.2%        3.62    3.56    3.68
+      25-50            27842     40.6%        3.57    3.52    3.62
+      50-75            30616     29.6%        2.60    2.56    2.65
+      75-100           34859     24.4%        2.14    2.10    2.18
+     100-150           67255     18.3%        1.61    1.58    1.63
+     150-200           56024     19.8%        1.74    1.72    1.77
+     200-250           60442     20.2%        1.77    1.75    1.80
+     250-300           57915     13.2%        1.16    1.13    1.18
+     300-350           75481     15.4%        1.35    1.33    1.37
+     350-400           83632     15.1%        1.33    1.31    1.35
+
+hydration age per body, oldest first
+                region  lon  lat  area_km2  attributed_0_30  explained  t_min_p10  t_min_median  t_min_p90
+   Antarctic / S Ocean  -32  -57    407133             True          1         10           376        380
+       Africa / Arabia   13   -1   2825615            False          1        320           336        376
+            unassigned  -27  -10   1897283            False          0        286           314        400
+            unassigned  -35    8    459146            False          0        256           282        296
+       Africa / Arabia   44    3    484448            False          1        266           268        270
+            unassigned   85   30    704336            False          1        170           182        292
+Mediterranean / Tethys   46   24   3133521             True          1         10            90        154
+       Africa / Arabia   53    5    669604            False          1         64            86         86
+            unassigned  -66   13    425047            False          1         10            50         66
+            unassigned  166   66    562556            False          1         34            48         68
+   Antarctic / S Ocean  -54  -56    641976             True          1         16            30        104
+S America / SE Pacific  -65  -23   5370938             True          1         10            26         54
+            unassigned  133   11  30179504            False          1         10            22        186
+            unassigned  -87   15    486504            False          1         10            10         40
+Mediterranean / Tethys   17   39   3693836             True          1         10            10         54
+            unassigned  112  -61    404285            False          0        NaN           NaN        NaN
+       Africa / Arabia   11  -23   2205829            False          0        NaN           NaN        NaN
+            unassigned   29  -27    401839            False          0        NaN           NaN        NaN
+            unassigned  -12  -25    543247            False          0        NaN           NaN        NaN
+            unassigned -151  -11    527126            False          0        NaN           NaN        NaN
+            unassigned  -20   10    800702            False          0        NaN           NaN        NaN
+            unassigned  -17   21    509967            False          0        NaN           NaN        NaN
+            unassigned  -28   31    782213            False          0        NaN           NaN        NaN
+
+wrote hydration_age_bodies_RevealLO.csv, hydration_age_map_RevealLO.npz and persistence_RevealLO.csv

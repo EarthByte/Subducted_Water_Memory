@@ -63,6 +63,12 @@ def episode_water(times, W, age_min, age_end, label=''):
 
 
 def main():
+    """Ask whether ridge chemistry distinguishes shallow from deep release of the water.
+
+    Each site's cumulative histories give the water that left the slab above 125 km and
+    the part still bound below it over the window that ends at the site's hydration age.
+    Writes the per-site shares and their relation to H2O/Ce.
+    """
     d = morb.load()
     h = np.load(P.need(P.MORB_HISTORIES, 'DIXON_DIR', 'the per-site water histories'))
     assert np.allclose(h['lat'], d.Latitude.values), 'histories are for another sample table'

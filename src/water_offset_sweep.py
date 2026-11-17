@@ -34,6 +34,12 @@ from province_pivot import provinces, CAT, RADIUS_DEG
 
 
 def footprint(field, lon, lat, d):
+    """The mean of a field in a disc of fixed angular radius around each field position.
+
+    The grid is regular in longitude, so the number of columns inside the disc grows with
+    latitude; the cosine term keeps the disc circular on the sphere rather than letting it
+    narrow towards the poles, which would sample less mantle beneath high-latitude fields.
+    """
     dlat, dlon = abs(lat[1] - lat[0]), abs(lon[1] - lon[0])
     near = lambda ax, v: np.abs(ax[None, :] - np.asarray(v, float)[:, None]).argmin(1)
     jl, il = near(lat, d.lat.values), near(lon, d.lon_180.values)
@@ -49,6 +55,12 @@ def footprint(field, lon, lat, d):
 
 
 def main():
+    """Repeat the water-velocity correlation at each down-dip offset.
+
+    Each offset reads its own delivery field, so the sweep measures sensitivity to the
+    assumed slab geometry rather than returning five independent confirmations. Writes
+    `water_offset_sweep.csv` with the correlation and its probability at every offset.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--offsets', type=float, nargs='+',
                     default=[150, 200, 300, 400, 500])

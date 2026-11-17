@@ -1,0 +1,1057 @@
+RevealLO = /Users/dietmar/Documents/Papers/in_prep/Muller_mantle_tomography_subduction/REVEAL_mantle_tomography/Reveal_33s_with_LO.nc
+  depth axis depth: raw 0 to 6.37e+06 -> 0 to 6370 km, 638 shells
+RevealLO: 638 shells 0-6370 km, 361x721
+  Voigt average of vsv and vsh
+  fractional anomaly about a lateral mean of 37.3 to 7370 per shell
+  222 of 638 shells carry no usable data
+      0-100    10 shells, mean -0.120 per cent, 100 per cent covered
+    100-200    10 shells, mean -0.002 per cent, 100 per cent covered
+    200-300    10 shells, mean -0.002 per cent, 100 per cent covered
+    300-410    11 shells, mean -0.002 per cent, 100 per cent covered
+    410-520    11 shells, mean -0.001 per cent, 100 per cent covered
+    520-660    14 shells, mean -0.000 per cent, 100 per cent covered
+    660-720     6 shells, mean +0.000 per cent, 100 per cent covered
+    720-780     6 shells, mean +0.000 per cent, 100 per cent covered
+    780-880    10 shells, mean +0.000 per cent, 100 per cent covered
+    880-1010   13 shells, mean +0.000 per cent, 100 per cent covered
+   1000-1300   30 shells, mean +0.000 per cent, 100 per cent covered
+   1300-1600   30 shells, mean +0.000 per cent, 100 per cent covered
+   1600-2000   40 shells, mean +0.001 per cent, 100 per cent covered
+   2000-2500   50 shells, mean +0.001 per cent, 100 per cent covered
+
+wrote /Users/dietmar/Documents/Papers/in_prep/Muller_mantle_tomography_subduction/REVEAL_mantle_tomography/bands_RevealLO.npz  (13.3 MB)
+occupancy: hydration_age_map.npz
+10 age bands usable, 160995 cells assigned
+REVEAL: 18 s
+RevealLO: 16 s
+GLADM35: 16 s
+SPiRaL: 16 s
+SEMUCBWM1: 16 s
+
+model             band     E*  null95       p   p adj
+REVEAL      410-520      3.28    2.35  0.0005  0.0005  <-- survives
+REVEAL      520-660      3.22    2.83  0.0160  0.1149
+REVEAL      660-720      2.18    2.48  0.1404  0.6347
+REVEAL      720-780      2.31    2.44  0.0730  0.4098
+REVEAL      780-880      2.46    2.52  0.0580  0.3488
+REVEAL      880-1010     1.80    2.34  0.3203  0.9165
+REVEAL     1000-1300     2.03    2.62  0.2629  0.8631
+REVEAL     1300-1600     2.84    2.67  0.0285  0.1969
+REVEAL     1600-2000     2.60    2.62  0.0530  0.3308
+REVEAL     2000-2500     2.65    2.68  0.0535  0.3323
+RevealLO    410-520      2.93    2.42  0.0060  0.0450  <-- survives
+RevealLO    520-660      3.16    2.89  0.0250  0.1659
+RevealLO    660-720      2.37    2.80  0.1379  0.6057
+RevealLO    720-780      2.50    2.58  0.0645  0.3588
+RevealLO    780-880      2.69    2.43  0.0240  0.1594
+RevealLO    880-1010     2.08    2.27  0.1079  0.5192
+RevealLO   1000-1300     2.22    2.63  0.1624  0.6637
+RevealLO   1300-1600     2.74    2.67  0.0410  0.2519
+RevealLO   1600-2000     3.00    2.71  0.0245  0.1624
+RevealLO   2000-2500     2.94    2.49  0.0110  0.0810
+GLADM35     410-520      4.07    3.54  0.0115  0.0735
+GLADM35     520-660      4.11    3.67  0.0155  0.0940
+GLADM35     660-720      3.07    2.70  0.0195  0.1174
+GLADM35     720-780      2.85    2.59  0.0230  0.1349
+GLADM35     780-880      2.79    2.56  0.0265  0.1564
+GLADM35     880-1010     2.58    2.37  0.0210  0.1239
+GLADM35    1000-1300     3.08    2.76  0.0175  0.1059
+GLADM35    1300-1600     3.18    3.14  0.0455  0.2499
+GLADM35    1600-2000     3.09    2.96  0.0375  0.2089
+GLADM35    2000-2500     2.43    2.96  0.1734  0.6442
+SPiRaL      410-520      3.29    2.61  0.0040  0.0295  <-- survives
+SPiRaL      520-660      2.84    2.58  0.0180  0.1324
+SPiRaL      660-720      1.88    2.40  0.2734  0.9000
+SPiRaL      720-780      2.20    2.19  0.0490  0.3178
+SPiRaL      780-880      1.97    2.05  0.0740  0.4438
+SPiRaL      880-1010     1.91    2.04  0.0990  0.5537
+SPiRaL     1000-1300     2.14    2.25  0.0810  0.4763
+SPiRaL     1300-1600     2.28    2.48  0.0890  0.5162
+SPiRaL     1600-2000     1.68    2.54  0.5262  0.9960
+SPiRaL     2000-2500     1.82    2.55  0.4423  0.9865
+SEMUCBWM1   410-520      3.19    2.52  0.0050  0.0340  <-- survives
+SEMUCBWM1   520-660      3.38    2.70  0.0030  0.0195  <-- survives
+SEMUCBWM1   660-720      2.92    2.55  0.0120  0.0750
+SEMUCBWM1   720-780      2.61    2.38  0.0195  0.1184
+SEMUCBWM1   780-880      2.53    2.13  0.0115  0.0725
+SEMUCBWM1   880-1010     2.30    2.19  0.0295  0.1719
+SEMUCBWM1  1000-1300     3.10    2.50  0.0065  0.0430  <-- survives
+SEMUCBWM1  1300-1600     3.55    3.15  0.0255  0.1504
+SEMUCBWM1  1600-2000     3.22    3.30  0.0585  0.3213
+SEMUCBWM1  2000-2500     3.38    3.25  0.0405  0.2334
+
+30 of 50 bands clear at p <= 0.05 uncorrected, 6 after correcting for the 16 depths tested in each volume
+wrote /Users/dietmar/Documents/Papers/in_prep/Muller_mantle_tomography_subduction/Paper_hydration/out/depth_fwer.csv
+occupancy: hydration_age_map_offset150.npz
+10 age bands usable, 158923 cells assigned
+REVEAL: 19 s
+RevealLO: 16 s
+GLADM35: 16 s
+SPiRaL: 16 s
+SEMUCBWM1: 16 s
+
+model             band     E*  null95       p   p adj
+REVEAL      410-520      2.90    2.43  0.0075  0.0565
+REVEAL      520-660      2.88    2.96  0.0585  0.3483
+REVEAL      660-720      2.06    2.57  0.2049  0.7786
+REVEAL      720-780      2.16    2.49  0.1224  0.5807
+REVEAL      780-880      2.28    2.58  0.1029  0.5217
+REVEAL      880-1010     1.82    2.40  0.3063  0.8936
+REVEAL     1000-1300     1.97    2.69  0.3023  0.8881
+REVEAL     1300-1600     2.57    2.73  0.0830  0.4533
+REVEAL     1600-2000     2.91    2.69  0.0280  0.1874
+REVEAL     2000-2500     2.44    2.71  0.1014  0.5157
+RevealLO    410-520      2.64    2.51  0.0315  0.1999
+RevealLO    520-660      2.85    3.03  0.0755  0.4018
+RevealLO    660-720      2.19    2.93  0.2129  0.7716
+RevealLO    720-780      2.30    2.66  0.1214  0.5487
+RevealLO    780-880      2.49    2.56  0.0615  0.3403
+RevealLO    880-1010     2.06    2.35  0.1349  0.5917
+RevealLO   1000-1300     2.16    2.69  0.2094  0.7641
+RevealLO   1300-1600     2.63    2.74  0.0675  0.3638
+RevealLO   1600-2000     3.20    2.83  0.0180  0.1239
+RevealLO   2000-2500     2.79    2.55  0.0265  0.1719
+GLADM35     410-520      3.74    3.71  0.0475  0.2514
+GLADM35     520-660      3.85    3.84  0.0495  0.2589
+GLADM35     660-720      3.11    2.80  0.0175  0.1084
+GLADM35     720-780      2.91    2.67  0.0270  0.1579
+GLADM35     780-880      2.86    2.65  0.0290  0.1694
+GLADM35     880-1010     2.61    2.42  0.0230  0.1384
+GLADM35    1000-1300     2.82    2.83  0.0520  0.2679
+GLADM35    1300-1600     3.07    3.17  0.0640  0.3213
+GLADM35    1600-2000     3.02    3.06  0.0590  0.3008
+GLADM35    2000-2500     2.86    3.06  0.0830  0.3873
+SPiRaL      410-520      3.06    2.68  0.0190  0.1444
+SPiRaL      520-660      2.60    2.68  0.0640  0.3903
+SPiRaL      660-720      1.86    2.47  0.3043  0.9195
+SPiRaL      720-780      2.10    2.23  0.0865  0.4933
+SPiRaL      780-880      2.06    2.08  0.0560  0.3563
+SPiRaL      880-1010     2.04    2.10  0.0615  0.3788
+SPiRaL     1000-1300     2.15    2.30  0.0965  0.5332
+SPiRaL     1300-1600     2.50    2.50  0.0505  0.3288
+SPiRaL     1600-2000     1.60    2.59  0.6332  1.0000
+SPiRaL     2000-2500     1.77    2.63  0.4978  0.9930
+SEMUCBWM1   410-520      2.90    2.57  0.0160  0.1039
+SEMUCBWM1   520-660      3.09    2.84  0.0260  0.1509
+SEMUCBWM1   660-720      2.69    2.67  0.0480  0.2644
+SEMUCBWM1   720-780      2.58    2.49  0.0405  0.2249
+SEMUCBWM1   780-880      2.55    2.22  0.0175  0.1094
+SEMUCBWM1   880-1010     2.40    2.26  0.0295  0.1704
+SEMUCBWM1  1000-1300     2.81    2.57  0.0265  0.1549
+SEMUCBWM1  1300-1600     3.49    3.26  0.0330  0.1884
+SEMUCBWM1  1600-2000     3.13    3.34  0.0800  0.3968
+SEMUCBWM1  2000-2500     3.60    3.36  0.0345  0.1969
+
+21 of 50 bands clear at p <= 0.05 uncorrected, 0 after correcting for the 16 depths tested in each volume
+wrote /Users/dietmar/Documents/Papers/in_prep/Muller_mantle_tomography_subduction/Paper_hydration/out/depth_fwer_off150.csv
+occupancy: hydration_age_map_offset200.npz
+10 age bands usable, 159644 cells assigned
+REVEAL: 18 s
+RevealLO: 16 s
+GLADM35: 16 s
+SPiRaL: 17 s
+SEMUCBWM1: 16 s
+
+model             band     E*  null95       p   p adj
+REVEAL      410-520      3.04    2.41  0.0040  0.0305  <-- survives
+REVEAL      520-660      2.99    2.91  0.0425  0.2699
+REVEAL      660-720      2.08    2.55  0.1864  0.7456
+REVEAL      720-780      2.19    2.46  0.1094  0.5372
+REVEAL      780-880      2.34    2.54  0.0865  0.4643
+REVEAL      880-1010     1.82    2.38  0.3013  0.8956
+REVEAL     1000-1300     1.98    2.67  0.2964  0.8901
+REVEAL     1300-1600     2.60    2.72  0.0725  0.4098
+REVEAL     1600-2000     2.81    2.66  0.0350  0.2319
+REVEAL     2000-2500     2.49    2.69  0.0885  0.4718
+RevealLO    410-520      2.74    2.47  0.0210  0.1409
+RevealLO    520-660      2.95    2.99  0.0555  0.3148
+RevealLO    660-720      2.24    2.89  0.1944  0.7311
+RevealLO    720-780      2.36    2.63  0.1039  0.4998
+RevealLO    780-880      2.56    2.50  0.0435  0.2614
+RevealLO    880-1010     2.09    2.31  0.1139  0.5312
+RevealLO   1000-1300     2.18    2.67  0.1899  0.7231
+RevealLO   1300-1600     2.58    2.71  0.0765  0.4008
+RevealLO   1600-2000     3.14    2.77  0.0195  0.1339
+RevealLO   2000-2500     2.84    2.53  0.0170  0.1199
+GLADM35     410-520      3.86    3.64  0.0305  0.1749
+GLADM35     520-660      3.94    3.77  0.0390  0.2169
+GLADM35     660-720      3.04    2.75  0.0225  0.1324
+GLADM35     720-780      2.84    2.64  0.0285  0.1629
+GLADM35     780-880      2.82    2.61  0.0300  0.1724
+GLADM35     880-1010     2.60    2.41  0.0230  0.1354
+GLADM35    1000-1300     2.89    2.79  0.0410  0.2284
+GLADM35    1300-1600     3.03    3.14  0.0665  0.3238
+GLADM35    1600-2000     2.94    3.03  0.0655  0.3193
+GLADM35    2000-2500     2.75    3.04  0.0955  0.4263
+SPiRaL      410-520      3.14    2.65  0.0110  0.0845
+SPiRaL      520-660      2.68    2.64  0.0450  0.2999
+SPiRaL      660-720      1.88    2.44  0.2769  0.9010
+SPiRaL      720-780      2.13    2.22  0.0740  0.4413
+SPiRaL      780-880      2.04    2.07  0.0570  0.3568
+SPiRaL      880-1010     2.01    2.07  0.0670  0.4053
+SPiRaL     1000-1300     2.16    2.28  0.0825  0.4823
+SPiRaL     1300-1600     2.44    2.50  0.0615  0.3788
+SPiRaL     1600-2000     1.60    2.57  0.6202  0.9995
+SPiRaL     2000-2500     1.79    2.61  0.4793  0.9930
+SEMUCBWM1   410-520      3.04    2.53  0.0100  0.0655
+SEMUCBWM1   520-660      3.20    2.79  0.0130  0.0835
+SEMUCBWM1   660-720      2.78    2.62  0.0320  0.1839
+SEMUCBWM1   720-780      2.55    2.44  0.0355  0.2034
+SEMUCBWM1   780-880      2.56    2.19  0.0160  0.1014
+SEMUCBWM1   880-1010     2.37    2.22  0.0295  0.1709
+SEMUCBWM1  1000-1300     2.92    2.53  0.0175  0.1089
+SEMUCBWM1  1300-1600     3.46    3.23  0.0335  0.1929
+SEMUCBWM1  1600-2000     3.21    3.33  0.0615  0.3278
+SEMUCBWM1  2000-2500     3.56    3.30  0.0345  0.1974
+
+25 of 50 bands clear at p <= 0.05 uncorrected, 1 after correcting for the 16 depths tested in each volume
+wrote /Users/dietmar/Documents/Papers/in_prep/Muller_mantle_tomography_subduction/Paper_hydration/out/depth_fwer_off200.csv
+occupancy: hydration_age_map_offset400.npz
+10 age bands usable, 162566 cells assigned
+REVEAL: 18 s
+RevealLO: 16 s
+GLADM35: 15 s
+SPiRaL: 16 s
+SEMUCBWM1: 15 s
+
+model             band     E*  null95       p   p adj
+REVEAL      410-520      3.46    2.32  0.0005  0.0005  <-- survives
+REVEAL      520-660      3.43    2.76  0.0035  0.0265  <-- survives
+REVEAL      660-720      2.30    2.46  0.0905  0.4813
+REVEAL      720-780      2.43    2.40  0.0460  0.2964
+REVEAL      780-880      2.56    2.49  0.0390  0.2629
+REVEAL      880-1010     1.70    2.30  0.4193  0.9620
+REVEAL     1000-1300     2.07    2.58  0.2224  0.8106
+REVEAL     1300-1600     3.08    2.62  0.0145  0.1064
+REVEAL     1600-2000     2.83    2.59  0.0220  0.1564
+REVEAL     2000-2500     2.86    2.65  0.0240  0.1714
+RevealLO    410-520      3.07    2.38  0.0030  0.0225  <-- survives
+RevealLO    520-660      3.35    2.80  0.0040  0.0295  <-- survives
+RevealLO    660-720      2.52    2.70  0.0890  0.4623
+RevealLO    720-780      2.64    2.51  0.0300  0.1964
+RevealLO    780-880      2.79    2.40  0.0110  0.0815
+RevealLO    880-1010     2.01    2.24  0.1329  0.5962
+RevealLO   1000-1300     2.24    2.57  0.1429  0.6202
+RevealLO   1300-1600     2.90    2.63  0.0210  0.1444
+RevealLO   1600-2000     2.92    2.69  0.0250  0.1674
+RevealLO   2000-2500     3.08    2.46  0.0040  0.0295  <-- survives
+GLADM35     410-520      4.19    3.43  0.0085  0.0555
+GLADM35     520-660      4.23    3.56  0.0070  0.0455  <-- survives
+GLADM35     660-720      3.26    2.67  0.0090  0.0575
+GLADM35     720-780      3.04    2.56  0.0105  0.0680
+GLADM35     780-880      3.00    2.51  0.0100  0.0655
+GLADM35     880-1010     2.57    2.34  0.0195  0.1189
+GLADM35    1000-1300     3.24    2.71  0.0085  0.0555
+GLADM35    1300-1600     3.52    3.09  0.0145  0.0880
+GLADM35    1600-2000     3.38    2.93  0.0200  0.1209
+GLADM35    2000-2500     2.56    2.92  0.1229  0.5252
+SPiRaL      410-520      3.41    2.55  0.0025  0.0165  <-- survives
+SPiRaL      520-660      2.96    2.51  0.0085  0.0630
+SPiRaL      660-720      1.86    2.35  0.2859  0.9125
+SPiRaL      720-780      2.25    2.16  0.0275  0.1954
+SPiRaL      780-880      1.87    2.03  0.1039  0.5712
+SPiRaL      880-1010     1.80    2.03  0.1589  0.7256
+SPiRaL     1000-1300     2.25    2.23  0.0465  0.3133
+SPiRaL     1300-1600     2.13    2.42  0.1359  0.6757
+SPiRaL     1600-2000     1.78    2.51  0.4108  0.9790
+SPiRaL     2000-2500     1.79    2.52  0.4673  0.9915
+SEMUCBWM1   410-520      3.29    2.51  0.0025  0.0175  <-- survives
+SEMUCBWM1   520-660      3.49    2.62  0.0010  0.0045  <-- survives
+SEMUCBWM1   660-720      3.03    2.49  0.0025  0.0175  <-- survives
+SEMUCBWM1   720-780      2.73    2.34  0.0070  0.0450  <-- survives
+SEMUCBWM1   780-880      2.48    2.11  0.0115  0.0725
+SEMUCBWM1   880-1010     2.31    2.16  0.0265  0.1584
+SEMUCBWM1  1000-1300     3.25    2.43  0.0025  0.0175  <-- survives
+SEMUCBWM1  1300-1600     3.78    3.13  0.0135  0.0860
+SEMUCBWM1  1600-2000     3.14    3.28  0.0650  0.3528
+SEMUCBWM1  2000-2500     3.14    3.19  0.0570  0.3173
+
+35 of 50 bands clear at p <= 0.05 uncorrected, 12 after correcting for the 16 depths tested in each volume
+wrote /Users/dietmar/Documents/Papers/in_prep/Muller_mantle_tomography_subduction/Paper_hydration/out/depth_fwer_off400.csv
+occupancy: hydration_age_map_offset500.npz
+10 age bands usable, 165041 cells assigned
+REVEAL: 18 s
+RevealLO: 16 s
+GLADM35: 16 s
+SPiRaL: 16 s
+SEMUCBWM1: 15 s
+
+model             band     E*  null95       p   p adj
+REVEAL      410-520      3.53    2.29  0.0005  0.0005  <-- survives
+REVEAL      520-660      3.59    2.69  0.0015  0.0085  <-- survives
+REVEAL      660-720      2.42    2.42  0.0500  0.3203
+REVEAL      720-780      2.51    2.36  0.0305  0.2134
+REVEAL      780-880      2.64    2.42  0.0235  0.1679
+REVEAL      880-1010     1.71    2.29  0.4013  0.9585
+REVEAL     1000-1300     2.10    2.55  0.1914  0.7641
+REVEAL     1300-1600     3.23    2.60  0.0045  0.0345  <-- survives
+REVEAL     1600-2000     2.99    2.56  0.0145  0.1089
+REVEAL     2000-2500     2.98    2.60  0.0145  0.1089
+RevealLO    410-520      3.15    2.35  0.0015  0.0085  <-- survives
+RevealLO    520-660      3.48    2.75  0.0010  0.0050  <-- survives
+RevealLO    660-720      2.66    2.64  0.0490  0.2924
+RevealLO    720-780      2.77    2.45  0.0155  0.1109
+RevealLO    780-880      2.85    2.35  0.0050  0.0380  <-- survives
+RevealLO    880-1010     1.94    2.20  0.1594  0.6722
+RevealLO   1000-1300     2.30    2.53  0.1084  0.5337
+RevealLO   1300-1600     3.05    2.59  0.0085  0.0655
+RevealLO   1600-2000     3.11    2.64  0.0155  0.1109
+RevealLO   2000-2500     3.13    2.47  0.0030  0.0225  <-- survives
+GLADM35     410-520      4.20    3.33  0.0055  0.0355  <-- survives
+GLADM35     520-660      4.26    3.46  0.0040  0.0265  <-- survives
+GLADM35     660-720      3.36    2.64  0.0045  0.0290  <-- survives
+GLADM35     720-780      3.18    2.53  0.0045  0.0290  <-- survives
+GLADM35     780-880      3.15    2.50  0.0050  0.0325  <-- survives
+GLADM35     880-1010     2.64    2.31  0.0155  0.0920
+GLADM35    1000-1300     3.36    2.66  0.0045  0.0290  <-- survives
+GLADM35    1300-1600     3.85    3.06  0.0065  0.0410  <-- survives
+GLADM35    1600-2000     3.59    2.93  0.0125  0.0780
+GLADM35    2000-2500     2.61    2.86  0.0995  0.4563
+SPiRaL      410-520      3.48    2.53  0.0010  0.0050  <-- survives
+SPiRaL      520-660      3.07    2.47  0.0035  0.0255  <-- survives
+SPiRaL      660-720      1.89    2.33  0.2449  0.8731
+SPiRaL      720-780      2.29    2.15  0.0215  0.1544
+SPiRaL      780-880      1.80    2.01  0.1424  0.6852
+SPiRaL      880-1010     1.70    2.01  0.2399  0.8681
+SPiRaL     1000-1300     2.30    2.20  0.0320  0.2284
+SPiRaL     1300-1600     2.22    2.37  0.0900  0.5152
+SPiRaL     1600-2000     1.88    2.50  0.3128  0.9355
+SPiRaL     2000-2500     1.75    2.49  0.4913  0.9915
+SEMUCBWM1   410-520      3.31    2.49  0.0015  0.0080  <-- survives
+SEMUCBWM1   520-660      3.51    2.56  0.0010  0.0050  <-- survives
+SEMUCBWM1   660-720      3.08    2.43  0.0010  0.0050  <-- survives
+SEMUCBWM1   720-780      2.80    2.30  0.0030  0.0205  <-- survives
+SEMUCBWM1   780-880      2.42    2.08  0.0130  0.0840
+SEMUCBWM1   880-1010     2.31    2.14  0.0260  0.1559
+SEMUCBWM1  1000-1300     3.38    2.41  0.0015  0.0080  <-- survives
+SEMUCBWM1  1300-1600     3.98    3.09  0.0090  0.0595
+SEMUCBWM1  1600-2000     3.15    3.22  0.0590  0.3183
+SEMUCBWM1  2000-2500     3.04    3.18  0.0665  0.3498
+
+37 of 50 bands clear at p <= 0.05 uncorrected, 21 after correcting for the 16 depths tested in each volume
+wrote /Users/dietmar/Documents/Papers/in_prep/Muller_mantle_tomography_subduction/Paper_hydration/out/depth_fwer_off500.csv
+
+adjusted probability at 410-520 km, by down-dip offset
+
+                   150       200       300       400       500
+REVEAL          0.056     0.030*    0.000*    0.000*    0.000*
+RevealLO        0.200     0.141     0.045*    0.022*    0.008*
+GLAD-M35        0.251     0.175     0.073     0.055     0.035*
+SPiRaL          0.144     0.084     0.029*    0.016*    0.005*
+SEMUCB-WM1      0.104     0.065     0.034*    0.017*    0.008*
+                     0         1         4         4         5
+   survive:
+
+  * p <= 0.05. The reference offset is 300 km and was chosen because the
+    observed fast transition zone preferred it, so its column is the one that
+    cannot be read as an independent test.
+
+wrote /Users/dietmar/Documents/Papers/in_prep/Muller_mantle_tomography_subduction/Paper_hydration/out/depth_offset_profile.csv
+RevealLO: occupancy on 361x721, bands on 361x721
+
+enrichment: P(fast at this depth | subduction at this age, none since) / base rate
+  depth band   base     18     38     62     88    125    175    225    275    325    375     t*    E*  null95
+    410-520    12.9%   2.93   1.69   0.76   1.00   0.47   1.01   1.08   0.44   0.55   0.68     18  2.93   1.69  2.42
+    520-660    13.8%   3.16   2.56   1.02   0.78   0.31   1.25   0.91   0.57   0.73   0.62     18  3.16   1.77  2.85
+    660-720    14.6%   2.37   1.92   0.72   0.26   0.23   0.73   0.75   0.90   0.83   0.70     18  2.37   1.76  2.71
+    720-780    13.7%   2.50   2.11   1.23   0.45   0.31   0.82   0.48   0.71   0.75   0.64     18  2.50   1.66  2.51
+    780-880    12.0%   2.69   2.17   1.82   0.78   0.51   0.86   0.48   0.94   0.58   0.56     18  2.69   1.65  2.38
+    880-1010   12.9%   1.81   2.08   1.72   1.07   0.85   1.50   0.58   1.24   0.73   0.51     38  2.08   1.61  2.31
+   1000-1300   13.4%   1.51   2.02   2.22   1.47   1.16   0.71   0.45   1.28   1.26   0.46     62  2.22   1.74  2.60
+   1300-1600   10.0%   1.54   2.03   2.74   2.49   1.37   0.60   0.94   0.48   0.55   0.51     62  2.74   1.73  2.63
+   1600-2000   10.8%   1.10   1.25   2.69   3.00   1.42   1.35   2.01   1.79   0.82   0.09     88  3.00   1.78  2.79
+   2000-2500    9.5%   0.74   0.71   1.28   0.98   1.32   1.49   1.89   2.94   1.00   0.89    275  2.94   1.72  2.48
+
+E* does not decay with depth: the fit is unconstrained (L = 19212 +/- 2885760 km) and E* stays between 2.1 and 3.2 from 410 to 2500 km. The association is not lost with depth, it moves to older ages.
+  E* clears the 95th percentile of the null in 6 of 10 bands: 410-520, 520-660, 780-880, 1300-1600, 1600-2000, 2000-2500
+  t* advances at 17.1 km/Myr between 945 and 1800 km
+  including the deepest band it reads 6.4 km/Myr, which is that one point rather than a trend
+
+wrote /Users/dietmar/Documents/Papers/in_prep/Muller_mantle_tomography_subduction/Paper_hydration/out/depth_decay_RevealLO.csv
+RevealLO: fast transition zone is 13.6 per cent of the surface, 26029 cells
+
+    subduction age     cells   fast TZ  enrichment
+      10-25            22588     43.0%        3.15
+      25-50            12580     31.2%        2.29
+      50-75            13772     13.2%        0.96
+      75-100           15646     12.4%        0.91
+     100-150           40221      5.3%        0.39
+     150-200           10609     16.8%        1.23
+     200-250            7639     14.5%        1.06
+     250-300            8186      5.4%        0.39
+     300-350           17498      8.5%        0.62
+     350-400           12256      8.8%        0.64
+
+  E_0 = 5.65, E_inf = 0.51, tau = 27.9 Myr
+  wrote persistence_RevealLO.csv
+occupancy (10, 361, 721) on 361x721, bands [10. 25.] .. [350. 400.]
+
+=== threshold on the fast transition zone (REVEAL, native binning, exp+floor)
+  top 20 per cent   base 20.5 %   tau =  26.4 +/- 10.1 Myr   (10 bands)
+  top 15 per cent   base 15.9 %   tau =  27.0 +/-  8.0 Myr   (10 bands)
+  top 12 per cent   base 13.3 %   tau =  28.0 +/-  7.2 Myr   (10 bands)
+  top 10 per cent   base 11.1 %   tau =  28.4 +/-  6.2 Myr   (10 bands)
+  top  8 per cent   base  9.0 %   tau =  28.6 +/-  5.1 Myr   (10 bands)
+  top  5 per cent   base  5.7 %   tau =  27.1 +/-  3.8 Myr   (10 bands)
+
+=== age binning: width in stored bands, and where the bands start (REVEAL, 90th)
+  width 1, offset 0   10 bands   tau =  28.4 +/-  6.2 Myr
+  width 2, offset 0    5 bands   tau =  23.9 +/-  3.8 Myr
+  width 2, offset 1    6 bands   tau =  28.6 +/-  6.6 Myr
+  width 3, offset 0    4 bands   tau =  12.2 +/- 463.4 Myr
+  width 3, offset 1    4 bands   tau =  36.7 +/-  1.6 Myr
+  width 3, offset 2    4 bands   tau =  16.2 +/-  1.9 Myr
+
+=== functional form (REVEAL, 90th, native binning)
+  exp+floor   tau =  28.4 +/-  6.2 Myr
+  exp         tau =  50.3 +/- 14.3 Myr
+  power       tau =   3.0 +/-  9.0 Myr
+  stretched   tau =  44.1 +/-  7.8 Myr
+
+=== the same three axes, all three models, exp+floor at the 90th
+  REVEAL    native  28.4 +/-  6.2 Myr   across binnings  12.2 to  36.7 Myr
+  RevealLO  native  29.2 +/-  9.3 Myr   across binnings   9.1 to  38.9 Myr
+  GLADM35   native  24.3 +/-  6.0 Myr   across binnings   9.9 to  31.2 Myr
+
+wrote /Users/dietmar/Documents/Papers/in_prep/Muller_mantle_tomography_subduction/Paper_hydration/out/tau_sensitivity.csv
+fitting on REVEAL, RevealLO, GLADM35
+
+  reference                REVEAL  28.4  RevealLO  29.2  GLADM35  24.3
+  radius    150.0          REVEAL  34.0  RevealLO  35.3  GLADM35  29.1
+  radius    200.0          REVEAL  31.2  RevealLO  32.6  GLADM35  26.6
+  radius    350.0          REVEAL  22.5  RevealLO  24.5  GLADM35  21.3
+  radius    500.0          REVEAL  15.3  RevealLO  18.3  GLADM35  17.9
+  offset    150.0          REVEAL  36.1  RevealLO  36.3  GLADM35  27.9
+  offset    200.0          REVEAL  33.5  RevealLO  34.1  GLADM35  26.8
+  offset    400.0          REVEAL  23.2  RevealLO  25.8  GLADM35  23.1
+  offset    500.0          REVEAL  19.5  RevealLO  23.6  GLADM35  22.8
+  v_sink    30.0           REVEAL  29.2  RevealLO  31.4  GLADM35  25.6
+  v_sink    40.0           REVEAL  28.8  RevealLO  29.8  GLADM35  24.7
+  v_sink    70.0           REVEAL  28.4  RevealLO  29.2  GLADM35  24.3
+  v_sink    90.0           REVEAL  28.4  RevealLO  29.2  GLADM35  24.3
+  model     muller2022     REVEAL  29.6  RevealLO  33.6  GLADM35  31.1
+
+14 settings, 42 fits
+  reference: REVEAL 28.4, RevealLO 29.2, GLADM35 24.3 Myr
+  across every setting and volume: 15.3 to 36.3 Myr, median 28.4
+  varying radius  :  15.3 to  35.3 Myr
+  varying offset  :  19.5 to  36.3 Myr
+  varying v_sink  :  24.3 to  31.4 Myr
+  varying model   :  29.6 to  33.6 Myr
+
+wrote /Users/dietmar/Documents/Papers/in_prep/Muller_mantle_tomography_subduction/Paper_hydration/out/occupancy_sweep.csv   [0 min total]
+385 fields in 29 provinces (16 with 3 or more fields)
+
+  REVEAL      levels 350-410:6 410-520:10 520-660:3   3000 rotations accepted
+  RevealLO    levels 350-410:6 410-520:11 520-660:14   3000 rotations accepted
+  GLAD-M35    levels 350-410:6 410-520:11 520-660:14   3000 rotations accepted
+  SPiRaL      levels 350-410:1 410-520:4 520-660:3   3000 rotations accepted
+  SEMUCB-WM1  levels 350-410:3 410-520:3 520-660:3   3000 rotations accepted
+
+wrote /Users/dietmar/Documents/Papers/in_prep/Muller_mantle_tomography_subduction/Paper_hydration/out/province_scores_continental.csv
+29 provinces, 4 inversion families (GLAD, REVEAL, SEMUCB, SPiRaL), |S| >= 1.25 in >= 3 families
+
+province                                n   350-410  410-520  520-660  class
+Anatolia-Iran Belt                     28    +1.76    +1.42    +0.66  fast
+Central Asian Foldbelt (+39, +117)    136    +0.66    +1.41    +1.90  fast
+Australia (-18, +145)                  10    +0.93    +1.22    +1.76  fast
+European Orogenic Belt (+48, +9)       33    +0.32    +1.12    +1.01  near-neutral
+Carpathian Belt And Pannonian Basin    17    +0.30    +0.95    +0.61  near-neutral
+Central Asian Foldbelt (+33, +86)      52    +0.76    +0.69    +0.54  near-neutral
+Arabian-Nubian Shield (+31, +37)        8    +0.99    +0.45    -0.22  near-neutral
+Australia (-18, +126)                   1    +0.12    +0.39    +0.84  near-neutral
+East European Craton                    1    +0.62    +0.19    -0.50  near-neutral
+Wyoming Craton                          1    -0.36    +0.08    -0.02  near-neutral
+Central Asian Foldbelt (+13, +108)      2    -0.46    +0.08    +1.35  near-neutral
+Tuareg Shield                           1    +0.38    +0.05    +0.09  near-neutral
+North American Cordillera (+38, -106)   3    -0.58    -0.03    -0.19  near-neutral
+Colorado Plateau                        6    -0.88    -0.21    -0.25  near-neutral
+Baltic Shield                           2    +0.14    -0.25    -0.80  near-neutral
+North American Cordillera (+54, -126)  19    -1.07    -0.35    -0.61  near-neutral
+Arabian-Nubian Shield (+14, +45)        4    -0.65    -0.41    -0.49  near-neutral
+Australia (-35, +147)                  23    -0.34    -0.48    -0.93  near-neutral
+Bastar Craton                           3    -0.97    -1.18    -1.18  near-neutral
+North American Cordillera (+75, -98)    1    -1.23    -1.53    -1.17  slow
+
+  near-neutral        16 provinces (16 with >= 1 fields)
+  fast                 3 provinces (3 with >= 1 fields)
+  slow                 1 provinces (1 with >= 1 fields)
+
+  a reproducible class other than near-neutral         yes   (fast 3, slow 1)
+  the largest class holds less than 90 per cent        yes   (80 % in near-neutral)
+  stable when any one inversion family is dropped     yes   (at worst 3 of 20 provinces reclassified: GLAD 2, REVEAL 3, SEMUCB 2, SPiRaL 2)
+
+  VERDICT: usable — 1 class beyond near-neutral, 4 of 20 provinces classified substantively
+    One class and a remainder is a two-way contrast, not an atlas.
+    It supports a paper that uses the class as evidence; it does not
+    support one whose claim is the diversity of classes.
+
+             cut prov fast  timed gap       p     rho       p   n
+  -- by eruption age (Ma) --
+           <= 25   15    2        74%   0.028   +0.82   0.004  10
+           <= 50   18    3        68%   0.058   +0.73   0.005  13
+           <= 66   20    3        68%   0.045   +0.73   0.005  13
+          <= 100   20    3        68%   0.049   +0.73   0.005  13
+          <= 150   20    3        68%   0.042   +0.73   0.005  13
+          <= 250   20    3        68%   0.047   +0.73   0.005  13
+  -- by displacement (km) --
+          <= 300   11    2        74%   0.055   +0.74   0.037   8
+          <= 550   15    3        68%   0.081   +0.65   0.043  10
+          <= 800   15    3        68%   0.084   +0.65   0.043  10
+         <= 1100   17    3        68%   0.041   +0.69   0.013  12
+         <= 1500   19    3        68%   0.048   +0.73   0.005  13
+         <= 2500   19    3        68%   0.051   +0.73   0.005  13
+         <= 5000   20    3        68%   0.046   +0.73   0.005  13
+
+  A flat row means the provinces added by loosening the cut carry no
+  signal either way: beyond the memory window there is nothing to see,
+  so old provinces land in the comparison group and move no median.
+  The cut only matters once an old province enters the fast class.
+385 fields in 27 provinces at 500 km linkage; null is free, 3000 rotations
+
+  REVEAL      levels 10/6/13   TZ +0.399 [+0.152,+0.657] p=0.004   350-410 +0.397 p=0.014   minus ref -0.295 p=0.009
+  RevealLO    levels 10/6/25   TZ +0.554 [+0.296,+0.804] p=0.384   350-410 +0.468 p=0.262   minus ref -0.003 p=0.307
+  GLAD-M35    levels 10/6/25   TZ +0.500 [+0.223,+0.765] p=0.005   350-410 +0.450 p=0.002   minus ref +0.038 p=0.316
+  SPiRaL      levels 2/1/7   TZ +0.184 [-0.094,+0.455] p=0.318   350-410 +0.069 p=0.379   minus ref +0.428 p=0.040
+  SEMUCB-WM1  levels 5/3/6   TZ +0.353 [+0.149,+0.563] p=0.003   350-410 +0.407 p=0.007   minus ref -0.085 p=0.138
+
+  transition zone positive in 5 of 5 volumes; 350-410 km positive in 5 of 5
+  levels are 250-350 / 350-410 / 410-660; a volume with one level in an
+  interval is not really measuring it
+wrote /Users/dietmar/Documents/Papers/in_prep/Muller_mantle_tomography_subduction/Paper_hydration/out/field_clusters.csv
+385 fields in 27 provinces at 500 km linkage; null is continent-restricted, 3000 rotations
+
+  REVEAL      levels 10/6/13   TZ +0.399 [+0.148,+0.654] p=0.233   350-410 +0.397 p=0.430   minus ref -0.295 p=0.486
+  RevealLO    levels 10/6/25   TZ +0.554 [+0.303,+0.797] p=0.500   350-410 +0.468 p=0.278   minus ref -0.003 p=0.389
+  GLAD-M35    levels 10/6/25   TZ +0.500 [+0.215,+0.765] p=0.229   350-410 +0.450 p=0.312   minus ref +0.038 p=0.373
+  SPiRaL      levels 2/1/7   TZ +0.184 [-0.094,+0.455] p=0.341   350-410 +0.069 p=0.258   minus ref +0.428 p=0.280
+  SEMUCB-WM1  levels 5/3/6   TZ +0.353 [+0.145,+0.568] p=0.307   350-410 +0.407 p=0.362   minus ref -0.085 p=0.490
+
+  transition zone positive in 5 of 5 volumes; 350-410 km positive in 5 of 5
+  levels are 250-350 / 350-410 / 410-660; a volume with one level in an
+  interval is not really measuring it
+wrote /Users/dietmar/Documents/Papers/in_prep/Muller_mantle_tomography_subduction/Paper_hydration/out/field_clusters_continental.csv
+
+  decay constant tau (Myr)         preferred (300 km)      27.6   r2 = 0.917
+  decay constant tau (Myr)         prescribed (200 km)     30.7   r2 = 0.865
+
+  water inside the window (%)      preferred (300 km)       2.3   25: 2.3%  37: 2.3%  50: 5.1%  100: 11.6%
+  water inside the window (%)      prescribed (200 km)      2.3   25: 2.3%  37: 2.3%  50: 5.1%  100: 11.6%
+
+  410-520 km survives maxT (of 5)  preferred (300 km)         4   REVEAL 0.000, RevealLO 0.045, SPiRaL 0.029, SEMUCBWM1 0.034
+  410-520 km survives maxT (of 5)  prescribed (200 km)        1   REVEAL 0.030
+
+  rho, water 8-25 Ma vs S          preferred (300 km)    +0.725   p = 0.0050, n = 13
+  rho, water 8-25 Ma vs S          prescribed (200 km)   +0.731   p = 0.0045, n = 13
+
+  timing gap, fast vs rest (pp)    preferred (300 km)      67.9   exact p = 0.046 over 1140, n = 20
+  timing gap, fast vs rest (pp)    prescribed (200 km)     53.6   exact p = 0.046 over 1140, n = 20
+
+wrote /Users/dietmar/Documents/Papers/in_prep/Muller_mantle_tomography_subduction/Paper_hydration/out/offset_confirm_off200.csv
+1344 samples, 543 with a hydration age; models: REVEAL, RevealLO, GLADM35, SPiRaL, SEMUCBWM1
+
+--- global: 1344 samples, 136 clusters, 543 hydrated
+model       band (km)  hydrated      not    diff       p    fast-decile share, hydr/not
+REVEAL          0_100    -3.939   -3.881  -0.058   0.903       0.00     0.00
+REVEAL        100_200    -4.426   -4.521   0.094   0.723       0.00     0.00
+REVEAL        200_300    -1.357   -2.023   0.666   0.035*      0.00     0.00
+REVEAL        300_410    -0.219   -0.258   0.039   0.672       0.04     0.01
+REVEAL        410_520     0.010   -0.155   0.165   0.493       0.08     0.01
+REVEAL        520_660    -0.046    0.238  -0.283   0.122       0.16     0.14
+REVEAL        660_720     0.069    0.440  -0.371   0.048*      0.14     0.35
+REVEAL        720_780    -0.050    0.430  -0.480   0.001*      0.11     0.36
+REVEAL        780_880    -0.001    0.528  -0.529   0.001*      0.01     0.23
+REVEAL       880_1010     0.081    0.480  -0.399   0.024*      0.12     0.15
+REVEAL      1000_1300     0.157    0.102   0.056   0.707       0.06     0.08
+REVEAL      1300_1600     0.028   -0.204   0.233   0.146       0.07     0.01
+REVEAL      1600_2000     0.311   -0.137   0.447   0.000*      0.19     0.08
+REVEAL      2000_2500     0.102   -0.129   0.231   0.019*      0.09     0.08
+RevealLO        0_100    -4.061   -3.350  -0.711   0.229       0.00     0.00
+RevealLO      100_200    -4.187   -4.299   0.112   0.744       0.00     0.00
+RevealLO      200_300    -1.192   -0.718  -0.474   0.123       0.00     0.00
+RevealLO      300_410    -0.161    0.272  -0.433   0.084       0.02     0.04
+RevealLO      410_520    -0.022    0.072  -0.094   0.752       0.02     0.02
+RevealLO      520_660     0.054    0.306  -0.253   0.138       0.07     0.05
+RevealLO      660_720     0.208    0.656  -0.448   0.034*      0.00     0.35
+RevealLO      720_780    -0.062    0.355  -0.418   0.002*      0.01     0.22
+RevealLO      780_880    -0.056    0.282  -0.338   0.013*      0.00     0.17
+RevealLO     880_1010     0.020    0.376  -0.356   0.037*      0.06     0.09
+RevealLO    1000_1300     0.215    0.078   0.137   0.325       0.08     0.05
+RevealLO    1300_1600     0.151   -0.122   0.273   0.099       0.05     0.02
+RevealLO    1600_2000     0.244   -0.203   0.447   0.000*      0.18     0.06
+RevealLO    2000_2500     0.112   -0.210   0.323   0.002*      0.08     0.09
+GLADM35         0_100    -0.988   -2.026   1.038   0.020*      0.00     0.00
+GLADM35       100_200    -3.104   -3.917   0.813   0.023*      0.00     0.00
+GLADM35       200_300    -1.322   -1.129  -0.193   0.025*      0.00     0.00
+GLADM35       300_410    -0.490   -0.142  -0.348   0.083       0.00     0.00
+GLADM35       410_520    -0.191   -0.099  -0.092   0.495       0.01     0.02
+GLADM35       520_660    -0.227   -0.071  -0.156   0.142       0.01     0.02
+GLADM35       660_720    -0.710   -0.363  -0.347   0.007*      0.00     0.01
+GLADM35       720_780    -0.455   -0.244  -0.211   0.017*      0.00     0.03
+GLADM35       780_880    -0.316   -0.151  -0.165   0.013*      0.00     0.03
+GLADM35      880_1010    -0.138   -0.043  -0.095   0.176       0.00     0.05
+GLADM35     1000_1300    -0.044    0.043  -0.087   0.328       0.07     0.02
+GLADM35     1300_1600     0.070   -0.028   0.098   0.249       0.09     0.02
+GLADM35     1600_2000     0.081   -0.200   0.281   0.000*      0.04     0.01
+GLADM35     2000_2500     0.145   -0.163   0.309   0.011*      0.06     0.03
+SPiRaL          0_100    -9.701  -11.390   1.689   0.004*      0.00     0.00
+SPiRaL        100_200    -3.183   -3.998   0.815   0.097       0.00     0.00
+SPiRaL        200_300    -0.665   -0.603  -0.062   0.707       0.02     0.00
+SPiRaL        300_410     0.230    0.814  -0.584   0.000*      0.06     0.25
+SPiRaL        410_520     0.144    0.417  -0.273   0.004*      0.13     0.18
+SPiRaL        520_660     0.154    0.619  -0.465   0.000*      0.10     0.12
+SPiRaL        660_720     0.138    0.413  -0.275   0.019*      0.20     0.30
+SPiRaL        720_780     0.049    0.157  -0.109   0.329       0.25     0.45
+SPiRaL        780_880     0.009    0.209  -0.200   0.048*      0.14     0.13
+SPiRaL       880_1010     0.015    0.205  -0.189   0.098       0.14     0.15
+SPiRaL      1000_1300     0.281    0.317  -0.036   1.000       0.07     0.22
+SPiRaL      1300_1600     0.194    0.063   0.130   0.217       0.10     0.04
+SPiRaL      1600_2000    -0.046   -0.030  -0.016   0.745       0.04     0.02
+SPiRaL      2000_2500    -0.152    0.030  -0.182   0.007*      0.05     0.04
+SEMUCBWM1       0_100    -3.189   -3.430   0.241   0.598       0.00     0.00
+SEMUCBWM1     100_200    -3.293   -3.121  -0.171   0.467       0.00     0.00
+SEMUCBWM1     200_300    -1.047   -0.297  -0.750   0.044*      0.00     0.01
+SEMUCBWM1     300_410    -0.491   -0.030  -0.462   0.045*      0.00     0.04
+SEMUCBWM1     410_520    -0.210   -0.013  -0.197   0.077       0.01     0.09
+SEMUCBWM1     520_660    -0.217    0.052  -0.269   0.014*      0.00     0.13
+SEMUCBWM1     660_720    -0.260   -0.100  -0.160   0.094       0.00     0.13
+SEMUCBWM1     720_780    -0.264   -0.078  -0.186   0.063       0.00     0.04
+SEMUCBWM1     780_880    -0.230   -0.072  -0.158   0.235       0.00     0.02
+SEMUCBWM1    880_1010    -0.086   -0.144   0.058   0.574       0.00     0.00
+SEMUCBWM1   1000_1300     0.015   -0.129   0.144   0.078       0.03     0.09
+SEMUCBWM1   1300_1600    -0.048   -0.185   0.137   0.008*      0.04     0.00
+SEMUCBWM1   1600_2000    -0.020   -0.275   0.255   0.000*      0.00     0.00
+SEMUCBWM1   2000_2500    -0.047   -0.360   0.314   0.000*      0.03     0.00
+
+--- Atlantic-Arctic corridor: 642 samples, 56 clusters, 382 hydrated
+model       band (km)  hydrated      not    diff       p    fast-decile share, hydr/not
+REVEAL          0_100    -4.316   -2.039  -2.277   0.002*      0.00     0.00
+REVEAL        100_200    -4.492   -3.960  -0.532   0.416       0.00     0.00
+REVEAL        200_300    -1.012   -1.468   0.457   0.081       0.00     0.00
+REVEAL        300_410    -0.204   -0.457   0.253   0.159       0.05     0.03
+REVEAL        410_520    -0.129   -0.002  -0.127   0.696       0.09     0.03
+REVEAL        520_660     0.104    0.399  -0.296   0.275       0.23     0.37
+REVEAL        660_720     0.296    0.362  -0.066   0.846       0.19     0.45
+REVEAL        720_780     0.190    0.353  -0.163   0.577       0.15     0.45
+REVEAL        780_880     0.170    0.511  -0.341   0.087       0.01     0.45
+REVEAL       880_1010     0.151    0.547  -0.397   0.015*      0.13     0.19
+REVEAL      1000_1300     0.187    0.246  -0.059   0.581       0.03     0.05
+REVEAL      1300_1600    -0.303    0.075  -0.377   0.100       0.00     0.03
+REVEAL      1600_2000    -0.277    0.100  -0.376   0.063       0.17     0.03
+REVEAL      2000_2500     0.089   -0.139   0.228   0.229       0.07     0.08
+RevealLO        0_100    -4.229   -3.000  -1.228   0.207       0.00     0.00
+RevealLO      100_200    -3.986   -4.149   0.163   0.658       0.00     0.00
+RevealLO      200_300    -1.046   -1.066   0.020   0.947       0.00     0.00
+RevealLO      300_410    -0.313   -0.084  -0.229   0.378       0.00     0.06
+RevealLO      410_520    -0.140    0.209  -0.349   0.151       0.00     0.04
+RevealLO      520_660    -0.014    0.457  -0.471   0.107       0.08     0.11
+RevealLO      660_720     0.336    0.626  -0.290   0.634       0.00     0.47
+RevealLO      720_780     0.111    0.354  -0.243   0.174       0.01     0.43
+RevealLO      780_880     0.099    0.369  -0.270   0.074       0.00     0.39
+RevealLO     880_1010     0.075    0.512  -0.437   0.031*      0.03     0.04
+RevealLO    1000_1300     0.231    0.144   0.087   0.577       0.04     0.00
+RevealLO    1300_1600    -0.259    0.111  -0.370   0.124       0.00     0.06
+RevealLO    1600_2000    -0.249    0.004  -0.253   0.154       0.16     0.03
+RevealLO    2000_2500     0.076   -0.198   0.274   0.127       0.06     0.08
+GLADM35         0_100    -0.182   -0.843   0.661   0.028*      0.00     0.00
+GLADM35       100_200    -2.626   -2.847   0.221   0.430       0.00     0.00
+GLADM35       200_300    -1.229   -1.140  -0.089   0.186       0.00     0.00
+GLADM35       300_410    -0.465    0.262  -0.727   0.000*      0.00     0.00/Users/dietmar/Documents/Papers/in_prep/Muller_mantle_tomography_subduction/Paper_hydration/src/morb.py:146: RuntimeWarning: All-NaN slice encountered
+  rec[k] = float(np.nanmedian(arr[cl == c]))
+
+GLADM35       410_520    -0.155    0.448  -0.603   0.000*      0.01     0.07
+GLADM35       520_660    -0.131    0.446  -0.577   0.000*      0.01     0.07
+GLADM35       660_720    -0.542   -0.682   0.139   0.540       0.00     0.00
+GLADM35       720_780    -0.411   -0.380  -0.032   0.860       0.00     0.00
+GLADM35       780_880    -0.253   -0.233  -0.020   0.802       0.00     0.00
+GLADM35      880_1010    -0.119   -0.062  -0.058   0.487       0.00     0.03
+GLADM35     1000_1300    -0.105    0.008  -0.113   0.272       0.00     0.02
+GLADM35     1300_1600    -0.184   -0.049  -0.135   0.120       0.00     0.02
+GLADM35     1600_2000    -0.101   -0.139   0.039   0.742       0.00     0.04
+GLADM35     2000_2500     0.130   -0.049   0.179   0.454       0.03     0.08
+SPiRaL          0_100    -9.061  -11.037   1.976   0.068       0.00     0.00
+SPiRaL        100_200    -2.309   -3.061   0.752   0.224       0.00     0.00
+SPiRaL        200_300     0.194   -0.131   0.325   0.609       0.02     0.00
+SPiRaL        300_410     0.627    0.889  -0.262   0.109       0.08     0.43
+SPiRaL        410_520     0.436    0.452  -0.016   0.871       0.18     0.31
+SPiRaL        520_660     0.356    0.980  -0.624   0.000*      0.14     0.30
+SPiRaL        660_720     0.252    0.345  -0.093   0.695       0.22     0.02
+SPiRaL        720_780     0.156   -0.125   0.281   0.027*      0.28     0.34
+SPiRaL        780_880     0.118    0.219  -0.102   0.384       0.11     0.10
+SPiRaL       880_1010     0.067    0.176  -0.109   0.373       0.14     0.10
+SPiRaL      1000_1300     0.249    0.402  -0.154   0.287       0.04     0.13
+SPiRaL      1300_1600    -0.129   -0.016  -0.113   0.278       0.00     0.02
+SPiRaL      1600_2000    -0.353   -0.097  -0.255   0.225       0.00     0.03
+SPiRaL      2000_2500    -0.297    0.026  -0.323   0.001*      0.00     0.00
+SEMUCBWM1       0_100    -2.627   -2.950   0.323   0.519       0.00     0.00
+SEMUCBWM1     100_200    -2.906   -3.054   0.148   0.573       0.00     0.00
+SEMUCBWM1     200_300    -0.798   -0.116  -0.682   0.183       0.00     0.00
+SEMUCBWM1     300_410    -0.423   -0.028  -0.396   0.068       0.00     0.00
+SEMUCBWM1     410_520    -0.069    0.212  -0.281   0.198       0.00     0.28
+SEMUCBWM1     520_660    -0.155    0.366  -0.521   0.000*      0.00     0.39
+SEMUCBWM1     660_720    -0.244    0.323  -0.567   0.000*      0.00     0.38
+SEMUCBWM1     720_780    -0.199    0.257  -0.456   0.001*      0.00     0.10
+SEMUCBWM1     780_880    -0.117    0.091  -0.209   0.104       0.00     0.07
+SEMUCBWM1    880_1010     0.001   -0.014   0.016   0.941       0.00     0.00
+SEMUCBWM1   1000_1300     0.009   -0.140   0.149   0.307       0.00     0.00
+SEMUCBWM1   1300_1600    -0.208   -0.200  -0.008   0.931       0.00     0.00
+SEMUCBWM1   1600_2000    -0.124   -0.205   0.081   0.500       0.00     0.00
+SEMUCBWM1   2000_2500    -0.060   -0.300   0.241   0.002*      0.00     0.00
+
+--- Pacific: 581 samples, 48 clusters, 128 hydrated
+model       band (km)  hydrated      not    diff       p    fast-decile share, hydr/not
+REVEAL          0_100    -3.989   -4.874   0.885   0.076       0.00     0.00
+REVEAL        100_200    -4.356   -5.044   0.688   0.015*      0.00     0.00
+REVEAL        200_300    -2.736   -2.454  -0.282   0.547       0.00     0.00
+REVEAL        300_410    -0.422   -0.687   0.265   0.768       0.00     0.00
+REVEAL        410_520     0.100   -0.407   0.507   0.110       0.05     0.00
+REVEAL        520_660    -0.206    0.056  -0.262   0.359       0.01     0.02
+REVEAL        660_720     0.018    0.465  -0.447   0.235       0.00     0.35
+REVEAL        720_780     0.042    0.633  -0.591   0.058       0.00     0.36
+REVEAL        780_880    -0.035    0.747  -0.782   0.003*      0.01     0.14
+REVEAL       880_1010    -0.283    0.581  -0.864   0.001*      0.12     0.16
+REVEAL      1000_1300     0.316    0.112   0.204   0.583       0.16     0.11
+REVEAL      1300_1600     0.612   -0.469   1.082   0.000*      0.27     0.01
+REVEAL      1600_2000     0.555   -0.230   0.785   0.003*      0.30     0.12
+REVEAL      2000_2500     0.337   -0.115   0.452   0.029*      0.17     0.03
+RevealLO        0_100    -2.390   -4.394   2.005   0.032*      0.00     0.00
+RevealLO      100_200    -4.687   -4.463  -0.223   0.648       0.00     0.00
+RevealLO      200_300    -1.731   -0.504  -1.227   0.022*      0.00     0.00
+RevealLO      300_410    -0.302    0.246  -0.548   0.217       0.04     0.01
+RevealLO      410_520     0.264   -0.324   0.588   0.169       0.05     0.00
+RevealLO      520_660    -0.183    0.221  -0.405   0.200       0.03     0.02
+RevealLO      660_720     0.208    0.725  -0.517   0.187       0.00     0.34
+RevealLO      720_780    -0.168    0.540  -0.708   0.011*      0.00     0.13
+RevealLO      780_880    -0.266    0.331  -0.597   0.012*      0.01     0.07
+RevealLO     880_1010    -0.403    0.445  -0.848   0.014*      0.12     0.13
+RevealLO    1000_1300     0.332    0.078   0.254   0.590       0.20     0.09
+RevealLO    1300_1600     0.547   -0.490   1.038   0.001*      0.21     0.01
+RevealLO    1600_2000     0.401   -0.278   0.679   0.002*      0.26     0.09
+RevealLO    2000_2500     0.309   -0.214   0.523   0.015*      0.17     0.03
+GLADM35         0_100    -2.483   -3.864   1.381   0.001*      0.00     0.00
+GLADM35       100_200    -3.408   -4.461   1.054   0.000*      0.00     0.00
+GLADM35       200_300    -1.399   -1.349  -0.050   1.000       0.00     0.00
+GLADM35       300_410    -0.620   -0.925   0.305   0.122       0.00     0.00
+GLADM35       410_520    -0.452   -0.739   0.287   0.155       0.00     0.00
+GLADM35       520_660    -0.676   -0.619  -0.057   0.725       0.00     0.00
+GLADM35       660_720    -0.747   -0.202  -0.545   0.027*      0.00     0.02
+GLADM35       720_780    -0.649   -0.129  -0.520   0.008*      0.00     0.05
+GLADM35       780_880    -0.457   -0.106  -0.351   0.018*      0.01     0.05
+GLADM35      880_1010    -0.138    0.023  -0.161   0.102       0.01     0.06
+GLADM35     1000_1300     0.318    0.152   0.166   0.108       0.28     0.02
+GLADM35     1300_1600     0.434    0.118   0.317   0.003*      0.37     0.03
+GLADM35     1600_2000     0.396   -0.223   0.619   0.000*      0.19     0.00
+GLADM35     2000_2500     0.193   -0.321   0.515   0.086       0.16     0.00
+SPiRaL          0_100   -12.086  -13.078   0.993   0.429       0.00     0.00
+SPiRaL        100_200    -4.576   -5.064   0.488   0.271       0.00     0.00
+SPiRaL        200_300    -1.446   -1.144  -0.301   0.258       0.00     0.00
+SPiRaL        300_410     0.230    0.502  -0.272   0.469       0.00     0.17
+SPiRaL        410_520    -0.044    0.336  -0.380   0.173       0.00     0.13
+SPiRaL        520_660    -0.173    0.421  -0.595   0.004*      0.00     0.02
+SPiRaL        660_720    -0.187    0.735  -0.922   0.001*      0.20     0.49
+SPiRaL        720_780    -0.528    0.600  -1.128   0.001*      0.21     0.58
+SPiRaL        780_880    -0.008    0.297  -0.305   0.154       0.23     0.17
+SPiRaL       880_1010    -0.071    0.323  -0.394   0.064       0.12     0.19
+SPiRaL      1000_1300     0.412    0.384   0.028   0.846       0.14     0.32
+SPiRaL      1300_1600     0.449    0.228   0.221   0.027*      0.36     0.05
+SPiRaL      1600_2000     0.355   -0.011   0.366   0.006*      0.17     0.02
+SPiRaL      2000_2500     0.276    0.103   0.172   0.547       0.17     0.07
+SEMUCBWM1       0_100    -4.606   -5.565   0.958   0.079       0.00     0.00
+SEMUCBWM1     100_200    -4.052   -3.584  -0.468   0.244       0.00     0.00
+SEMUCBWM1     200_300    -1.150   -1.025  -0.125   0.714       0.00     0.00
+SEMUCBWM1     300_410    -0.619   -0.516  -0.103   1.000       0.00     0.05
+SEMUCBWM1     410_520    -0.284   -0.299   0.015   1.000       0.00     0.00
+SEMUCBWM1     520_660    -0.475   -0.353  -0.122   0.609       0.00     0.00
+SEMUCBWM1     660_720    -0.363   -0.262  -0.101   0.795       0.00     0.00
+SEMUCBWM1     720_780    -0.326   -0.210  -0.116   0.719       0.00     0.00
+SEMUCBWM1     780_880    -0.320   -0.211  -0.110   0.392       0.01     0.00
+SEMUCBWM1    880_1010    -0.115   -0.077  -0.038   1.000       0.01     0.00
+SEMUCBWM1   1000_1300     0.303   -0.093   0.395   0.013*      0.11     0.16
+SEMUCBWM1   1300_1600     0.180   -0.242   0.422   0.000*      0.16     0.00
+SEMUCBWM1   1600_2000     0.190   -0.359   0.549   0.000*      0.00     0.00
+SEMUCBWM1   2000_2500     0.223   -0.401   0.624   0.000*      0.11     0.00
+
+wrote out/morb_tomography.csv
+
+410-520 km beneath corridor sites by hydration-age class (cluster medians)
+model              none   100-200 Ma   200-300 Ma   300-400 Ma
+REVEAL       -0.016 (27)   -0.620 (10)   -0.150 ( 9)    0.713 (10)
+RevealLO      0.223 (27)   -0.989 (10)   -0.065 ( 9)    0.454 (10)
+GLADM35       0.467 (27)   -0.149 (10)   -0.390 ( 9)    0.172 (10)
+SPiRaL        0.485 (27)   -0.271 (10)    0.686 ( 9)    0.578 (10)
+SEMUCBWM1     0.231 (27)   -0.437 (10)   -0.065 ( 9)   -0.063 (10)
+plume exclusion: Jan Mayen 5, Reykjanes >61N 30, Azores Platform 25, 35N OH-1 8, 14N Researcher 4, Sierra Leone 1.7N 21; 93 samples in all (Dixon workflow: 77)
+1251 samples, 504 with a hydration age; models: REVEAL, RevealLO, GLADM35, SPiRaL, SEMUCBWM1
+
+--- global: 1251 samples, 131 clusters, 504 hydrated
+model       band (km)  hydrated      not    diff       p    fast-decile share, hydr/not
+REVEAL          0_100    -3.939   -3.919  -0.020   0.987       0.00     0.00
+REVEAL        100_200    -4.426   -4.503   0.077   0.789       0.00     0.00
+REVEAL        200_300    -1.357   -2.046   0.689   0.041*      0.00     0.00
+REVEAL        300_410    -0.190   -0.274   0.084   0.531       0.05     0.01
+REVEAL        410_520     0.010   -0.099   0.109   0.615       0.04     0.02
+REVEAL        520_660    -0.046    0.257  -0.303   0.101       0.12     0.13
+REVEAL        660_720     0.072    0.465  -0.393   0.032*      0.09     0.34
+REVEAL        720_780    -0.026    0.465  -0.491   0.001*      0.06     0.34
+REVEAL        780_880     0.009    0.550  -0.541   0.000*      0.01     0.21
+REVEAL       880_1010     0.133    0.495  -0.362   0.034*      0.13     0.17
+REVEAL      1000_1300     0.157    0.107   0.050   0.735       0.07     0.09
+REVEAL      1300_1600    -0.025   -0.180   0.155   0.408       0.07     0.02
+REVEAL      1600_2000     0.349   -0.149   0.498   0.000*      0.20     0.08
+REVEAL      2000_2500     0.169   -0.121   0.290   0.004*      0.10     0.09
+RevealLO        0_100    -4.057   -3.359  -0.698   0.268       0.00     0.00
+RevealLO      100_200    -4.187   -4.279   0.092   0.812       0.00     0.00
+RevealLO      200_300    -1.140   -0.707  -0.433   0.168       0.00     0.00
+RevealLO      300_410    -0.072    0.287  -0.360   0.171       0.02     0.04
+RevealLO      410_520     0.109    0.077   0.033   0.944       0.02     0.02
+RevealLO      520_660     0.054    0.326  -0.273   0.114       0.03     0.05
+RevealLO      660_720     0.208    0.649  -0.441   0.035*      0.00     0.34
+RevealLO      720_780    -0.062    0.373  -0.436   0.002*      0.00     0.20
+RevealLO      780_880    -0.046    0.334  -0.381   0.002*      0.00     0.14
+RevealLO     880_1010     0.140    0.383  -0.243   0.205       0.06     0.09
+RevealLO    1000_1300     0.215    0.089   0.126   0.368       0.09     0.06
+RevealLO    1300_1600     0.043   -0.121   0.164   0.362       0.06     0.03
+RevealLO    1600_2000     0.247   -0.208   0.455   0.000*      0.19     0.06
+RevealLO    2000_2500     0.132   -0.206   0.338   0.001*      0.09     0.10
+GLADM35         0_100    -0.988   -2.110   1.121   0.012*      0.00     0.00
+GLADM35       100_200    -3.104   -3.929   0.826   0.016*      0.00     0.00
+GLADM35       200_300    -1.322   -1.099  -0.223   0.037*      0.00     0.00
+GLADM35       300_410    -0.461   -0.158  -0.303   0.162       0.00     0.00
+GLADM35       410_520    -0.223   -0.166  -0.057   0.744       0.01     0.02
+GLADM35       520_660    -0.226   -0.088  -0.139   0.196       0.01     0.02
+GLADM35       660_720    -0.713   -0.287  -0.426   0.003*      0.00     0.02
+GLADM35       720_780    -0.484   -0.231  -0.252   0.008*      0.00     0.03
+GLADM35       780_880    -0.310   -0.130  -0.180   0.008*      0.00     0.03
+GLADM35      880_1010    -0.131   -0.038  -0.093   0.230       0.00     0.05
+GLADM35     1000_1300    -0.007    0.044  -0.051   0.656       0.07     0.02
+GLADM35     1300_1600     0.070   -0.024   0.094   0.274       0.09     0.03
+GLADM35     1600_2000     0.083   -0.200   0.284   0.000*      0.05     0.01
+GLADM35     2000_2500     0.148   -0.164   0.312   0.022*      0.06     0.03
+SPiRaL          0_100   -10.312  -11.440   1.128   0.052       0.00     0.00
+SPiRaL        100_200    -3.087   -4.009   0.922   0.041*      0.00     0.00
+SPiRaL        200_300    -0.581   -0.603   0.022   0.864       0.02     0.00
+SPiRaL        300_410     0.230    0.812  -0.581   0.000*      0.06     0.22
+SPiRaL        410_520     0.120    0.422  -0.301   0.009*      0.14     0.19
+SPiRaL        520_660     0.144    0.638  -0.494   0.000*      0.10     0.11
+SPiRaL        660_720     0.076    0.417  -0.341   0.002*      0.20     0.32
+SPiRaL        720_780    -0.005    0.166  -0.172   0.130       0.26     0.46
+SPiRaL        780_880     0.009    0.218  -0.210   0.018*      0.15     0.14
+SPiRaL       880_1010     0.015    0.229  -0.213   0.036*      0.15     0.16
+SPiRaL      1000_1300     0.270    0.295  -0.025   0.850       0.06     0.24
+SPiRaL      1300_1600     0.223    0.095   0.128   0.157       0.11     0.04
+SPiRaL      1600_2000    -0.041   -0.025  -0.016   0.798       0.05     0.02
+SPiRaL      2000_2500    -0.128    0.023  -0.151   0.030*      0.06     0.05
+SEMUCBWM1       0_100    -3.199   -3.480   0.281   0.568       0.00     0.00
+SEMUCBWM1     100_200    -3.293   -3.117  -0.175   0.453       0.00     0.00
+SEMUCBWM1     200_300    -1.047   -0.316  -0.731   0.042*      0.00     0.01
+SEMUCBWM1     300_410    -0.468   -0.036  -0.432   0.063       0.00     0.04
+SEMUCBWM1     410_520    -0.156   -0.013  -0.143   0.121       0.01     0.07
+SEMUCBWM1     520_660    -0.217   -0.035  -0.182   0.131       0.00     0.10
+SEMUCBWM1     660_720    -0.271   -0.116  -0.155   0.112       0.00     0.09
+SEMUCBWM1     720_780    -0.286   -0.112  -0.174   0.079       0.00     0.02
+SEMUCBWM1     780_880    -0.248   -0.118  -0.131   0.239       0.00     0.01
+SEMUCBWM1    880_1010    -0.095   -0.145   0.049   0.622       0.00     0.00
+SEMUCBWM1   1000_1300     0.015   -0.121   0.136   0.106       0.03     0.10
+SEMUCBWM1   1300_1600    -0.038   -0.182   0.144   0.010*      0.04     0.00
+SEMUCBWM1   1600_2000     0.029   -0.282   0.311   0.000*      0.00     0.00
+SEMUCBWM1   2000_2500    -0.044   -0.353   0.310   0.000*      0.03     0.00
+
+--- Atlantic-Arctic corridor: 549 samples, 51 clusters, 343 hydrated
+model       band (km)  hydrated      not    diff       p    fast-decile share, hydr/not
+REVEAL          0_100    -4.316   -1.674  -2.642   0.002*      0.00     0.00
+REVEAL        100_200    -4.492   -3.865  -0.627   0.413       0.00     0.00
+REVEAL        200_300    -1.074   -1.389   0.315   0.218       0.00     0.00
+REVEAL        300_410    -0.129   -0.514   0.384   0.042*      0.06     0.04
+REVEAL        410_520    -0.129    0.012  -0.141   0.609       0.03     0.04
+REVEAL        520_660     0.104    0.428  -0.324   0.209       0.17     0.39
+REVEAL        660_720     0.296    0.495  -0.200   0.372       0.13     0.43
+REVEAL        720_780     0.193    0.479  -0.286   0.185       0.09     0.43
+REVEAL        780_880     0.285    0.515  -0.230   0.043*      0.01     0.42
+REVEAL       880_1010     0.218    0.619  -0.401   0.008*      0.14     0.24
+REVEAL      1000_1300     0.180    0.342  -0.162   0.150       0.03     0.06
+REVEAL      1300_1600    -0.303    0.200  -0.502   0.034*      0.00     0.04
+REVEAL      1600_2000    -0.253    0.103  -0.356   0.185       0.17     0.04
+REVEAL      2000_2500     0.177   -0.128   0.305   0.155       0.08     0.10
+RevealLO        0_100    -4.208   -3.257  -0.951   0.364       0.00     0.00
+RevealLO      100_200    -3.886   -4.101   0.215   0.664       0.00     0.00
+RevealLO      200_300    -0.886   -1.033   0.147   0.681       0.00     0.00
+RevealLO      300_410    -0.213   -0.109  -0.104   0.708       0.00     0.08
+RevealLO      410_520    -0.184    0.288  -0.472   0.085       0.00     0.05
+RevealLO      520_660    -0.014    0.618  -0.632   0.064       0.02     0.12
+RevealLO      660_720     0.336    0.610  -0.274   0.749       0.00     0.45
+RevealLO      720_780     0.118    0.387  -0.269   0.182       0.00     0.41
+RevealLO      780_880     0.215    0.375  -0.160   0.100       0.00     0.33
+RevealLO     880_1010     0.196    0.545  -0.348   0.023*      0.04     0.05
+RevealLO    1000_1300     0.233    0.161   0.072   0.731       0.05     0.00
+RevealLO    1300_1600    -0.259    0.247  -0.505   0.009*      0.00     0.08
+RevealLO    1600_2000    -0.226    0.021  -0.247   0.272       0.17     0.04
+RevealLO    2000_2500     0.129   -0.179   0.307   0.136       0.07     0.10
+GLADM35         0_100    -0.182   -0.897   0.715   0.020*      0.00     0.00
+GLADM35       100_200    -2.575   -2.869   0.294   0.407       0.00     0.00/Users/dietmar/Documents/Papers/in_prep/Muller_mantle_tomography_subduction/Paper_hydration/src/morb.py:146: RuntimeWarning: All-NaN slice encountered
+  rec[k] = float(np.nanmedian(arr[cl == c]))
+
+GLADM35       200_300    -1.229   -0.930  -0.299   0.029*      0.00     0.00
+GLADM35       300_410    -0.435    0.272  -0.707   0.000*      0.00     0.00
+GLADM35       410_520    -0.147    0.430  -0.576   0.000*      0.01     0.07
+GLADM35       520_660    -0.086    0.418  -0.505   0.002*      0.01     0.07
+GLADM35       660_720    -0.592   -0.510  -0.082   0.863       0.00     0.00
+GLADM35       720_780    -0.381   -0.350  -0.031   0.910       0.00     0.00
+GLADM35       780_880    -0.244   -0.229  -0.015   0.743       0.00     0.00
+GLADM35      880_1010    -0.107   -0.034  -0.073   0.541       0.00     0.04
+GLADM35     1000_1300    -0.077    0.021  -0.098   0.394       0.00     0.02
+GLADM35     1300_1600    -0.127   -0.027  -0.101   0.317       0.00     0.02
+GLADM35     1600_2000    -0.055   -0.197   0.141   0.199       0.00     0.05
+GLADM35     2000_2500     0.194    0.003   0.191   0.338       0.03     0.11
+SPiRaL          0_100    -9.061  -10.898   1.838   0.089       0.00     0.00
+SPiRaL        100_200    -2.373   -3.058   0.685   0.243       0.00     0.00
+SPiRaL        200_300     0.282   -0.078   0.360   0.438       0.02     0.00
+SPiRaL        300_410     0.525    0.882  -0.357   0.094       0.09     0.40
+SPiRaL        410_520     0.415    0.645  -0.230   0.432       0.20     0.36
+SPiRaL        520_660     0.359    1.028  -0.670   0.000*      0.15     0.34
+SPiRaL        660_720     0.205    0.364  -0.159   0.425       0.22     0.02
+SPiRaL        720_780     0.127   -0.140   0.267   0.099       0.29     0.35
+SPiRaL        780_880     0.118    0.235  -0.117   0.154       0.13     0.13
+SPiRaL       880_1010     0.067    0.205  -0.138   0.278       0.16     0.13
+SPiRaL      1000_1300     0.197    0.404  -0.207   0.065       0.03     0.17
+SPiRaL      1300_1600    -0.106    0.042  -0.148   0.309       0.00     0.03
+SPiRaL      1600_2000    -0.339   -0.115  -0.224   0.362       0.00     0.04
+SPiRaL      2000_2500    -0.255    0.015  -0.269   0.002*      0.00     0.00
+SEMUCBWM1       0_100    -2.712   -2.960   0.247   0.471       0.00     0.00
+SEMUCBWM1     100_200    -2.906   -2.995   0.089   0.819       0.00     0.00
+SEMUCBWM1     200_300    -0.753   -0.144  -0.609   0.221       0.00     0.00
+SEMUCBWM1     300_410    -0.351   -0.042  -0.310   0.218       0.00     0.00
+SEMUCBWM1     410_520    -0.084    0.192  -0.276   0.196       0.00     0.24
+SEMUCBWM1     520_660    -0.139    0.350  -0.489   0.000*      0.00     0.36
+SEMUCBWM1     660_720    -0.245    0.299  -0.544   0.000*      0.00     0.29
+SEMUCBWM1     720_780    -0.236    0.197  -0.433   0.009*      0.00     0.04
+SEMUCBWM1     780_880    -0.132    0.069  -0.202   0.156       0.00     0.02
+SEMUCBWM1    880_1010    -0.013   -0.085   0.072   0.769       0.00     0.00
+SEMUCBWM1   1000_1300     0.009   -0.108   0.117   0.363       0.00     0.00
+SEMUCBWM1   1300_1600    -0.180   -0.213   0.033   0.763       0.00     0.00
+SEMUCBWM1   1600_2000    -0.107   -0.228   0.122   0.303       0.00     0.00
+SEMUCBWM1   2000_2500    -0.050   -0.288   0.238   0.013*      0.00     0.00
+
+--- Pacific: 581 samples, 48 clusters, 128 hydrated
+model       band (km)  hydrated      not    diff       p    fast-decile share, hydr/not
+REVEAL          0_100    -3.989   -4.874   0.885   0.076       0.00     0.00
+REVEAL        100_200    -4.356   -5.044   0.688   0.015*      0.00     0.00
+REVEAL        200_300    -2.736   -2.454  -0.282   0.547       0.00     0.00
+REVEAL        300_410    -0.422   -0.687   0.265   0.768       0.00     0.00
+REVEAL        410_520     0.100   -0.407   0.507   0.110       0.05     0.00
+REVEAL        520_660    -0.206    0.056  -0.262   0.359       0.01     0.02
+REVEAL        660_720     0.018    0.465  -0.447   0.235       0.00     0.35
+REVEAL        720_780     0.042    0.633  -0.591   0.058       0.00     0.36
+REVEAL        780_880    -0.035    0.747  -0.782   0.003*      0.01     0.14
+REVEAL       880_1010    -0.283    0.581  -0.864   0.001*      0.12     0.16
+REVEAL      1000_1300     0.316    0.112   0.204   0.583       0.16     0.11
+REVEAL      1300_1600     0.612   -0.469   1.082   0.000*      0.27     0.01
+REVEAL      1600_2000     0.555   -0.230   0.785   0.003*      0.30     0.12
+REVEAL      2000_2500     0.337   -0.115   0.452   0.029*      0.17     0.03
+RevealLO        0_100    -2.390   -4.394   2.005   0.032*      0.00     0.00
+RevealLO      100_200    -4.687   -4.463  -0.223   0.648       0.00     0.00
+RevealLO      200_300    -1.731   -0.504  -1.227   0.022*      0.00     0.00
+RevealLO      300_410    -0.302    0.246  -0.548   0.217       0.04     0.01
+RevealLO      410_520     0.264   -0.324   0.588   0.169       0.05     0.00
+RevealLO      520_660    -0.183    0.221  -0.405   0.200       0.03     0.02
+RevealLO      660_720     0.208    0.725  -0.517   0.187       0.00     0.34
+RevealLO      720_780    -0.168    0.540  -0.708   0.011*      0.00     0.13
+RevealLO      780_880    -0.266    0.331  -0.597   0.012*      0.01     0.07
+RevealLO     880_1010    -0.403    0.445  -0.848   0.014*      0.12     0.13
+RevealLO    1000_1300     0.332    0.078   0.254   0.590       0.20     0.09
+RevealLO    1300_1600     0.547   -0.490   1.038   0.001*      0.21     0.01
+RevealLO    1600_2000     0.401   -0.278   0.679   0.002*      0.26     0.09
+RevealLO    2000_2500     0.309   -0.214   0.523   0.015*      0.17     0.03
+GLADM35         0_100    -2.483   -3.864   1.381   0.001*      0.00     0.00
+GLADM35       100_200    -3.408   -4.461   1.054   0.000*      0.00     0.00
+GLADM35       200_300    -1.399   -1.349  -0.050   1.000       0.00     0.00
+GLADM35       300_410    -0.620   -0.925   0.305   0.122       0.00     0.00
+GLADM35       410_520    -0.452   -0.739   0.287   0.155       0.00     0.00
+GLADM35       520_660    -0.676   -0.619  -0.057   0.725       0.00     0.00
+GLADM35       660_720    -0.747   -0.202  -0.545   0.027*      0.00     0.02
+GLADM35       720_780    -0.649   -0.129  -0.520   0.008*      0.00     0.05
+GLADM35       780_880    -0.457   -0.106  -0.351   0.018*      0.01     0.05
+GLADM35      880_1010    -0.138    0.023  -0.161   0.102       0.01     0.06
+GLADM35     1000_1300     0.318    0.152   0.166   0.108       0.28     0.02
+GLADM35     1300_1600     0.434    0.118   0.317   0.003*      0.37     0.03
+GLADM35     1600_2000     0.396   -0.223   0.619   0.000*      0.19     0.00
+GLADM35     2000_2500     0.193   -0.321   0.515   0.086       0.16     0.00
+SPiRaL          0_100   -12.086  -13.078   0.993   0.429       0.00     0.00
+SPiRaL        100_200    -4.576   -5.064   0.488   0.271       0.00     0.00
+SPiRaL        200_300    -1.446   -1.144  -0.301   0.258       0.00     0.00
+SPiRaL        300_410     0.230    0.502  -0.272   0.469       0.00     0.17
+SPiRaL        410_520    -0.044    0.336  -0.380   0.173       0.00     0.13
+SPiRaL        520_660    -0.173    0.421  -0.595   0.004*      0.00     0.02
+SPiRaL        660_720    -0.187    0.735  -0.922   0.001*      0.20     0.49
+SPiRaL        720_780    -0.528    0.600  -1.128   0.001*      0.21     0.58
+SPiRaL        780_880    -0.008    0.297  -0.305   0.154       0.23     0.17
+SPiRaL       880_1010    -0.071    0.323  -0.394   0.064       0.12     0.19
+SPiRaL      1000_1300     0.412    0.384   0.028   0.846       0.14     0.32
+SPiRaL      1300_1600     0.449    0.228   0.221   0.027*      0.36     0.05
+SPiRaL      1600_2000     0.355   -0.011   0.366   0.006*      0.17     0.02
+SPiRaL      2000_2500     0.276    0.103   0.172   0.547       0.17     0.07
+SEMUCBWM1       0_100    -4.606   -5.565   0.958   0.079       0.00     0.00
+SEMUCBWM1     100_200    -4.052   -3.584  -0.468   0.244       0.00     0.00
+SEMUCBWM1     200_300    -1.150   -1.025  -0.125   0.714       0.00     0.00
+SEMUCBWM1     300_410    -0.619   -0.516  -0.103   1.000       0.00     0.05
+SEMUCBWM1     410_520    -0.284   -0.299   0.015   1.000       0.00     0.00
+SEMUCBWM1     520_660    -0.475   -0.353  -0.122   0.609       0.00     0.00
+SEMUCBWM1     660_720    -0.363   -0.262  -0.101   0.795       0.00     0.00
+SEMUCBWM1     720_780    -0.326   -0.210  -0.116   0.719       0.00     0.00
+SEMUCBWM1     780_880    -0.320   -0.211  -0.110   0.392       0.01     0.00
+SEMUCBWM1    880_1010    -0.115   -0.077  -0.038   1.000       0.01     0.00
+SEMUCBWM1   1000_1300     0.303   -0.093   0.395   0.013*      0.11     0.16
+SEMUCBWM1   1300_1600     0.180   -0.242   0.422   0.000*      0.16     0.00
+SEMUCBWM1   1600_2000     0.190   -0.359   0.549   0.000*      0.00     0.00
+SEMUCBWM1   2000_2500     0.223   -0.401   0.624   0.000*      0.11     0.00
+
+wrote out/morb_tomography_noplumes.csv
+
+410-520 km beneath corridor sites by hydration-age class (cluster medians)
+model              none   100-200 Ma   200-300 Ma   300-400 Ma
+REVEAL       -0.002 (24)   -0.625 ( 9)   -0.108 ( 9)    0.463 ( 9)
+RevealLO      0.290 (24)   -0.948 ( 9)   -0.065 ( 9)    0.437 ( 9)
+GLADM35       0.464 (24)   -0.140 ( 9)   -0.390 ( 9)    0.175 ( 9)
+SPiRaL        0.704 (24)   -0.458 ( 9)    0.686 ( 9)    0.669 ( 9)
+SEMUCBWM1     0.221 (24)   -0.452 ( 9)   -0.065 ( 9)   -0.068 ( 9)
+  a   REVEAL, S-wave      : -3.43 to +4.28 %, top decile above +1.14 %
+  b   RevealLO, S-wave    : -3.00 to +4.56 %, top decile above +1.32 %
+  c   GLAD-M35, S-wave    : -2.28 to +3.01 %, top decile above +1.04 %
+  d   GLAD-M35, P-wave    : -1.07 to +2.79 %, top decile above +0.60 %
+wrote /Users/dietmar/Documents/Papers/in_prep/Muller_mantle_tomography_subduction/Paper_hydration/figures/fig_tomography.pdf and .png
+wrote /Users/dietmar/Documents/Papers/in_prep/Muller_mantle_tomography_subduction/Paper_hydration/figures/fig_depth_offset   survivors 150km:0, 200km:1, 300km:4, 400km:4, 500km:5
+5 volumes: REVEAL, RevealLO, GLAD-M35, SPiRaL, SEMUCB-WM1
+wrote /Users/dietmar/Documents/Papers/in_prep/Muller_mantle_tomography_subduction/Paper_hydration/figures/fig_depth_memory.pdf and .png
+wrote /Users/dietmar/Documents/Papers/in_prep/Muller_mantle_tomography_subduction/Paper_hydration/figures/fig_geological_test_v2   rho +0.725 p 0.0050 n 13; fast median 68%, others 0%
+wrote /Users/dietmar/Documents/Papers/in_prep/Muller_mantle_tomography_subduction/Paper_hydration/figures/fig_province_heatmap_v2  (20 provinces x 15 columns)
+wrote figures/fig_morb_corridor.pdf and .png
+ok   fig_age_map.pdf                           19.0 cm, x0.84 -> 10.1-11.4 pt, 12 labels
+ok   fig_depth_memory.pdf                      19.3 cm, x0.83 -> 8.3-9.5 pt, 44 labels
+FAIL fig_depth_offset.pdf                      17.9 cm, x0.89 -> 5.9-9.8 pt, 41 labels, smallest glyph 5.9
+       small  5.9 pt  '−1'
+       small  5.9 pt  '−3'
+       small  5.9 pt  '−2'
+ok   fig_depth_profile.pdf                     17.8 cm, x0.90 -> 9.9-11.7 pt, 38 labels
+FAIL fig_geological_test_v2.pdf                18.7 cm, x0.86 -> 5.7-9.4 pt, 33 labels, smallest glyph 5.7
+       small  5.7 pt  '−7'
+       small  5.7 pt  '−6'
+       small  5.7 pt  '−5'
+       small  5.7 pt  '−4'
+FAIL fig_geological_test.pdf                   18.7 cm, x0.86 -> 5.7-9.4 pt, 33 labels, smallest glyph 5.7
+       small  5.7 pt  '−7'
+       small  5.7 pt  '−6'
+       small  5.7 pt  '−5'
+       small  5.7 pt  '−4'
+ok   fig_map.pdf                               19.0 cm, x0.84 -> 10.1-10.1 pt, 4 labels
+ok   fig_morb_corridor.pdf                     15.9 cm, x1.01 -> 11.1-13.1 pt, 48 labels
+ok   fig_persistence.pdf                       16.0 cm, x1.00 -> 11.0-13.5 pt, 18 labels
+ok   fig_province_heatmap_v2.pdf               17.5 cm, x0.91 -> 8.2-9.6 pt, 47 labels
+ok   fig_province_heatmap.pdf                  17.5 cm, x0.91 -> 8.2-9.6 pt, 56 labels
+ok   fig_three_clocks.pdf                      15.8 cm, x1.01 -> 11.2-13.2 pt, 31 labels
+ok   fig_tomography.pdf                        19.0 cm, x0.84 -> 8.4-9.7 pt, 11 labels
+ok   fig_visibility_budget_v2.pdf              17.8 cm, x0.90 -> 8.5-9.9 pt, 34 labels
+ok   fig_visibility_budget_v4.pdf              17.8 cm, x0.90 -> 8.5-9.9 pt, 34 labels
+ok   fig_visibility_budget.pdf                 17.8 cm, x0.90 -> 8.5-9.9 pt, 33 labels
+ok   fig_vpvs.pdf                              16.1 cm, x0.99 -> 9.0-12.9 pt, 35 labels
+ok   fig_water_history.pdf                     18.4 cm, x0.87 -> 8.3-9.6 pt, 14 labels
+
+15 of 18 pass at 16.01 cm with a 8.0 pt floor

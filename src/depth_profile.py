@@ -74,6 +74,14 @@ frac = float(contmask.is_continental(lo0, la0).mean())
 print(f'{len(d)} fields, REVEAL Voigt, {N_SPIN} rotations\n')
 
 def spin(cont):
+    """The depth profile under many rigid rotations of the field constellation.
+
+    A rotation that barely moves the set is rejected, because it leaves the fields close to
+    where they were observed and carries the association into the null. With cont set, only
+    rotated positions on continental lithosphere are kept, which is the comparison the
+    paper reports: the fields are continental and oceanic mantle is not their
+    counterfactual.
+    """
     rng = np.random.default_rng(17); out = []
     while len(out) < N_SPIN:
         xyz = xyz0 @ random_rotation(rng).T

@@ -1,0 +1,6 @@
+margin,rows,sigma_km,fwhm_km,rms,spread_km
+NW Pacific,64,145.0,342.0,0.0072,145-146
+SE Asia,57,146.0,345.0,0.0093,145-147
+eastern Pacific,0,,,,
+Tethys,0,,,,
+median of stacked margins,121,146.0,343.0,,

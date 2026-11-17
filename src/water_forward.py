@@ -42,6 +42,13 @@ def displace(lon, lat, az, km):
 
 
 def main():
+    """Build the delivery field: move the subducted water down dip and date each cell.
+
+    Writes `water_forward<suffix>.npz` with the water field, the age of the youngest
+    delivery at each cell, the per-interval fields and the fast-structure mask. The suffix
+    keeps an offset sweep from overwriting the reference run, which is the file every
+    later script reads.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--model', default='zahirovic2022')
     ap.add_argument('--offset', type=float, default=300.0)

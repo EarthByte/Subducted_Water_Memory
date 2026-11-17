@@ -42,6 +42,13 @@ def model(t, e0, einf, tau):
 
 
 def curve(sel, Rdom):
+    """The enrichment curve for one subset of cells, or None if it cannot be formed.
+
+    Cells delivered earlier than the interval being scored are excluded from its base,
+    so that each point measures the delivery of its own age rather than everything that
+    arrived before it. A subset with no fast cells at all returns None rather than a
+    division by zero, which is what an empty bootstrap resample looks like.
+    """
     ww, ff = w[sel], fast[sel]
     base = ww[ff].sum() / ww.sum()
     if not np.isfinite(base) or base <= 0:

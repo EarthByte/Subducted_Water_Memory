@@ -89,6 +89,12 @@ def band_file(path):
 
 
 def draw(ax, lon, lat, field, label, contour=True):
+    """Draw one velocity map on a common scale, with the fast set outlined.
+
+    Every panel of the figure shares the colour limits, so the models are compared by eye
+    on amplitude as well as pattern; the contour marks the fastest tenth, which is the set
+    the statistics are formed on.
+    """
     pc_ = ccrs.PlateCarree()
     ax.set_global()
     ax.add_feature(cfeature.LAND, facecolor=F.LAND, zorder=1)
@@ -113,6 +119,11 @@ def draw(ax, lon, lat, field, label, contour=True):
 
 
 def main():
+    """Draw the velocity maps of the five models from the cached bands.
+
+    The cache is read by default and only rebuilt with --refresh, since re-reading the
+    full volumes takes minutes and changes nothing unless the model file has.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--refresh', action='store_true',
                     help='re-read REVEAL from the model file')

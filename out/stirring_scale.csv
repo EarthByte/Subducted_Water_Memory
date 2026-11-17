@@ -1,0 +1,14 @@
+t_Myr,sigma_km,two_sigma_km,what
+25.0,154,308,"youngest delivery interval, 8-25 Ma"
+29.0,166,331,decay time of the ridge chemical signature
+37.0,187,374,decay time of the seismic association
+50.0,218,435,delivery within the past 50 Myr
+100.0,308,615,delivery within the past 100 Myr
+150.0,377,754,youngest hydration ages of the ridge sites
+380.0,600,1200,oldest hydration age in the compilation
+400.0,615,1231,the span of the reconstruction
+500.0,688,1376,half a billion years
+66,250,,the time at which sigma reaches 250 km
+17,,250,the time at which 2 sigma reaches 250 km
+95,300,,the time at which sigma reaches 300 km
+24,,300,the time at which 2 sigma reaches 300 km

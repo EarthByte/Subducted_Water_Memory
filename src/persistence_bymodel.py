@@ -36,6 +36,12 @@ def band_from_reveal(b0, b1):
 
 
 def main():
+    """Fit the decay of the delivery association for one velocity model.
+
+    Takes the depth bands of that model and the hydration-age map of the reconstruction
+    side, and writes the enrichment curve and its fit under the model's label, so that the
+    five can be compared on one footing.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--bands', default=None, help='npz from extract_bands.py')
     ap.add_argument('--label', default='REVEAL')

@@ -104,6 +104,12 @@ def largest_region(mask):
 
 
 def main():
+    """Split two models into long and short wavelengths and compare them in each.
+
+    REVEAL and RevealLO are the same inversion with long-period updates added, so the
+    split shows what the updates carry and why a rank threshold on the sum moves so many
+    cells across it. Writes the band-by-band correlations and amplitudes.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--band', default='410_520')
     a = ap.parse_args()

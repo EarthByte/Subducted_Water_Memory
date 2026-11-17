@@ -1,0 +1,11 @@
+quantity,case,value,detail
+decay constant tau (Myr),preferred (300 km),27.6,r2 = 0.917
+decay constant tau (Myr),prescribed (200 km),30.7,r2 = 0.865
+water inside the window (%),preferred (300 km),2.3,25: 2.3%  37: 2.3%  50: 5.1%  100: 11.6%
+water inside the window (%),prescribed (200 km),2.3,25: 2.3%  37: 2.3%  50: 5.1%  100: 11.6%
+410-520 km survives maxT (of 5),preferred (300 km),4,"REVEAL 0.000, RevealLO 0.045, SPiRaL 0.029, SEMUCBWM1 0.034"
+410-520 km survives maxT (of 5),prescribed (200 km),1,REVEAL 0.030
+"rho, water 8-25 Ma vs S",preferred (300 km),+0.725,"p = 0.0050, n = 13"
+"rho, water 8-25 Ma vs S",prescribed (200 km),+0.731,"p = 0.0045, n = 13"
+"timing gap, fast vs rest (pp)",preferred (300 km),67.9,"exact p = 0.046 over 1140, n = 20"
+"timing gap, fast vs rest (pp)",prescribed (200 km),53.6,"exact p = 0.046 over 1140, n = 20"

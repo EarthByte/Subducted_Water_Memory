@@ -1,0 +1,21 @@
+velocity variable: voigt
+REVEAL 99 shells, 361x721; catalogue ipv_catalogue_gvp.csv; 5000 rotations
+
+19 coherent bodies above 4e+05 km2 = 8.4 per cent of the surface; the full top-decile mask = 11.1 per cent
+distances measured to: bodies
+continental fraction of the surface 40.2 per cent; of the fast-TZ area 66.5 per cent
+
+integral image vs box_indices on 60 fields: max |diff| = 1.19e-07
+91 fields, 97 per cent on continental lithosphere
+
+free null: 5000 rotations accepted from 5811 tried
+continental null: 5000 rotations accepted from 23236 tried
+
+test                                         observed |  free null       p |  cont null       p
+------------------------------------------------------------------------------------------------
+median distance to fast TZ anomaly (km)           503 |       1239  0.0246 |        806  0.2619
+mean transition-zone anomaly (per cent)        +0.361 |     +0.041  0.0404 |     +0.282  0.3711
+rho(melt contrast, distance to slab)           -0.260 |     +0.096  0.1028 |     -0.260  0.4997
+mean melt-layer contrast (per cent)            +0.340 |     +0.021  0.0254 |     -0.290  0.0002
+
+One-sided, on the side of the null median the observation falls on.

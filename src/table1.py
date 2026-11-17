@@ -1,7 +1,6 @@
 """Table 1 — what the spin null gives, and what it gives when its domain is right.
 
-The script that produced the draft's Table 1 was lost with a cloud session, so
-this rebuilds it. Two things are done differently and deliberately:
+This builds Table 1, and two choices in it are deliberate:
 
   * The tail is one-sided on the side of the null median the observation falls on,
     which is what the manuscript's methods section specifies. `s17.report` instead
@@ -167,6 +166,12 @@ frac_cont_obs = float(contmask.is_continental(lo0, la0).mean())
 print(f'{len(d)} fields, {100 * frac_cont_obs:.0f} per cent on continental lithosphere\n')
 
 def spin(require_continental):
+    """The table statistics under many rigid rotations of the field constellation.
+
+    Rotations are drawn until enough admissible ones are found, with a cap on attempts so
+    that an unmeetable restriction returns fewer rather than never returning. With the
+    continental restriction only rotated positions on continental lithosphere are kept.
+    """
     rng = np.random.default_rng(17)
     out, tries = [], 0
     while len(out) < N_SPIN and tries < N_SPIN * 400:

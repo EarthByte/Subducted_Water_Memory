@@ -61,6 +61,13 @@ def rotation(rng, kind='haar'):
 
 
 def main():
+    """Run the depth scan across models and correct it for having been run thirty times.
+
+    Each model and depth pair is tested against its own rotated maps, and the correction is
+    formed from the null distributions themselves rather than assumed independent, because
+    the depth bands of one model are anything but. Writes the scan and the adjusted
+    probabilities the paper quotes.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--n-null', type=int, default=2000)
     ap.add_argument('--out', default=OUTDIR)
@@ -115,6 +122,11 @@ def main():
     print(f'{nage} age bands usable, {int((age_id >= 0).sum())} cells assigned')
 
     def bands_for(tag):
+        """The cached depth bands of one volume, from wherever they were written.
+
+        Reading the cache keeps the run to seconds and needs neither the full grid nor
+        xarray; a tag with no cache is reported rather than silently skipped.
+        """
         # the depth-averaged bands of every volume are cached beside the
         # tomography, REVEAL's in out/ as well; reading the cache keeps the run
         # to seconds and needs neither the full grid nor xarray

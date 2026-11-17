@@ -59,6 +59,12 @@ def sigma_theta(p, s, sp, ss):
 
 
 def summarise(name, th, sg, w=None):
+    """Print the median angle and its uncertainty for one subset of cells.
+
+    Cells without a finite angle or uncertainty are dropped rather than counted as zero,
+    and a subset with none left is reported as empty, which is what a threshold that has
+    excluded everything looks like.
+    """
     k = np.isfinite(th) & np.isfinite(sg)
     if not k.any():
         print(f'  {name:34} no cells')
@@ -87,6 +93,12 @@ def summarise(name, th, sg, w=None):
 
 
 def main():
+    """Propagate the P- and S-wave uncertainties into the angle, across correlations.
+
+    GLAD-M35 reports an uncertainty for each anomaly but not their covariance, so the
+    calculation is repeated for every correlation from -0.99 to +0.99 rather than assuming
+    the two are unrelated, and the least favourable value is the one the paper quotes.
+    """
     z = load()
     th, p, s = z['theta'], z['dvp'], z['dvs']
     sp, ss, good = z['sig_p'], z['sig_s'], z['good']

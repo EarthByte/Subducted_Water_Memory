@@ -1,0 +1,22 @@
+
+             cut prov fast  timed gap       p     rho       p   n
+  -- by eruption age (Ma) --
+           <= 25   15    2        74%   0.028   +0.82   0.004  10
+           <= 50   18    3        68%   0.058   +0.73   0.005  13
+           <= 66   20    3        68%   0.045   +0.73   0.005  13
+          <= 100   20    3        68%   0.049   +0.73   0.005  13
+          <= 150   20    3        68%   0.042   +0.73   0.005  13
+          <= 250   20    3        68%   0.047   +0.73   0.005  13
+  -- by displacement (km) --
+          <= 300   11    2        74%   0.055   +0.74   0.037   8
+          <= 550   15    3        68%   0.081   +0.65   0.043  10
+          <= 800   15    3        68%   0.084   +0.65   0.043  10
+         <= 1100   17    3        68%   0.041   +0.69   0.013  12
+         <= 1500   19    3        68%   0.048   +0.73   0.005  13
+         <= 2500   19    3        68%   0.051   +0.73   0.005  13
+         <= 5000   20    3        68%   0.046   +0.73   0.005  13
+
+  A flat row means the provinces added by loosening the cut carry no
+  signal either way: beyond the memory window there is nothing to see,
+  so old provinces land in the comparison group and move no median.
+  The cut only matters once an old province enters the fast class.

@@ -93,6 +93,13 @@ def shell_anomaly(v):
 
 
 def main():
+    """Form the P-S angle field of GLAD-M35 and summarise it by body and by depth.
+
+    Writes `vpvs_angle_field.npz` with the two anomalies, the angle and the reported
+    uncertainties, and the tables the supplement draws on. The angle is measured at the
+    origin rather than as a ratio, which stays well behaved where the P-wave anomaly is
+    small.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--file', default=os.path.join(PATHS.TOMO, 'GLADM35_mtz.nc'))
     ap.add_argument('--src', default=pc.DATA)

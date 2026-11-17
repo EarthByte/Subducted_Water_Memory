@@ -38,6 +38,13 @@ def cumulative(product, t):
 
 
 def main():
+    """Compare each time step of the grids with the running median and flag the outliers.
+
+    Reads every grid of a product, so it takes a few minutes. Writes
+    `grid_step_audit_<product>.csv` with the largest cell increment of each step, where it
+    is, and how it compares with the median, together with the magnitudes needed to judge
+    whether a flagged step matters to any published number.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--product', default='subducted', choices=['subducted', 'stored', 'outflux'])
     ap.add_argument('--times', type=int, nargs=2, default=None,

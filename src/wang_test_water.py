@@ -37,6 +37,13 @@ from province_pivot import provinces, CAT, RADIUS_DEG
 
 
 def main():
+    """The Wang et al. (2025) test again, on this project's own water model.
+
+    Their criterion is applied to delivery computed here rather than to their own, across
+    the residence times they give, so that the difference between the two results can be
+    attributed to the water model rather than to the rule. Writes the share of fields that
+    qualify at each residence and the velocity comparison that follows.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--band', default='410-520')
     ap.add_argument('--null', default='continental')

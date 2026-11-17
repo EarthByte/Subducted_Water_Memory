@@ -31,6 +31,12 @@ from province_pivot import provinces, CAT, RADIUS_DEG
 
 
 def footprint(field, lon, lat, d):
+    """The mean of a field in a disc of fixed angular radius around each field position.
+
+    The grid is regular in longitude, so the number of columns inside the disc grows with
+    latitude; the cosine term keeps the disc circular on the sphere rather than letting it
+    narrow towards the poles, which would sample less mantle beneath high-latitude fields.
+    """
     dlat, dlon = abs(lat[1] - lat[0]), abs(lon[1] - lon[0])
     near = lambda ax, v: np.abs(ax[None, :] - np.asarray(v, float)[:, None]).argmin(1)
     jl, il = near(lat, d.lat.values), near(lon, d.lon_180.values)
@@ -46,6 +52,13 @@ def footprint(field, lon, lat, d):
 
 
 def main():
+    """Push the volcanic-field comparison back through the delivery ages and report where
+    it stops being distinguishable from the null.
+
+    Writes `age_limit_scan.csv`: for each cut-off age, the median anomaly beneath fields
+    with delivery that old or younger, the gap against the rest, and its permutation
+    probability under the chosen null.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--band', default='410-520')
     ap.add_argument('--null', default='continental')
@@ -71,6 +84,12 @@ def main():
     rng = np.random.default_rng(3)
 
     def stats(tt):
+        """Median anomaly gap between the fast and the other fields, and its p value.
+
+        Fewer than two fields on either side leaves the gap undefined rather than returning
+        a difference of single values, which a permutation test would then treat as a
+        measurement.
+        """
         gg = (tt.cls == 'fast').values
         x = tt.tz.values
         if gg.sum() < 2 or (~gg).sum() < 2:

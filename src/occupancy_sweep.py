@@ -56,8 +56,7 @@ REF = dict(radius=250.0, offset=300.0, v_sink=50.0, model='zahirovic2022', frame
 #                 zahirovic2022, but its Palaeozoic (Domeier & Torsvik, 2014)
 #                 differs from the Young et al. (2018) Palaeozoic of
 #                 zahirovic2022 inside the 400 Myr window, and this repository
-#                 does not use it (CLAUDE.md). It was the alternative row of
-#                 Table S2 until 16 September 2026.
+#                 does not use it.
 #
 # The reference frame is therefore varied within the same model: the optAPM
 # no-net-rotation and maximum-net-rotation bounds of zahirovic2022 (Tetley et
@@ -107,6 +106,13 @@ def run_one(axis, value, extra_null=0):
 
 # ---- the fit, identical to tau_sensitivity.py so the rows are comparable ----
 def load_fields():
+    """The REVEAL shear-velocity anomaly, as the fractional perturbation in each shell.
+
+    The Voigt average of vsv and vsh is taken first, then the anomaly is formed against the
+    lateral mean of its own shell, which is what makes depths comparable with one another;
+    the clip guards against a shell whose mean is near zero rather than hiding a problem,
+    since any value it affects is far outside the range the paper reads.
+    """
     import xarray as xr
     out = {}
     ds = xr.open_dataset(os.path.join(TOMO, 'REVEAL_vs_full.nc'))
@@ -132,6 +138,12 @@ def load_fields():
 
 
 def tau_from(npz, fields):
+    """Refit the decay time from one occupancy field, returning the fit and its inputs.
+
+    Each delivery interval becomes a mask, the enrichment is formed in each, and the curve
+    is fitted to the series. Separating this from the sweep means a stored occupancy can be
+    refitted without recomputing it, which is what --fit-only does.
+    """
     z = np.load(npz)
     occ, ABINS, olat, olon = z['occupancy'], z['bands'], z['lat'], z['lon']
     LO, LA = np.meshgrid(olon, olat)
@@ -171,6 +183,12 @@ def tau_from(npz, fields):
 
 
 def main():
+    """Vary each axis of the occupancy field in turn and report what it does to tau.
+
+    The four axes are the velocity threshold, the age binning, the search radius and the
+    assumed slab displacement, and they are varied one at a time so that the spread in tau
+    can be attributed. Writes the occupancy fields and the fitted values for each setting.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--quick', action='store_true')
     ap.add_argument('--fit-only', action='store_true',

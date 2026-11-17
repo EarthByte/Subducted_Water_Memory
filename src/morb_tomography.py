@@ -73,6 +73,13 @@ def sample(model, key, lon, lat):
 
 
 def main():
+    """Compare transition-zone velocity beneath the dated MORB sites with the null.
+
+    Hydrated and unhydrated sites are compared at each depth band, against permutations
+    that keep the geography of the sample set. Plume-influenced segments can be dropped,
+    which is the version the paper reports alongside the full set. Writes the per-band
+    comparison and caches the sampled velocities.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--n-perm', type=int, default=5000)
     ap.add_argument('--no-plumes', action='store_true',

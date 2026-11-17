@@ -6,7 +6,7 @@ Code, figures and derived data for
 
 The paper investigates what becomes of the water that subducting plates carry into the mantle, by reading two independent records against one plate reconstruction: global seismic tomography of the transition zone, and the H₂O/Ce of mid-ocean ridge basalts erupted above mantle that the reconstruction dates as hydrated. Reconstructed slab delivery overlaps fast 410–520 km structure in five velocity models, and the overlap decays with delivery age with an e-folding time of about 37 Myr; the joint P- and S-wave pattern beneath volcanic provinces is thermal. Ridge basalts above mantle hydrated 120–380 Myr ago retain elevated H₂O/Ce, keep it beneath sites that cratonic keels later passed over, and lose it with the duration of spreading-ridge residence, with an e-folding time of about 30 Myr.
 
-This repository holds everything needed to rebuild every figure and every supplementary table of the paper. The derived products of each analysis step are archived on Zenodo (see *Citation*), so the figures and tables rebuild from them without the tomography models or the plate model; the analysis scripts that produce those products are here too, with the inputs they need named below.
+This repository holds everything needed to rebuild every figure and every supplementary table of the paper. The derived products of each analysis step are in `out/`, so the figures and tables rebuild from them without the tomography models or the plate model; the analysis scripts that produce those products are here too, with the inputs they need named below.
 
 ## Layout
 
@@ -14,7 +14,7 @@ This repository holds everything needed to rebuild every figure and every supple
 src/        analysis and figure scripts (Python 3)
 data/       small inputs carried with the repository (see Inputs)
 figures/    the ten main-text and six supplementary figures, PDF and PNG
-out/        derived products of every step (not in git; in the Zenodo archive)
+out/        derived products of every step, about 70 MB
 checkfigs.sh   checks every PDF figure for text below 10 pt and for label collisions
 ```
 
@@ -29,17 +29,17 @@ Carried in `data/`:
 - `hotspots_courtillot2003.csv`: the hotspot list of Courtillot et al. (2003).
 - `catalogues/`: the continental intraplate volcanic-field catalogues built from GEOROC (Lehnert et al., 2000) and the Global Volcanism Program by `src/build_ipv_catalogue.py`; `ipv_catalogue_georoc_v3.csv` is the 385-field catalogue the paper uses.
 - `morb/`: the mid-ocean ridge H₂O/Ce compilation of Dixon et al. (2026) with each sample's hydration age in the published, no-net-rotation and maximum-net-rotation reference frames and the per-site subduction histories. These files are reproduced here with the permission of that study's authors and are to be cited as Dixon et al.
-- `tomography/REVEAL_mantle_tomography/bands_*.npz`: depth-band means of the four published velocity models that `src/extract_bands.py` reduces from the full volumes (RevealLO, GLAD-M35, SPiRaL, SEMUCB-WM1); `out/bands_REVEAL.npz` in the archive is the same reduction of REVEAL.
+- `tomography/REVEAL_mantle_tomography/bands_*.npz`: depth-band means of the four published velocity models that `src/extract_bands.py` reduces from the full volumes (RevealLO, GLAD-M35, SPiRaL, SEMUCB-WM1); `out/bands_REVEAL.npz` is the same reduction of REVEAL.
 
 Obtained from their sources when an analysis step is rerun from scratch:
 
-- REVEAL (Thrastarson et al., 2024), as `REVEAL_vs_full.nc` in `TOMO_DIR`; GLAD-M35 (Cui et al., 2024) as `GLADM35_mtz.nc`; SPiRaL (Simmons et al., 2021) and SEMUCB-WM1 (French & Romanowicz, 2014) as NetCDF volumes in `TOMO_DIR/REVEAL_mantle_tomography/`. RevealLO is an unpublished development of REVEAL from the Seismology and Wave Physics group at ETH Zürich (the volume `Reveal_33s_with_LO.nc`, or `REVEALLO_NC`); its depth-band reduction is carried here.
+- REVEAL (Thrastarson et al., 2024), as `REVEAL_vs_full.nc` in `TOMO_DIR`; GLAD-M35 (Cui et al., 2024) as `GLADM35_mtz.nc`; SPiRaL (Simmons et al., 2021) and SEMUCB-WM1 (French & Romanowicz, 2014) as NetCDF volumes in `TOMO_DIR/REVEAL_mantle_tomography/`. RevealLO is a development of REVEAL from the Seismology and Wave Physics group at ETH Zürich, described by Schiller et al. (2026) (the volume `Reveal_33s_with_LO.nc`, or `REVEALLO_NC`); its depth-band reduction is carried here.
 - The Zahirovic et al. (2022) plate reconstruction, fetched by `plate_model_manager` into `MODEL_DIR` on first use, and the optAPM reference-frame rotation files of Tetley et al. (2019) for the two bounding frames.
 - The cumulative subducted-water grids of Dixon et al. (2026) in `GRIDS_DIR`: the total, the part released above 125 km and the part bound below it, for the water-delivery field (`src/water_forward.py`) and the partition (`src/water_partition.py`).
 
 ## Rebuilding the figures from the archive
 
-With `out/` in place from the Zenodo archive, every figure script reads what an earlier step wrote and runs in seconds:
+With `out/` in place, every figure script reads what an earlier step wrote and runs in seconds:
 
 ```
 pip install -r requirements.txt
@@ -150,6 +150,7 @@ Cui, C., et al. (2024). GLAD-M35. *Geophysical Journal International*, 239, 478�
 Dixon, J. E., Müller, R. D., Dutkiewicz, A., & Mather, B. R. (2026). A 400 Myr subduction memory in the mid-ocean ridge source. *EarthArXiv* preprint. https://doi.org/10.31223/X5PF9H
 French, S. W., & Romanowicz, B. A. (2014). SEMUCB-WM1. *Geophysical Journal International*, 199, 1303–1327. https://doi.org/10.1093/gji/ggu334
 Lehnert, K., et al. (2000). GEOROC. *Geochemistry, Geophysics, Geosystems*, 1, 1999GC000026. https://doi.org/10.1029/1999GC000026
+Schiller, C. J., van Herwaarden, D.-P., Thrastarson, S., Noe, S., & Fichtner, A. (2026). RevealLO: a global full-waveform inversion model constrained by long-period multi-orbit data. *arXiv* preprint.
 Shirmard, H., et al. (2025). Craton boundaries from REVEAL. github.com/EarthByte/Craton_Boundaries
 Simmons, N. A., et al. (2021). SPiRaL. *Geophysical Journal International*, 227, 1366–1391. https://doi.org/10.1093/gji/ggab277
 Tetley, M. G., Williams, S. E., Gurnis, M., Flament, N., & Müller, R. D. (2019). Constraining absolute plate motions since the Triassic. *Journal of Geophysical Research: Solid Earth*, 124, 7231–7258. https://doi.org/10.1029/2019JB017442

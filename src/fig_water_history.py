@@ -38,6 +38,12 @@ GROUPS = [((0, 1), '8–50 Ma', 'inside the memory window'),
 
 
 def main():
+    """Draw the delivery field in four age intervals, with the fast structure outlined.
+
+    The four panels share one colour scale, rescaled so that the bar carries readable
+    decade labels at column width; the share of the modelled inventory in each interval is
+    printed to the terminal, since it belongs in the caption rather than on the artwork.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--npz', default=os.path.join(OUT, 'water_forward.npz'))
     a = ap.parse_args()

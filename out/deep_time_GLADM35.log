@@ -1,0 +1,43 @@
+mask from bands_GLADM35.npz
+11 coherent bodies above 4e+05 km2, 24894 cells
+zahirovic2022: scanning 196 epochs from 10.0 to 400 Ma
+offset 300 km down-dip, 250 km search radius, sinking 50 km/Myr
+
+57.9 per cent of the surface has any subduction explanation within 400 Myr
+
+observed fast transition zone: 24894 cells, 93 per cent with an explanation
+  youngest explaining subduction age, percentiles (Ma):
+   p10=10  p25=10  p50=34  p75=98  p90=270  p95=358  p99=390
+  the same percentiles for randomly rotated positions (median of 2000):
+   p10=10  p25=32  p50=94  p75=208  p90=322  p95=346  p99=388
+  one-sided p that the observed percentile is older than chance:
+   p10=1.000  p25=1.000  p50=0.983  p75=0.956  p90=0.796  p95=0.305  p99=0.487
+
+persistence. Base rate of a fast transition zone is 11.9 per cent of the surface by construction.
+    subduction age     cells   fast TZ  enrichment         95% band
+      10-25            22588     51.0%        4.29    4.23    4.34
+      25-50            27842     43.9%        3.69    3.64    3.74
+      50-75            30616     31.5%        2.65    2.60    2.69
+      75-100           34859     26.1%        2.19    2.15    2.23
+     100-150           67255     19.7%        1.66    1.63    1.68
+     150-200           56024     26.7%        2.24    2.21    2.27
+     200-250           60442     25.0%        2.10    2.07    2.13
+     250-300           57915     17.5%        1.47    1.44    1.49
+     300-350           75481     16.8%        1.41    1.39    1.44
+     350-400           83632     19.0%        1.59    1.57    1.62
+
+hydration age per body, oldest first
+                region  lon  lat  area_km2  attributed_0_30  explained  t_min_p10  t_min_median  t_min_p90
+            unassigned  -19   -3   2494548            False          0        386           394        400
+       Africa / Arabia   -5    5   1082663            False          1        382           384        394
+   Antarctic / S Ocean  -30  -57    418119             True          1         10           378        382
+       Africa / Arabia   11   -3    604408            False          1        336           362        376
+            unassigned   47   50   1610784            False          1        312           320        358
+            unassigned   87   31    753849            False          1        180           182        310
+ N America / E Pacific -173   70    539797             True          1         54            68        244
+            unassigned  133   16  44374183            False          1         10            30        196
+S America / SE Pacific  -65  -33   4195805             True          1         10            20         52
+Mediterranean / Tethys    9   43   3911756             True          1         10            10        324
+            unassigned   24  -26    786617            False          0        NaN           NaN        NaN
+
+wrote hydration_age_bodies_GLADM35.csv, hydration_age_map_GLADM35.npz and persistence_GLADM35.csv

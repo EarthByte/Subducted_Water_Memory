@@ -54,6 +54,12 @@ RIFT_BOX = dict(lon=(25.0, 62.0), lat=(3.0, 40.0))
 
 
 def table():
+    """The per-site table the domain test reads: chemistry, kinematics and water together.
+
+    The three are merged one-to-one on the site key, and a mismatch raises rather than
+    dropping sites quietly, because a silent inner join here would change which sites the
+    published contrast is measured over.
+    """
     d = morb.load()
     k = pd.read_csv(P.need(os.path.join(P.OUT, 'morb_kinematics.csv'), 'OUT',
                            'the per-site kinematic summaries'))
@@ -69,6 +75,12 @@ def table():
 
 
 def main():
+    """Locate the hydrated-unhydrated contrast: which domain and depth carry it.
+
+    Plume-influenced sites are dropped, sites are grouped into clusters so that a dense
+    segment does not count many times, and the corridor and the Pacific are compared
+    separately. Writes the contrast by domain with its permutation probabilities.
+    """
     d = table()
     keep = ~morb.plume_mask(d)
     d = d[keep].reset_index(drop=True)

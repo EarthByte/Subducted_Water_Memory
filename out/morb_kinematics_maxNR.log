@@ -1,0 +1,36 @@
+maxNR frame: 424 hydrated samples
+119217 continental cells; 54525 at least 150 km thick, 14991 at least 200 km
+25859 cells inside a craton polygon
+
+ t (Ma)  sites under continent  under keel  ridge within 200 km
+      0                      6           0                 1320
+     20                     28           0                  922
+     40                    184           2                  404
+     60                    207          14                  212
+     80                    233          89                  116
+    100                    467          77                  106
+    120                    557          82                  123
+    140                    600         215                   79
+    160                    626          86                   73
+    180                    652          56                   22
+    200                    670          55                   37
+    220                    686          54                   55
+    240                    669          41                   16
+    260                    587         104                   35
+    280                    616         105                    2
+    300                    577          36                    9
+    320                    494           9                   93
+    340                    559          57                   10
+    360                    622          83                   10
+    380                    536         152                    7
+    400                    680         243                   32
+
+424 hydrated samples. Since hydration:
+  under continental lithosphere at some time: 323 (76%), median 75 Myr among those
+  under lithosphere >= 150 km: 237 (56%)
+  under a keel >= 200 km: 45 (11%)
+  under a craton polygon: 169 (40%)
+  ridge within 100 km: median 20 Myr, 10-90% 5-45
+  ridge within 200 km: median 35 Myr, 10-90% 5-65
+  ridge within 300 km: median 45 Myr, 10-90% 5-100
+wrote out/morb_kinematics_maxNR.csv and .npz

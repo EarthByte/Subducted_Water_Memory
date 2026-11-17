@@ -1,0 +1,28 @@
+base rate of a fast transition zone: 8.4 per cent of the surface
+
+given subduction at age t and NO subduction since:
+       band (Ma)     cells   fast TZ  enrichment        95 % band
+      10-25          22588     34.4%        4.11    4.03    4.18
+      25-50          12580     22.3%        2.66    2.57    2.75
+      50-75          13772      8.7%        1.03    0.98    1.09
+      75-100         15646      8.1%        0.97    0.92    1.02
+     100-150         40221      1.9%        0.23    0.21    0.25
+     150-200         10609      1.2%        0.15    0.12    0.17
+     200-250          7639      4.9%        0.58    0.52    0.64
+     250-300          8186      0.1%        0.01    0.00    0.02
+     300-350         17498      3.3%        0.39    0.36    0.43
+     350-400         12256      4.8%        0.57    0.53    0.62
+
+fit  E(t) = E_inf + (E_0 - E_inf) exp(-t / tau)
+  E_0      6.68 +/- 0.16   enrichment at zero age
+  E_inf    0.05 +/- 0.01   floor that does not decay
+  tau      36.5 +/- 0.8 Myr   e-folding time
+  R^2     0.944
+
+  half of the decaying excess is gone by 25 Myr
+  10 per cent of it remains at 84 Myr
+  5 per cent of it remains at 109 Myr
+
+  the floor is 0.05, which is not distinguishable from unity at 95 per cent
+
+wrote persistence_decay.csv and persistence_decay_fit.csv

@@ -56,6 +56,12 @@ TIMES = [
 
 
 def main():
+    """Convert the effective diffusivity and tabulate the stirring lengths it implies.
+
+    Writes `stirring_scale.csv` with sigma and twice sigma at the times the paper quotes.
+    A pattern is blurred over the width of the distribution rather than over its standard
+    deviation, so both are given and the text says which it is using.
+    """
     kappa = KAPPA_CM2_S / CM2_PER_KM2 * SECONDS_PER_MYR      # km^2 per Myr
     print('effective diffusivity {:.1f} cm2/s = {:.0f} km2/Myr'.format(KAPPA_CM2_S, kappa))
     print('{:>7s}  {:>11s}  {:>11s}   {}'.format('t (Myr)', 'sigma', '2 sigma', 'what it is'))

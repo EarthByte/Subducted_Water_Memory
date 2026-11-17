@@ -172,6 +172,12 @@ def _stitch(rs):
 
 
 def check(path, target_cm, floor):
+    """Every piece of text in a figure that will print too small or overlap another.
+
+    The page is measured at the width the manuscript places it at, not at its native
+    width, since that is what sets the printed size of the lettering. Returned: the runs
+    below the floor and the pairs that overlap, with how far each falls short.
+    """
     res = []
     with pdfplumber.open(path) as pdf:
         for pg in pdf.pages:
@@ -196,6 +202,11 @@ def check(path, target_cm, floor):
 
 
 def main():
+    """Check the figures named on the command line and report what fails.
+
+    Exits non-zero if any figure carries text below the readable floor or labels that
+    collide, so that a figure cannot pass by not being looked at.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('files', nargs='+')
     ap.add_argument('--width', type=float, default=PLACED,

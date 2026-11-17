@@ -1,0 +1,98 @@
+plume exclusion: Jan Mayen 5, Reykjanes >61N 30, Azores Platform 25, 35N OH-1 8, 14N Researcher 4, Sierra Leone 1.7N 21; 93 samples in all (Dixon workflow: 77)
+
+1. Keel passage among hydrated sites
+
+domain               comparison                            in   out       n   diff      p
+global               keel >=200 km passed over            287   255   4/40     +31  0.364
+global               craton polygon passed over           282   236  16/28     +46  0.067
+global               lithosphere >=150 km passed over     278   229  25/19     +49  0.075
+global               any continent passed over            278   195  36/8      +83  0.004
+global               rho vs t_keel                                       44  +0.16  0.320
+global               rho vs t_craton                                     44  +0.33  0.027
+global               rho vs t_thick                                      44  +0.36  0.022
+global               rho vs t_cont                                       44  +0.44  0.003
+
+corridor             keel >=200 km passed over            287   278   4/20      +9  0.755
+corridor             craton polygon passed over           282   276  14/10      +6  0.825
+corridor             lithosphere >=150 km passed over     278   292  18/6      -14  0.589
+corridor             any continent passed over            nan   nan  24/0     +nan    nan
+corridor             rho vs t_keel                                       24  +0.02  0.950
+corridor             rho vs t_craton                                     24  +0.27  0.187
+corridor             rho vs t_thick                                      24  +0.24  0.246
+corridor             rho vs t_cont                                       24  +0.24  0.260
+
+no plume segments    keel >=200 km passed over            285   250   3/37     +35  0.383
+no plume segments    craton polygon passed over           269   247  12/28     +22  0.336
+no plume segments    lithosphere >=150 km passed over     269   226  22/18     +44  0.045
+no plume segments    any continent passed over            262   195  32/8      +67  0.017
+no plume segments    rho vs t_keel                                       40  +0.18  0.299
+no plume segments    rho vs t_craton                                     40  +0.20  0.211
+no plume segments    rho vs t_thick                                      40  +0.30  0.058
+no plume segments    rho vs t_cont                                       40  +0.34  0.031
+
+corridor, no plumes  keel >=200 km passed over            285   263   3/17     +22  0.483
+corridor, no plumes  craton polygon passed over           269   274  10/10      -5  0.707
+corridor, no plumes  lithosphere >=150 km passed over     261   289  15/5      -28  0.190
+corridor, no plumes  any continent passed over            nan   nan  20/0     +nan    nan
+corridor, no plumes  rho vs t_keel                                       20  +0.11  0.667
+corridor, no plumes  rho vs t_craton                                     20  +0.03  0.899
+corridor, no plumes  rho vs t_thick                                      20  +0.02  0.954
+corridor, no plumes  rho vs t_cont                                       20  -0.16  0.510
+
+2. Overrun hydrated sites against unhydrated sites
+
+global               keel-overrun hydrated vs unhydrated   289   199   5/95     +90  0.015
+global               craton-overrun hydrated vs unhydrated   280   198  16/93     +81  0.000
+global               never-overrun hydrated vs unhydrated   218   200   9/96     +18  0.331
+corridor             keel-overrun hydrated vs unhydrated   289   239   5/34     +50  0.318
+corridor             craton-overrun hydrated vs unhydrated   280   234  14/32     +45  0.098
+corridor             never-overrun hydrated vs unhydrated   nan   nan   1/35    +nan    nan
+no plume segments    keel-overrun hydrated vs unhydrated   283   197   5/92     +86  0.020
+no plume segments    craton-overrun hydrated vs unhydrated   279   196  14/91     +82  0.001
+no plume segments    never-overrun hydrated vs unhydrated   218   198   9/93     +20  0.259
+corridor, no plumes  keel-overrun hydrated vs unhydrated   283   217   5/31     +67  0.209
+corridor, no plumes  craton-overrun hydrated vs unhydrated   279   210  12/30     +69  0.036
+corridor, no plumes  never-overrun hydrated vs unhydrated   nan   nan   1/32    +nan    nan
+
+3. Ridge processing among hydrated sites (rho on clusters; partial | age)
+
+domain               predictor           rho           [95%]      p  partial|age      p    n
+global               t_ridge_100       +0.29 [-0.02,+0.58]  0.052        -0.12  0.458   44
+global               t_ridge_200       +0.33 [-0.01,+0.61]  0.030        -0.07  0.654   44
+global               t_ridge_300       +0.35 [+0.01,+0.64]  0.020        -0.05  0.739   44
+global               ridge_onset_200   +0.36 [+0.02,+0.65]  0.017        -0.01  0.945   43
+
+corridor             t_ridge_100       +0.09 [-0.36,+0.47]  0.656        +0.10  0.644   24
+corridor             t_ridge_200       +0.02 [-0.48,+0.48]  0.911        +0.03  0.889   24
+corridor             t_ridge_300       +0.08 [-0.42,+0.54]  0.688        +0.07  0.751   24
+corridor             ridge_onset_200   +0.03 [-0.43,+0.47]  0.869        +0.02  0.934   24
+
+no plume segments    t_ridge_100       +0.28 [-0.06,+0.56]  0.080        -0.07  0.696   40
+no plume segments    t_ridge_200       +0.31 [-0.02,+0.59]  0.055        -0.01  0.929   40
+no plume segments    t_ridge_300       +0.33 [+0.00,+0.60]  0.035        +0.01  0.939   40
+no plume segments    ridge_onset_200   +0.35 [+0.02,+0.64]  0.028        +0.05  0.786   39
+
+corridor, no plumes  t_ridge_100       +0.07 [-0.37,+0.48]  0.781        +0.06  0.790   20
+corridor, no plumes  t_ridge_200       -0.08 [-0.53,+0.40]  0.731        -0.09  0.693   20
+corridor, no plumes  t_ridge_300       -0.08 [-0.50,+0.41]  0.725        -0.10  0.675   20
+corridor, no plumes  ridge_onset_200   -0.05 [-0.53,+0.46]  0.852        -0.03  0.898   20
+
+4. Ridge residence over the full 400 Myr, all sites
+
+global               rho(H2O/Ce, t_ridge_200) = -0.19 [-0.37,-0.02] p=0.034 n=136
+corridor             rho(H2O/Ce, t_ridge_200) = -0.49 [-0.69,-0.23] p=0.001 n=56
+no plume segments    rho(H2O/Ce, t_ridge_200) = -0.20 [-0.37,-0.01] p=0.018 n=131
+corridor, no plumes  rho(H2O/Ce, t_ridge_200) = -0.53 [-0.69,-0.29] p=0.000 n=51
+
+5. Joint rank model on hydrated clusters: H2O/Ce ~ t_ridge_200 + t_keel + age
+
+global               n= 44  ridge -0.16 (p=0.606)  keel -0.14 (p=0.727)  age +0.61 (p=0.053)
+corridor             n= 24  ridge +0.00 (p=1.000)  keel -0.09 (p=0.824)  age +0.21 (p=0.368)
+no plume segments    n= 40  ridge +0.01 (p=0.987)  keel +0.16 (p=0.681)  age +0.36 (p=0.241)
+corridor, no plumes  n= 20  ridge -0.04 (p=0.864)  keel +0.18 (p=0.686)  age -0.18 (p=0.449)
+
+6. How fast a ridge erases the excess: corridor clusters, excess over the Pacific median
+
+Pacific baseline 192; excess at zero dwell 226; e-folding 38 Myr of ridge residence (cluster bootstrap 68%: 28-51); n=51 clusters
+
+wrote out/morb_kinematics_tests_maxNR.csv

@@ -1,0 +1,17 @@
+
+adjusted probability at 410-520 km, by down-dip offset
+
+                   150       200       300       400       500
+REVEAL          0.056     0.030*    0.000*    0.000*    0.000*
+RevealLO        0.200     0.141     0.045*    0.022*    0.008*
+GLAD-M35        0.251     0.175     0.073     0.055     0.035*
+SPiRaL          0.144     0.084     0.029*    0.016*    0.005*
+SEMUCB-WM1      0.104     0.065     0.034*    0.017*    0.008*
+                     0         1         4         4         5
+   survive:
+
+  * p <= 0.05. The reference offset is 300 km and was chosen because the
+    observed fast transition zone preferred it, so its column is the one that
+    cannot be read as an independent test.
+
+wrote /Users/dietmar/Documents/Papers/in_prep/Muller_mantle_tomography_subduction/Paper_hydration/out/depth_offset_profile.csv

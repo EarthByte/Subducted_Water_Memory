@@ -1,0 +1,9 @@
+385 fields in 29 provinces (16 with 3 or more fields)
+
+  REVEAL      levels 350-410:6 410-520:10 520-660:3   3000 rotations accepted
+  RevealLO    levels 350-410:6 410-520:11 520-660:14   3000 rotations accepted
+  GLAD-M35    levels 350-410:6 410-520:11 520-660:14   3000 rotations accepted
+  SPiRaL      levels 350-410:1 410-520:4 520-660:3   3000 rotations accepted
+  SEMUCB-WM1  levels 350-410:3 410-520:3 520-660:3   3000 rotations accepted
+
+wrote /Users/dietmar/Documents/Papers/in_prep/Muller_mantle_tomography_subduction/Paper_hydration/out/province_scores_continental.csv

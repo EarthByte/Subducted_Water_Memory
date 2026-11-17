@@ -1,0 +1,73 @@
+29 provinces, 4 inversion families (GLAD, REVEAL, SEMUCB, SPiRaL), |S| >= 1.25 in >= 3 families
+
+province                                n   350-410  410-520  520-660  class
+Anatolia-Iran Belt                     28    +1.76    +1.42    +0.66  fast
+Central Asian Foldbelt (+39, +117)    136    +0.66    +1.41    +1.90  fast
+Andean Basins (-33, -67)                2    +1.29    +1.34    +1.77  fast
+Australia (-18, +145)                  10    +0.93    +1.22    +1.76  fast
+Antarctica Patagonia                    1    +1.19    +1.08    +1.34  fast
+Andean Basins (-24, -66)                8    +0.90    +1.30    +1.24  near-neutral
+European Orogenic Belt (+48, +9)       33    +0.32    +1.12    +1.01  near-neutral
+Carpathian Belt And Pannonian Basin    17    +0.30    +0.95    +0.61  near-neutral
+Central Asian Foldbelt (+33, +86)      52    +0.76    +0.69    +0.54  near-neutral
+Arabian-Nubian Shield (+31, +37)        8    +0.99    +0.45    -0.22  near-neutral
+Kaapvaal Craton                        14    +0.30    +0.42    +0.92  near-neutral
+Australia (-18, +126)                   1    +0.12    +0.39    +0.84  near-neutral
+East European Craton                    1    +0.62    +0.19    -0.50  near-neutral
+Zimbabwe Craton                         1    +0.12    +0.15    +0.21  near-neutral
+European Orogenic Belt (+48, -4)        1    -0.07    +0.11    +0.34  near-neutral
+Wyoming Craton                          1    -0.36    +0.08    -0.02  near-neutral
+Central Asian Foldbelt (+13, +108)      2    -0.46    +0.08    +1.35  near-neutral
+Tuareg Shield                           1    +0.38    +0.05    +0.09  near-neutral
+North American Cordillera (+38, -106)   3    -0.58    -0.03    -0.19  near-neutral
+Colorado Plateau                        6    -0.88    -0.21    -0.25  near-neutral
+Baltic Shield                           2    +0.14    -0.25    -0.80  near-neutral
+North American Cordillera (+54, -126)  19    -1.07    -0.35    -0.61  near-neutral
+Arabian-Nubian Shield (+14, +45)        4    -0.65    -0.41    -0.49  near-neutral
+Australia (-34, +135)                   1    -0.06    -0.47    -0.42  near-neutral
+Australia (-35, +147)                  23    -0.34    -0.48    -0.93  near-neutral
+Bastar Craton                           3    -0.97    -1.18    -1.18  near-neutral
+Canadian Shield (+65, -112)             4    -0.78    -1.18    -1.21  near-neutral
+Canadian Shield (+73, -92)              2    -1.30    -1.41    -1.22  slow
+North American Cordillera (+75, -98)    1    -1.23    -1.53    -1.17  slow
+
+  near-neutral        22 provinces (22 with >= 1 fields)
+  fast                 5 provinces (5 with >= 1 fields)
+  slow                 2 provinces (2 with >= 1 fields)
+
+  a reproducible class other than near-neutral         yes   (fast 5, slow 2)
+  the largest class holds less than 90 per cent        yes   (76 % in near-neutral)
+  stable when any one inversion family is dropped     yes   (at worst 5 of 29 provinces reclassified: GLAD 5, REVEAL 3, SEMUCB 5, SPiRaL 5)
+
+  VERDICT: usable — 2 classes beyond near-neutral, 7 of 29 provinces classified substantively
+wrote /Users/dietmar/Documents/Papers/in_prep/Muller_mantle_tomography_subduction/Paper_hydration/figures/fig_depth_offset   survivors 150km:0, 200km:1, 300km:4, 400km:4, 500km:5
+wrote /Users/dietmar/Documents/Papers/in_prep/Muller_mantle_tomography_subduction/Paper_hydration/figures/fig_geological_test_v2   rho +0.725 p 0.0050 n 13; fast median 68%, others 0%
+wrote /Users/dietmar/Documents/Papers/in_prep/Muller_mantle_tomography_subduction/Paper_hydration/figures/fig_province_heatmap_v2  (29 provinces x 15 columns)
+1344 samples, 543 hydrated, 267 of those later beneath a craton outline
+wrote figures/fig_morb_map.pdf and .png
+ok   fig_age_map.pdf                           19.0 cm, x0.84 -> 10.1-11.4 pt, 12 labels
+ok   fig_craton_passage.pdf                    14.6 cm, x1.09 -> 10.9-12.6 pt, 11 labels
+ok   fig_depth_memory.pdf                      19.3 cm, x0.83 -> 8.3-9.5 pt, 44 labels
+ok   fig_depth_offset.pdf                      17.9 cm, x0.89 -> 8.5-9.8 pt, 38 labels
+ok   fig_depth_profile.pdf                     17.8 cm, x0.90 -> 9.9-11.7 pt, 38 labels
+ok   fig_geological_test_v2.pdf                18.7 cm, x0.86 -> 8.1-9.4 pt, 29 labels
+FAIL fig_geological_test.pdf                   18.7 cm, x0.86 -> 5.7-9.4 pt, 33 labels, smallest glyph 5.7
+       small  5.7 pt  '−7'
+       small  5.7 pt  '−6'
+       small  5.7 pt  '−5'
+       small  5.7 pt  '−4'
+ok   fig_map.pdf                               19.0 cm, x0.84 -> 10.1-10.1 pt, 4 labels
+ok   fig_morb_corridor.pdf                     15.9 cm, x1.01 -> 11.1-13.1 pt, 48 labels
+ok   fig_morb_map.pdf                          10.8 cm, x1.49 -> 16.4-19.3 pt, 23 labels
+ok   fig_persistence.pdf                       16.0 cm, x1.00 -> 11.0-13.5 pt, 18 labels
+ok   fig_province_heatmap_v2.pdf               17.5 cm, x0.91 -> 8.2-9.6 pt, 56 labels
+ok   fig_province_heatmap.pdf                  17.5 cm, x0.91 -> 8.2-9.6 pt, 56 labels
+ok   fig_three_clocks.pdf                      15.8 cm, x1.01 -> 11.2-13.2 pt, 31 labels
+ok   fig_tomography.pdf                        19.0 cm, x0.84 -> 8.4-9.7 pt, 11 labels
+ok   fig_visibility_budget_v2.pdf              17.8 cm, x0.90 -> 8.5-9.9 pt, 34 labels
+ok   fig_visibility_budget_v4.pdf              17.8 cm, x0.90 -> 8.5-9.9 pt, 34 labels
+ok   fig_visibility_budget.pdf                 17.8 cm, x0.90 -> 8.5-9.9 pt, 33 labels
+ok   fig_vpvs.pdf                              16.1 cm, x0.99 -> 9.0-12.9 pt, 35 labels
+ok   fig_water_history.pdf                     18.4 cm, x0.87 -> 8.3-9.6 pt, 14 labels
+
+19 of 20 pass at 16.01 cm with a 8.0 pt floor

@@ -28,6 +28,17 @@ DATA_DIR = os.path.join(ROOT, 'data')
 
 OUT = os.environ.get('PAPER_OUT', os.path.join(ROOT, 'out'))
 FIG = os.environ.get('PAPER_FIG', os.path.join(ROOT, 'figures'))
+# Large outputs: the inverted water and temperature maps, fifteen files of tens of megabytes.
+# They go to the folder PAPER_BIG names, or to out/large/, which git ignores.
+BIG = os.environ.get('PAPER_BIG', os.path.join(OUT, 'large'))
+
+
+def big(name, what='a large output'):
+    """The path for one large output file, with its folder made if need be."""
+    os.makedirs(BIG, exist_ok=True)
+    return os.path.join(BIG, name)
+
+
 TOMO = os.environ.get('TOMO_DIR', os.path.join(DATA_DIR, 'tomography'))
 GRIDS = os.environ.get('GRIDS_DIR', os.path.join(DATA_DIR, 'water_grids'))
 H2O = os.environ.get('H2O_DIR', os.path.join(DATA_DIR, 'H2O'))

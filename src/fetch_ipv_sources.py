@@ -142,6 +142,12 @@ def download(url, dest, op, force=False, retries=4):
 
 # --------------------------------------------------------------------------
 def fetch_gvp(outdir, op, force, epochs):
+    """Download the Global Volcanism Program layers for the epochs asked for.
+
+    Each epoch is a separate layer and is written as its own file, so that a failed epoch
+    can be retried without refetching the rest. Existing files are kept unless force is
+    set, since these are the inputs a published catalogue was built from.
+    """
     written = []
     for epoch in epochs:
         url = GVP_WFS.format(layer=GVP_LAYERS[epoch])
@@ -253,6 +259,12 @@ def reduce_georoc(fileinfo, outdir, op, force):
 
 
 def fetch_georoc(outdir, op, force, list_only, continental, regions, max_mb):
+    """Download the GEOROC intraplate compilation, or list what it would download.
+
+    The compilation runs to many files and hundreds of megabytes, so the size is reported
+    first, list_only stops before any transfer, and the region and size limits let a run
+    be scoped to what is actually needed.
+    """
     files = dataverse_files(op)
     total = sum(f['size'] for f in files)
     print(f'GEOROC intraplate compilation: {len(files)} files, '
@@ -304,6 +316,12 @@ def fetch_georoc(outdir, op, force, list_only, continental, regions, max_mb):
 
 # --------------------------------------------------------------------------
 def main():
+    """Fetch the catalogue sources named on the command line.
+
+    Downloads are the one step of this workflow that depends on somebody else's server,
+    so each file is written whole and existing files are left alone by default; the
+    catalogue itself is built from them by `build_ipv_catalogue.py`.
+    """
     ap = argparse.ArgumentParser(
         description='Download source data for the IPV catalogue.')
     ap.add_argument('what', choices=['gvp', 'georoc', 'all'])

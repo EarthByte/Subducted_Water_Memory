@@ -72,6 +72,13 @@ def to_xyz(lon, lat):
 
 
 def main():
+    """For every dated field, where it was when it erupted and what had arrived beneath it.
+
+    Each field is reconstructed to its eruption position and the delivery history beneath
+    that position is read, which gives the lead between the last delivery and the
+    eruption. Writes `province_eruption_context.csv`, the basis of the timing columns in
+    the province tables and of the lag test.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--model', default='zahirovic2022')
     ap.add_argument('--dt', type=float, default=2.0)

@@ -16,7 +16,7 @@ cached bands in both of the ways available, by depth thickness and by the number
 of model shells each band contains, and compares those with the cached 410-660
 mean as well.
 
-Run on 15 October 2026 with the SSD mounted, the answer is that nothing is
+The answer is that nothing is
 mislabelled: `REVEAL_vs_full.nc` reproduces all three cached fields exactly,
 r = 1.00000 with an RMS difference of 0.0000 in each case. The 0.954 is an
 artefact of the thickness weighting. REVEAL is not sampled evenly in depth, and
@@ -25,7 +25,7 @@ so the mean over the whole transition zone weights the two bands 10 to 3 and not
 110 to 140. Weighted by shell count the two cached bands reproduce the cached
 410-660 mean exactly.
 
-Needs the velocity volumes, so the SSD has to be mounted:
+Needs the full velocity volumes:
 
     PYTHONPATH=src python3 src/reveal_field_check.py
     PYTHONPATH=src python3 src/reveal_field_check.py --file /path/to/REVEAL.nc
@@ -130,6 +130,13 @@ def compare(x, y, glat, glon):
 
 
 def main():
+    """Test which REVEAL volume reproduces the cached band file, and report the match.
+
+    Each candidate volume is reduced the same way as the cache and correlated with it
+    band by band. A cache that no file reproduces at better than 0.999 is the one to
+    rebuild; the two transition-zone bands are reported separately because they carry
+    the published result.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--file', help='an extra REVEAL volume to test')
     a = ap.parse_args()
@@ -145,8 +152,10 @@ def main():
             'the two caches are on different grids'
         cached['tz_REVEAL 410-660'] = t['dvs'].astype(float)
 
+    # Every REVEAL volume on the disk is tested, not the one the paths module would pick,
+    # because the question is which file the cache came from and that cannot be assumed.
     files = candidates(a.file)
-    assert files, 'no REVEAL volume found; is the SSD mounted?'
+    assert files, 'no REVEAL volume found; set TOMO_DIR'
     rows, shells_in = [], {}
     for path in files:
         dep, lat, lon, arr, kind = anomaly(path)
@@ -161,6 +170,8 @@ def main():
                 rows.append(dict(file=os.path.basename(path), velocity=kind,
                                  band='{:.0f}-{:.0f}'.format(z0, z1), shells=n,
                                  cached=name, r=r, rms_difference=rms))
+                # 0.999 is the threshold this project treats as 'reproduces': below it the
+                # cache and the file are different fields, not the same one rounded.
                 if r > 0.999:
                     print('   {:9s} reproduces "{}"  r = {:.5f}, RMS difference {:.4f}'
                           .format('{:.0f}-{:.0f}'.format(z0, z1), name, r, rms))

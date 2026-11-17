@@ -96,6 +96,11 @@ def fast_tz_mask(depth, arr):
 
 
 def label_seam(mask):
+    """Connected components of a global mask, with the date line joined up.
+
+    A body that crosses the seam is one body, so the labels on the first and last columns
+    are merged; without that a single slab appears as two and is counted twice.
+    """
     lab, n = ndimage.label(mask, structure=np.ones((3, 3)))
     if n == 0:
         return lab, 0
@@ -143,6 +148,11 @@ def region_of(lon, lat):
 
 
 def main():
+    """Group the fast transition-zone structure into bodies and date each one.
+
+    Writes the body table with the reconstructed subduction that can account for each,
+    which is what lets a fast body be called slab-related or not.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--file', default='REVEAL_vs_full.nc')
     ap.add_argument('--var', default='voigt')
@@ -295,6 +305,11 @@ def main():
     tree = cKDTree(allpts)
 
     def assign(df, label):
+        """Attach each point to the nearest body and record how far away it is.
+
+        The distance is the great-circle arc rather than the chord the tree returns, so a
+        cut-off in kilometres means the same thing everywhere on the sphere.
+        """
         d, i = tree.query(to_xyz(df.lon_180.values, df.lat.values))
         arc = R_EARTH * 2.0 * np.arcsin(np.clip(d / 2.0, 0, 1))
         bid = owner[i]

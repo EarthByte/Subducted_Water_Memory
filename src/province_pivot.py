@@ -84,6 +84,12 @@ def geo_group(src):
 
 
 def linkage(lat, lon, km):
+    """Single-linkage grouping of points closer than a given great-circle distance.
+
+    Union-find over the pairwise distance matrix, with path compression. The grouping
+    uses geography alone and never velocity, so that the provinces it returns cannot
+    have been drawn around the structure they are later compared with.
+    """
     x = to_xyz(lon, lat)
     d = R * 2.0 * np.arcsin(np.clip(
         np.linalg.norm(x[:, None, :] - x[None, :, :], axis=2) / 2.0, 0, 1))
@@ -119,6 +125,11 @@ def provinces(d):
 class Model:
     """One volume on its own grid, reduced to the three intervals."""
     def __init__(self, path):
+        """Open a velocity volume and prepare the depth bands this script reads.
+
+        Variable names and depth axes differ between models, so both are found rather
+        than assumed, and an axis in metres or as a radius is converted to kilometres.
+        """
         ds = xr.open_dataset(path)
         names = {k.lower(): k for k in ds.variables}
         latn = names.get('latitude') or names.get('lat')
@@ -177,6 +188,12 @@ class Model:
 
 
 def main():
+    """Build the provinces, score each against tomography, and test against rotations.
+
+    Writes the province table and the null distributions. The null can be restricted to
+    continental lithosphere or matched in latitude, both of which are tighter than free
+    rotation and are what the paper reports.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--models', nargs='+', default=list(MODEL_FILE))
     ap.add_argument('--null', choices=('continental', 'free'), default='continental')
@@ -199,6 +216,8 @@ def main():
             raise SystemExit('\n--null continental needs contmask; use --null free '
                              'to run without it\n')
 
+    # Fields without a position cannot be scored or rotated, so they are dropped here rather
+    # than carried as NaN into the null, where they would quietly shrink every rotation.
     d = pd.read_csv(CAT).dropna(subset=['lat', 'lon_180']).reset_index(drop=True)
     la0 = d.lat.values.astype(float); lo0 = d.lon_180.values.astype(float)
     pname = provinces(d)
@@ -210,6 +229,8 @@ def main():
           f'({int((counts >= MIN_FIELDS).sum())} with {MIN_FIELDS} or more fields)\n')
     xyz0 = to_xyz(lo0, la0)
 
+    # The median, not the mean: a province is a handful of fields of very unequal size, and
+    # one field over a strong anomaly should not decide the province's score.
     def by_province(vals, ids):
         out = np.full(npv, np.nan)
         for k in range(npv):

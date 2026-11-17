@@ -30,15 +30,32 @@ def quiet():
         yield
 
 BANDS = [(0, 100), (100, 200), (200, 300), (300, 410), (410, 520), (520, 660),
+         # the base of the transition zone on its own: the joint inversion of velocity with the
+         # depth of the 660 is calibrated for about 23.5 GPa, and the 520-660 mean dilutes the
+         # velocity anomaly there over 140 km of depth
+         (600, 660),
          (660, 720), (720, 780), (780, 880), (880, 1010), (1000, 1300),
          (1300, 1600), (1600, 2000), (2000, 2500)]
 
 
 def main():
+    """Reduce one velocity volume to the depth-band means and write them as one file.
+
+    The depth axis is checked rather than assumed, since it arrives in kilometres, in
+    metres or as a radius, and guessing wrongly puts every shell outside every band. One
+    file is written per run, which also keeps bulk extraction clear of the endpoint
+    protection that reads many small writes as ransomware.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--file', required=True)
     ap.add_argument('--tag', required=True)
     ap.add_argument('--out', default=None)
+    ap.add_argument('--var', default=None,
+                    help='the velocity variable to reduce, for a model that carries more than '
+                         'one; the default picks the shear-wave variable as before')
+    ap.add_argument('--pwave', action='store_true',
+                    help='reduce the compressional speed instead of the shear speed, as the '
+                         'isotropic equivalent of the transversely isotropic model')
     ap.add_argument('--res', type=float, default=0.5,
                     help='degrees; the grid the rest of the workflow uses')
     a = ap.parse_args()
@@ -79,7 +96,47 @@ def main():
         return None
     vsv, vsh = get('vsv'), get('vsh')
     vs = get('vs', 'v_s')
-    if vsv is not None and vsh is not None:
+    vpv, vph, eta = get('vpv'), get('vph'), get('eta')
+    vp = get('vp', 'v_p')
+    if a.pwave:
+        # The isotropic equivalent of a transversely isotropic model, by the same Voigt average
+        # the P-S test of this paper uses; the derivation is in the docstring of `voigt` in
+        # s21_vpvs_water.py. With the Love parameters A = Vph^2, C = Vpv^2, N = Vsh^2, L = Vsv^2
+        # and F = eta (A - 2L), kappa = (C + 4A + 4F - 4N)/9 and mu = (C + A + 6L + 5N - 2F)/15
+        # per unit density, and Vp^2 = kappa + 4 mu/3. Setting eta = 1 collapses that to the
+        # familiar (Vpv^2 + 4 Vph^2)/5, which is used where the model carries no eta.
+        if vpv is not None and vph is not None:
+            A, C = vph.values ** 2, vpv.values ** 2
+            if vsv is not None and vsh is not None:
+                N, L = vsh.values ** 2, vsv.values ** 2
+                e = eta.values if eta is not None else 1.0
+                FF = e * (A - 2 * L)
+                kappa = (C + 4 * A + 4 * FF - 4 * N) / 9.0
+                mu = (C + A + 6 * L + 5 * N - 2 * FF) / 15.0
+                v = np.sqrt(np.clip(kappa + 4 * mu / 3.0, 0, None))
+                print('  Voigt average of vpv and vph through the Love parameters'
+                      + (' with eta' if eta is not None else ' with eta = 1'))
+            else:
+                v = np.sqrt((C + 4 * A) / 5.0)
+                print('  Voigt average of vpv and vph, (vpv^2 + 4 vph^2)/5')
+        elif vp is not None:
+            v = vp.values
+            print('  single compressional velocity')
+        else:
+            raise SystemExit('\n{} carries no compressional velocity; it has {}\n'.format(
+                os.path.basename(a.file), ', '.join(sorted(names))))
+        vsv = vsh = vs = None
+    elif a.var:
+        # A named variable overrides the shear-wave default, which is how the P-wave speed of a
+        # model that carries both is reduced. Voigt averaging is for the shear case only, so a
+        # named variable is taken as it stands.
+        if a.var.lower() not in names:
+            raise SystemExit('\n{} has no variable {!r}; it carries {}\n'.format(
+                os.path.basename(a.file), a.var, ', '.join(sorted(names))))
+        v = d[names[a.var.lower()]].values
+        print(f'  variable {a.var} as named')
+        vsv = vsh = vs = None
+    elif vsv is not None and vsh is not None:
         v = np.sqrt((2 * vsv.values ** 2 + vsh.values ** 2) / 3.0)
         print('  Voigt average of vsv and vsh')
     elif vs is not None:

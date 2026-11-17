@@ -48,6 +48,12 @@ def displace(lon, lat, az_deg, km):
 
 
 def main():
+    """Carry the hydration-age map back through the chosen reconstruction.
+
+    The default model is the one better constrained over the past 400 Myr, which is the
+    interval the paper reads; a deep-time model built on an older base is available but
+    its recent history is not an improvement on it.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--model', default='zahirovic2022',
                     help='the last 400 Myr are better constrained here than in a '

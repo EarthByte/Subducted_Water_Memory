@@ -94,6 +94,11 @@ def dist_to_slab_km(tree, lons, lats):
 
 
 def load_water(folder):
+    """The water field of a reconstruction folder, or None if there is none to read.
+
+    Returning None rather than raising lets the descriptors run on the seismic predictions
+    alone, which is how this is used when a reconstruction has no water model attached.
+    """
     f = sorted(glob.glob(os.path.join(folder, '*_0.nc')))
     if not f:
         return None
@@ -130,6 +135,13 @@ def root_class(row):
 
 # --------------------------------------------------------------------------
 def descriptors(lons, lats, depth, lat, lon, arr, tree, water):
+    """The three predictions a transition-zone-sourced upwelling makes, per location.
+
+    The low-velocity layer atop the 410 is measured as a contrast between the layer and a
+    reference band below it rather than as an absolute anomaly, so it does not depend on
+    the overall amplitude of a hotspot's signature; the other two are whether structure
+    continues below 660 and how close a stagnant slab lies.
+    """
     melt = np.array([band_mean(arr, depth, lat, lon, a, o, *MELT_LAYER)
                      for o, a in zip(lons, lats)])
     ref = np.array([band_mean(arr, depth, lat, lon, a, o, *REFERENCE_LAYER)
@@ -146,6 +158,11 @@ def descriptors(lons, lats, depth, lat, lon, arr, tree, water):
 
 
 def main():
+    """Score every hotspot against the three predictions and test them with a spin null.
+
+    Each descriptor is recomputed on rigid rotations of the whole constellation, so the
+    autocorrelation of both fields is preserved and only their alignment is destroyed.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--model', default='REVEAL', choices=list(pc.MODELS))
     ap.add_argument('--file', default=None)

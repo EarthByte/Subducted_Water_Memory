@@ -56,6 +56,12 @@ def sample(z, lat, lon, la, lo):
 
 
 def main():
+    """Split the subducted water into the part released above 125 km and the part below.
+
+    Writes `water_partition.csv` at the requested reconstruction times. The division is a
+    boundary of the thermodynamic calculation, the base of the mantle wedge, and not a
+    depth at which a slab stops losing water.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--times', type=float, nargs='+', default=[0, 100, 200, 300])
     a = ap.parse_args()

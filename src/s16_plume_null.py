@@ -119,6 +119,13 @@ def rho(a, b):
 
 
 def main():
+    """Run the spin null for the plume descriptors and report where the observation lies.
+
+    The constellation of hotspots is rotated rigidly many times, carrying its own
+    geography, and the two descriptors are recomputed on each rotation. Rotations that
+    barely move the set are rejected, because they carry the observed association into
+    the null and flatter the result.
+    """
     global OUT, N_SPIN
     import argparse
     ap = argparse.ArgumentParser()

@@ -5,7 +5,7 @@ hydrated:
 
 1. Keel passage. Does H2O/Ce differ between hydrated sites that a cratonic keel
    (>= 200 km lithosphere, or a Shirmard et al. 2025 craton polygon) later passed over and hydrated sites that only thin
-   continental lithosphere, or none, passed over? The reviewer's objection to
+   continental lithosphere, or none, passed over? That objection to
    the Farallon attribution predicts that keel passage erases the signal, so
    overrun sites should be no wetter than unhydrated ones. Reported as the
    contrast and as a rank correlation with the time spent under a keel.
@@ -59,6 +59,13 @@ def partial_spearman_clusters(x, y, z, cl, n_boot=2000, seed=0):
 
 
 def main():
+    """Test the ridge results against the kinematic histories, with permutations.
+
+    Reads the per-site histories and the chemistry and tests the two relations the paper
+    reports, with keel passage and with ridge residence, in each mantle reference frame.
+    The suffix selects an alternative run of the kinematics, such as a different keel
+    thickness or time step.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--suffix', default='')
     ap.add_argument('--n-perm', type=int, default=10000)

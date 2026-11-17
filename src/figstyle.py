@@ -14,6 +14,12 @@ LAND, GRID = '#e5e5e5', '#ebebeb'   # neutral light grey continents, no warm cas
 
 
 def apply(base=11.0):
+    """Set the matplotlib defaults every figure of this paper is drawn with.
+
+    One base size drives the rest, so a figure can be made smaller without its lettering
+    falling below what the journal allows. The fallback font list keeps a figure built on
+    a machine without Arial from silently changing metrics and shifting labels.
+    """
     matplotlib.rcParams.update({
         'font.family': 'sans-serif',
         'font.sans-serif': ['Arial', 'Liberation Sans', 'DejaVu Sans'],
@@ -185,6 +191,29 @@ def _uncapitalised(items):
     return bad
 
 
+def _crosses(bb, ax, skip=()):
+    """Whether any line drawn in `ax` passes through the display box `bb`.
+
+    Lines are densified before the test, so that a segment crossing the box
+    between two of its vertices counts as well as a vertex inside it. A line
+    listed in `skip` is ignored, which is how a legend avoids testing against
+    the sample lines drawn inside itself.
+    """
+    for ln in ax.lines:
+        if not ln.get_visible() or ln in skip:
+            continue
+        xy = ln.get_transform().transform(ln.get_xydata())
+        xy = xy[np.isfinite(xy).all(axis=1)]
+        if len(xy) < 2:
+            continue
+        f = np.linspace(0, 1, 60)[:, None]
+        xy = np.concatenate([a + (b - a) * f for a, b in zip(xy[:-1], xy[1:])])
+        if (((xy[:, 0] >= bb.x0) & (xy[:, 0] <= bb.x1)
+             & (xy[:, 1] >= bb.y0) & (xy[:, 1] <= bb.y1)).any()):
+            return True
+    return False
+
+
 def _letters_on_lines(fig):
     """Panel letters that a line of the same panel runs through: an axhline at
     zero under the letter is the usual case, and a text-to-text test cannot
@@ -196,23 +225,90 @@ def _letters_on_lines(fig):
             s = t.get_text().strip()
             if not (len(s) == 1 and s.isalpha() and s.islower()):
                 continue
-            bb = t.get_window_extent(renderer=r)
-            for ln in ax.lines:
-                if not ln.get_visible():
-                    continue
-                xy = ln.get_transform().transform(ln.get_xydata())
-                xy = xy[np.isfinite(xy).all(axis=1)]
-                if len(xy) < 2:
-                    continue
-                # densify, so that a segment crossing the letter between two
-                # vertices is seen as well as a vertex inside it
-                f = np.linspace(0, 1, 60)[:, None]
-                xy = np.concatenate([a + (b - a) * f for a, b in zip(xy[:-1], xy[1:])])
-                if (((xy[:, 0] >= bb.x0) & (xy[:, 0] <= bb.x1)
-                     & (xy[:, 1] >= bb.y0) & (xy[:, 1] <= bb.y1)).any()):
-                    bad.append(s)
-                    break
+            if _crosses(t.get_window_extent(renderer=r), ax):
+                bad.append(s)
     return bad
+
+
+def _legends_on_lines(fig):
+    """Legends with a plotted line running through them.
+
+    A legend placed by `loc` is put where matplotlib finds the fewest drawn
+    handles, which is not the same as finding none, and on a crowded panel it
+    lands on the curves it names. That is invisible to a text-to-text test and
+    to the eye at the size a figure is drafted, and obvious on the printed
+    page, so it is checked here rather than left to be noticed late.
+    """
+    r = fig.canvas.get_renderer()
+    bad = []
+    for ax in fig.get_axes():
+        lg = ax.get_legend()
+        if lg is None or not lg.get_visible():
+            continue
+        inside = list(getattr(lg, 'legend_handles', getattr(lg, 'legendHandles', [])))
+        if _crosses(lg.get_window_extent(renderer=r), ax, skip=inside):
+            bad.append(ax.get_title() or ax.get_ylabel() or 'a panel')
+    return bad
+
+
+def legend_clear(ax, pad=0.05, limit=12, **kw):
+    """A legend placed where it names the curves without lying on them.
+
+    The legend goes where `loc` asks, and the axis is then given exactly the headroom the legend
+    needs: the data under the legend's own span of x is pushed down until the band the legend
+    occupies is empty. Reserving the band rather than growing until nothing collides matters,
+    because a legend three rows deep on a short panel can take a third of its height, and growing
+    blindly squashes the curves into the floor. Only the x range the legend covers is considered,
+    so a peak on the other side of the panel costs nothing.
+
+    Growing the limit, rather than moving the legend, keeps every panel's key in the same corner.
+    """
+    loc = str(kw.get('loc', 'best'))
+    lg = ax.legend(**kw)
+    down = 'lower' in loc or 'bottom' in loc
+    for _ in range(limit):
+        fig = ax.figure
+        fig.canvas.draw()
+        box = lg.get_window_extent(renderer=fig.canvas.get_renderer())
+        axes_box = ax.get_window_extent(renderer=fig.canvas.get_renderer())
+        share = min(0.6, box.height / axes_box.height)      # of the panel the legend takes
+        (x0, _), (x1, _) = ax.transData.inverted().transform([(box.x0, box.y0),
+                                                              (box.x1, box.y1)])
+        edge = None                                          # the data to clear, under the legend
+        for ln in ax.lines:
+            if not ln.get_visible() or ln.get_transform() is not ax.transData:
+                continue
+            xy = ln.get_xydata()
+            xy = xy[np.isfinite(xy).all(axis=1)]
+            under = xy[(xy[:, 0] >= min(x0, x1)) & (xy[:, 0] <= max(x0, x1))]
+            if len(under):
+                y = under[:, 1].min() if down else under[:, 1].max()
+                edge = y if edge is None else (min(edge, y) if down else max(edge, y))
+        if edge is None:
+            return lg
+        lo, hi = ax.get_ylim()
+        room = 1.0 - share - pad
+        if down:
+            want = hi - (hi - edge) / room
+            if want >= lo - 1e-9:
+                return lg
+            ax.set_ylim(want, hi)
+        else:
+            want = lo + (edge - lo) / room
+            if want <= hi + 1e-9:
+                break
+            ax.set_ylim(lo, want)
+    # The reservation above is a calculation on the lines' own vertices. A curve can still clip a
+    # corner of the legend between two of them, and a legend taller than the band it was given
+    # cannot be cleared by arithmetic alone, so the placement is finished by measurement.
+    for _ in range(limit):
+        ax.figure.canvas.draw()
+        if not _crosses(lg.get_window_extent(renderer=ax.figure.canvas.get_renderer()), ax):
+            break
+        lo, hi = ax.get_ylim()
+        span = 0.06 * (hi - lo)
+        ax.set_ylim(lo - span, hi) if down else ax.set_ylim(lo, hi + span)
+    return lg
 
 
 def check(fig, placed_cm=PLACED_CM, floor=FLOOR_PT, gap=1.5):
@@ -263,6 +359,11 @@ def check(fig, placed_cm=PLACED_CM, floor=FLOOR_PT, gap=1.5):
     if crossed:
         raise SystemExit('\npanel letters with a line through them: '
                          + ', '.join(crossed))
+    sat_on = _legends_on_lines(fig)
+    if sat_on:
+        raise SystemExit('\nlegends with a plotted line through them, on: '
+                         + ', '.join(sat_on)
+                         + '\nplace them with figstyle.legend_clear()')
     if small:
         raise SystemExit(
             f'\ntext under {floor:.0f} pt once this figure is printed at '

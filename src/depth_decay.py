@@ -52,6 +52,12 @@ def band_from_npz(z, b0, b1):
 
 
 def main():
+    """Fit the decline of the delivery association with depth, band by band.
+
+    Writes `depth_decay.csv` with the enrichment in each band and the fitted decline, and
+    checks it against the age-domain time constant: the two are different cuts through the
+    same field and should not disagree about how fast the association fades.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--bands', default=None,
                     help='npz from extract_bands.py; default reads REVEAL')

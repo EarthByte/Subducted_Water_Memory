@@ -1,8 +1,8 @@
 """What passed over each MORB site between its hydration and today.
 
 The Dixon compilation dates the last delivery of slab water beneath every ridge
-site in the mantle reference frame. The reviewer's objection to the Farallon
-attribution was kinematic: for water delivered west of North America at 220 Ma
+site in the mantle reference frame. An objection to the Farallon
+attribution is kinematic: for water delivered west of North America at 220 Ma
 to be sampled by the Mid-Atlantic Ridge today, the whole continent, keel and
 all, must have passed over it in between. Whether it did, when, for how long,
 and whether the lithosphere that passed was a 200 km cratonic keel or a 100 km
@@ -154,6 +154,13 @@ def continental_cells(res=0.5):
 
 
 def main():
+    """Reconstruct each ridge site and measure what passed over it since its hydration.
+
+    For every sample site the plate model gives the position through time, from which
+    this counts the time spent beneath continental lithosphere, beneath a cratonic keel
+    and beneath a spreading ridge, in whichever mantle reference frame is asked for.
+    Writes the per-site histories the ridge results are built from.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--model', default='zahirovic2022')
     ap.add_argument('--rotations', default=None,

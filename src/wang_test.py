@@ -37,6 +37,12 @@ except Exception:
 
 
 def main():
+    """Test the Wang et al. (2025) slab-related criterion against tomography.
+
+    A field counts as slab-related when subducted water reached the transition zone early
+    enough to still be there when it erupted. Writes the per-field classification and the
+    comparison of velocity beneath the two groups, against the rotation null.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--band', default='410-520')
     ap.add_argument('--null', default='continental')

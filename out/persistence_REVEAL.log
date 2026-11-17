@@ -1,0 +1,16 @@
+REVEAL: fast transition zone is 11.1 per cent of the surface, 26029 cells
+
+    subduction age     cells   fast TZ  enrichment
+      10-25            22588     37.3%        3.35
+      25-50            12580     24.4%        2.20
+      50-75            13772     10.0%        0.90
+      75-100           15646      9.6%        0.86
+     100-150           40221      3.3%        0.30
+     150-200           10609      8.2%        0.74
+     200-250            7639      9.1%        0.82
+     250-300            8186      2.3%        0.21
+     300-350           17498      5.6%        0.50
+     350-400           12256      8.3%        0.74
+
+  E_0 = 6.15, E_inf = 0.38, tau = 27.6 Myr
+  wrote persistence_REVEAL.csv

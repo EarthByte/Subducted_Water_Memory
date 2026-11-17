@@ -95,6 +95,13 @@ def curve(fast, width, offset):
 
 
 def fit(x, y, form):
+    """Fit one decay form to the enrichment curve and return its parameters and fit.
+
+    Three forms are offered because the time constant depends on which is assumed: an
+    exponential approaching a non-zero floor, a plain exponential, and a power law. The
+    floor is what the oldest delivery maps carry from their own geography, so the form
+    without one returns a shorter time constant; both are reported rather than chosen.
+    """
     if form == 'exp+floor':
         f = lambda t, e0, ei, tau: ei + (e0-ei)*np.exp(-t/tau)
         p0, bd = [6.0, 0.5, 40.0], ([0,0,3],[60,3,400])

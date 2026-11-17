@@ -1,0 +1,49 @@
+zahirovic2022: scanning 196 epochs from 10.0 to 400 Ma
+offset 300 km down-dip, 250 km search radius, sinking 50 km/Myr
+
+57.9 per cent of the surface has any subduction explanation within 400 Myr
+
+observed fast transition zone: 17364 cells, 83 per cent with an explanation
+  youngest explaining subduction age, percentiles (Ma):
+   p10=10  p25=10  p50=24  p75=62  p90=130  p95=332  p99=382
+  the same percentiles for randomly rotated positions (median of 2000):
+   p10=10  p25=36  p50=102  p75=227  p90=332  p95=354  p99=394
+  one-sided p that the observed percentile is older than chance:
+   p10=1.000  p25=1.000  p50=0.994  p75=0.995  p90=0.992  p95=0.825  p99=0.777
+
+persistence. Base rate of a fast transition zone is 8.4 per cent of the surface by construction.
+    subduction age     cells   fast TZ  enrichment         95% band
+      10-25            22588     34.4%        4.11    4.03    4.18
+      25-50            27842     32.7%        3.91    3.84    3.97
+      50-75            30616     21.9%        2.61    2.55    2.67
+      75-100           34859     17.9%        2.13    2.08    2.18
+     100-150           67255     11.8%        1.41    1.38    1.44
+     150-200           56024     12.8%        1.53    1.50    1.57
+     200-250           60442     12.8%        1.53    1.50    1.56
+     250-300           57915      9.6%        1.15    1.12    1.18
+     300-350           75481     10.6%        1.27    1.24    1.30
+     350-400           83632      9.9%        1.18    1.16    1.21
+
+hydration age per body, oldest first
+                region  lon  lat  area_km2  attributed_0_30  explained  t_min_p10  t_min_median  t_min_p90
+            unassigned  -22   -9    585685            False          0        390           396        400
+       Africa / Arabia   -4   17    957991            False          0         94           393        398
+   Antarctic / S Ocean  -30  -57    416465             True          1         10           378        382
+       Africa / Arabia    9  -13   4486739            False          0        322           336        374
+            unassigned  137  -50    590734            False          1        120           144        176
+       Africa / Arabia   53    5    556638            False          1         64            86         86
+Mediterranean / Tethys   50   28   1366948             True          1         10            80        110
+   NW Pacific / E Asia  139   51   9069981             True          1         10            42        110
+S America / SE Pacific  -66  -32   6412979             True          1         10            24         52
+            unassigned  142  -23    524693             True          1         14            22         34
+   SE Asia / Indonesia  137   -8    812950             True          1         10            12         18
+   SE Asia / Indonesia  114    2   4453016             True          1         10            12         54
+   SE Asia / Indonesia  159   -7   4650199             True          1         10            10         26
+   SE Asia / Indonesia  117   13    987187             True          1         10            10         54
+Mediterranean / Tethys   18   43   4506071             True          1         10            10        328
+ N America / E Pacific -155   60    595262             True          1         10            10         48
+            unassigned   80  -37    436721            False          0        NaN           NaN        NaN
+    SW Pacific / Tonga -173  -10    450922             True          0        NaN           NaN        NaN
+            unassigned  -26   29   1243021            False          0        NaN           NaN        NaN
+
+wrote hydration_age_bodies.csv, hydration_age_map.npz and persistence.csv
