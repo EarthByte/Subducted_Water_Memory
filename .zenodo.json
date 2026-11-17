@@ -1,6 +1,6 @@
 {
   "title": "Subducted_Water_Memory: code, figures and derived data for \"Where subducted water resides: seismic carriers, shallow storage and removal at mid-ocean ridges\"",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "upload_type": "software",
   "license": "MIT",
   "access_right": "open",
@@ -32,6 +32,7 @@
   ],
   "keywords": [
     "mantle transition zone",
+    "660 km discontinuity",
     "subduction",
     "deep water cycle",
     "seismic tomography",
