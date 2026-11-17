@@ -138,7 +138,7 @@ The code in `src/` is released under the MIT licence (`LICENSE`). The figures an
 
 Cite the paper, and the archive for the code and data:
 
-> Müller, R. D., Fichtner, A., Schiller, C. J., Mather, B., Dutkiewicz, A., & Dixon, J. E. (2026). Subducted_Water_Memory: code, figures and derived data for "Where subducted water resides: seismic carriers, shallow storage and removal at mid-ocean ridges" Zenodo. https://doi.org/10.5281/zenodo.24295111
+> Müller, R. D., Fichtner, A., Schiller, C. J., Mather, B., Dutkiewicz, A., & Dixon, J. E. (2026). Subducted_Water_Memory: code, figures and derived data for "Where subducted water resides: seismic carriers, shallow storage and removal at mid-ocean ridges" Zenodo. DOI to be added on deposit.
 
 `CITATION.cff` carries the same in machine-readable form.
 
